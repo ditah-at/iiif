@@ -2,6 +2,35 @@
 <html>
     <head>
         <title>IIIF</title>
+        <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
     </head>
-    <body></body>
+    <body>
+        <div id="mdv"></div>
+        <script>
+            const md = Mirador.viewer({
+                id: 'mdv',
+                /*windows: [{
+                    manifestId: '<xsl:value-of select="$iiifManifest"/>',
+                    maximized: true, 
+                    view: 'single'
+                }],*/
+                window: {
+                    //allowClose: false,
+                    //allowMaximize: false,
+                    //hideWindowTitle: true,
+                    allowFullscreen: true,
+                    //allowTopMenuButton: false,
+                    //allowWindowSideBar: false
+                },
+                thumbnailNavigation: {
+                    defaultPosition: 'far-bottom',
+                    //displaySettings: false
+                },
+                workspace: {
+                    showZoomControls: true
+                },
+                selectedTheme: 'dark'
+            });
+        </script>
+    </body>
 </html>
