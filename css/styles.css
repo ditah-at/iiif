@@ -1,0 +1,13 @@
+article {
+    padding: 10px;
+}
+
+.viewer {
+    height: 600px;
+    position: relative;
+    border: 1px solid gray;
+}
+
+.overlay {
+    border: 3px solid #ffc107;
+}
