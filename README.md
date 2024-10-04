@@ -1,6 +1,7 @@
 # Was ist IIIF?
 # IIIF APIS
 ## Image API
+- (Tiles, Scales, etc.?)
 - info.json  
 - delivering objects (URI syntax)
 ## Presentation API
@@ -18,21 +19,14 @@
 ## (other APIs)
  - Authentification
  - Search
-# Viewer
-## Mirador
-- Einbindung
-- Anzeige Manifeste, Collections
-- Anzeige Metadaten
-- config
-### (Plugins?)
-## OSD, UV, (Tify?)
-- OSD kann die P-API nicht
-- Tify nur V2
+# Viewer (Mirador, OSD, UV, Tify)
+## Einbindung
+## Anzeige Manifeste, Collections (OSD kann Presentation API nicht), Metadaten
+## config
+## (plugins?)
 # Annotationen (eigentlich unter P-API?)
 ## Einbindung
 - tools, manually
 - annotation server
 - (V2 vs V3)
-## Ausgabe
-- UV
-- Mirador
+## Anzeige/Ausgabe
