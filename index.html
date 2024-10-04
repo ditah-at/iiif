@@ -2,46 +2,119 @@
 <html>
     <head>
         <title>IIIF</title>
-        <script src="https://cdn.jsdelivr.net/npm/mirador@4.0.0-alpha.2/dist/mirador.min.js"></script>
+        <!-- Project CSS -->
+        <link rel="stylesheet" href="css/styles.css"></link>
+        <!-- Bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+        <!-- Mirador-->
+        <script src="https://cdn.jsdelivr.net/npm/mirador@4.0.0-alpha.2/dist/mirador.min.js"></script>
+        <!-- OSD-->
+        <script src="https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/openseadragon.min.js"></script>
+        <!-- UV-->
+        <script src=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/umd/UV.min.js "></script>
+        <link href=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/uv.min.css " rel="stylesheet"></link>
+        <!-- Tify-->
+        <script src="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.css"></link>
     </head>
-    <body>
-        <section>
+    <body class="bg-body-secondary">
+        <section id="viewer">
             <article>
-                <div class="card">
+                <div class="card bg-light">
                     <div class="card-body">
-                        <h1>Test <span class="badge bg-warning">Bootstrap</span></h1>
-                        <div id="mdv" style="height:400px; width:600px; position:relative"></div>
+                        <h1>Viewers</h1>
+                        <div class="row">
+                            <div class="col-3">
+                                <h3>Mirador</h3>
+                                <div id="mdv" class="viewer"></div>
+                            </div>
+                            <div class="col-3">
+                                <h3>OpenSeadragon</h3>
+                                <div id="osd" class="viewer"></div>
+                            </div>
+                            <div class="col-3">
+                                <h3>Universal Viewer</h3>
+                                <div id="uv" class="viewer uv"></div>
+                            </div>
+                            <div class="col-3">
+                                <h3>Tify</h3>
+                                <div id="tify" class="viewer"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
         </section>
         <script>
-            const md = Mirador.viewer({
+            const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
+
+            /* ------ OSD ------------------------------------------*/
+
+            fetch(manifest)
+                .then(myManifest => myManifest.json())
+                .then(function(myManifestJSON){
+                    let myInfoJsonArray = [];
+                    for(let canvas of myManifestJSON['sequences'][0]['canvases']){
+                        let myImgID = canvas['images'][0]['resource']['service']['@id'].trim()
+                        myInfoJsonArray.push(`${myImgID}/info.json`)
+                    }
+                    return myInfoJsonArray;
+                })
+                .then(function(myTileSources){
+                    console.log(myTileSources)
+                    const osd = OpenSeadragon({
+                        id: 'osd',
+                        prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
+                        sequenceMode: true,
+                        tileSources: myTileSources
+                    });
+                })
+
+            /*const osd = OpenSeadragon({
+                id: 'osd',
+                prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
+                sequenceMode: true,
+                tileSources: ["https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json", "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_R_TC_46/info.json", "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_V_TC_46/info.json"]
+            });*/
+
+            /*//add Overlay
+            osd.addHandler('open', function(){
+                myImageRect = {ul:{x:500, y:500}, lr:{x:2500, y: 2500}};
+                myOverlayRect = {ul: osd.viewport.imageToViewportCoordinates(myImageRect.ul.x, myImageRect.ul.y), lr: osd.viewport.imageToViewportCoordinates(myImageRect.lr.x, myImageRect.lr.y)};
+                myOverlay = {x: myOverlayRect.ul.x,
+                    y: myOverlayRect.ul.y,
+                    width: myOverlayRect.lr.x - myOverlayRect.ul.x,
+                    height: myOverlayRect.lr.y - myOverlayRect.ul.y,
+                    className: 'overlay'}
+                osd.addOverlay(myOverlay);
+            });*/
+
+            /* ------ Mirador ---------------------------------------*/
+            const mdv = Mirador.viewer({
                 id: 'mdv',
-                /*windows: [{
-                    manifestId: '<xsl:value-of select="$iiifManifest"/>',
-                    maximized: true, 
-                    view: 'single'
-                }],*/
-                window: {
-                    //allowClose: false,
-                    //allowMaximize: false,
-                    //hideWindowTitle: true,
-                    allowFullscreen: true,
-                    //allowTopMenuButton: false,
-                    //allowWindowSideBar: false
-                },
-                thumbnailNavigation: {
-                    defaultPosition: 'far-bottom',
-                    //displaySettings: false
-                },
-                workspace: {
-                    showZoomControls: true
-                },
-                selectedTheme: 'dark'
+                windows: [{
+                    manifestId: manifest/*,
+                    view: 'single',
+                    canvasIndex: 17
+                */}]
             });
+
+            /* ------ UV --------------------------------------------*/
+            const uv = UV.init('uv', {manifest: manifest});
+
+            /*//Override CDN configs
+            uv.on("configure", function ({config, cb}) {
+                cb({
+                    options: {leftPanelEnabled: false}
+                });
+            });*/
+
+            /* ------ Tify ------------------------------------------*/
+            const tify = new Tify({
+                container: '#tify',
+                manifestUrl: manifest
+            })
         </script>
     </body>
 </html>
