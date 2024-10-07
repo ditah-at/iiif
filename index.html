@@ -13,17 +13,35 @@
         <script src="https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/openseadragon.min.js"></script>
         <!-- UV-->
         <script src=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/umd/UV.min.js "></script>
-        <link href=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/uv.min.css " rel="stylesheet"></link>
+        <link href=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/uv.min.css" rel="stylesheet"></link>
         <!-- Tify-->
         <script src="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.css"></link>
     </head>
-    <body class="bg-body-secondary">
-        <section id="viewer">
-            <article>
+    <body class="bg-body-secondary row">
+        <aside class="col-2">
+            <nav class="nav flex-column sticky-top p-3">
+                <a class="navbar-brand" href="#">IIIF</a>
+                <a class="nav-link" href="#intro">Introduction</a>
+                <a class="nav-link active" href="#apis">APIs</a>
+                <a class="nav-link" href="#viewers">Viewers</a>
+                <a class="nav-link" href="#manifests">Manifests</a>
+            </nav>
+        </aside>
+        <main class="col-10">
+            <section id="intro">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h1>Viewers</h1>
+                        <h1>Introduction</h1>
+                        <div style="height: 800px;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="viewers">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1>Viewer</h1>
                         <div class="row">
                             <div class="col-3">
                                 <h3>Mirador</h3>
@@ -36,6 +54,7 @@
                             <div class="col-3">
                                 <h3>Universal Viewer</h3>
                                 <div id="uv" class="viewer uv"></div>
+                                <!-- The class 'uv' is needed as refered to in uv.min.css-->
                             </div>
                             <div class="col-3">
                                 <h3>Tify</h3>
@@ -44,8 +63,8 @@
                         </div>
                     </div>
                 </div>
-            </article>
-        </section>
+            </section>
+        </main>
         <script>
             const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
 
@@ -62,7 +81,7 @@
                     return myInfoJsonArray;
                 })
                 .then(function(myTileSources){
-                    console.log(myTileSources)
+                    //console.log(myTileSources)
                     const osd = OpenSeadragon({
                         id: 'osd',
                         prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
