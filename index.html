@@ -18,30 +18,47 @@
         <script src="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.css"></link>
     </head>
-    <body class="bg-body-secondary row">
+    <body class="row">
         <aside class="col-2">
             <nav class="nav flex-column sticky-top p-3">
-                <a class="navbar-brand" href="#">IIIF</a>
-                <a class="nav-link" href="#intro">Introduction</a>
+                <a class="navbar-brand fw-bold" href="#">IIIF</a>
+                <a class="nav-link" href="#intro">Einführung</a>
                 <a class="nav-link active" href="#apis">APIs</a>
-                <a class="nav-link" href="#viewers">Viewers</a>
-                <a class="nav-link" href="#manifests">Manifests</a>
+                <a class="nav-link" href="#viewer">Viewer</a>
+                <a class="nav-link" href="#manifests">Manifeste</a>
             </nav>
         </aside>
-        <main class="col-10">
+        <main class="col-10 p-3">
             <section id="intro">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h1>Introduction</h1>
-                        <div style="height: 800px;">
-                        </div>
-                    </div>
-                </div>
+                <h1>Einführung</h1>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>Das International <b>Interoperability Framework</b> (<b>IIIF</b>; gesprochen „Triple-Ei-F“) 
+                            bietet einen Standard, wie digitale Bilder im Internet geteilt werden können. 
+                            IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer Initiative renommierter Gedächtnisorganisationen, 
+                            zu denen unter anderem die Harvard University, die Stanford University Libraries, die Cornell University, 
+                            die British Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und Norwegen gehören. 
+                            [...] IIIF schafft eine noch nie dagewesene Interoperabilität und ermöglicht einen institutionsübergreifenden Austausch 
+                            digitaler Objekte sowie ihre standortunabhängige Darstellung in unterschiedlichsten Viewern 
+                            und sonstigen Präsentationslösungen im World Wide Web. </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        <a class="link-secondary" href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework" target="_blank">Wikipedia</a>
+                    </figcaption>
+                </figure>
+                <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. 
+                    In den allermeisten Fällen ist dabei der 'Lieferant' ein sogenannter <strong>(IIIF-) Image-Server</strong>, 
+                    also der Ort im Netz, an dem die Bilddaten liegen bzw. für die 'Abholung' aufbereitet werden. 
+                    Der 'Empfänger' ist zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. 
+                    Da IIIF unter Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), 
+                    funktioniert dies mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard 
+                    (wie es beispielsweise bei <strong>IIIF- fähigen <a href="#viewer">Viewern</a></strong> Fall ist), 
+                    lässt sich das Potential der Technologie voll ausschöpfen. </p>
             </section>
-            <section id="viewers">
-                <div class="card bg-light">
+            <section id="viewer">
+                <h1>Viewer</h1>
+                <div class="card">
                     <div class="card-body">
-                        <h1>Viewer</h1>
                         <div class="row">
                             <div class="col-3">
                                 <h3>Mirador</h3>
@@ -88,26 +105,19 @@
                         sequenceMode: true,
                         tileSources: myTileSources
                     });
+                    //add Overlay
+                    /*osd.addHandler('open', function(){
+                        myImageRect = {ul:{x:500, y:500}, lr:{x:2500, y: 2500}};
+                        myOverlayRect = {ul: osd.viewport.imageToViewportCoordinates(myImageRect.ul.x, myImageRect.ul.y), lr: osd.viewport.imageToViewportCoordinates(myImageRect.lr.x, myImageRect.lr.y)};
+                        myOverlay = {x: myOverlayRect.ul.x,
+                            y: myOverlayRect.ul.y,
+                            width: myOverlayRect.lr.x - myOverlayRect.ul.x,
+                            height: myOverlayRect.lr.y - myOverlayRect.ul.y,
+                            className: 'overlay'}
+                        osd.addOverlay(myOverlay);
+                    });*/
                 })
 
-            /*const osd = OpenSeadragon({
-                id: 'osd',
-                prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
-                sequenceMode: true,
-                tileSources: ["https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json", "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_R_TC_46/info.json", "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_V_TC_46/info.json"]
-            });*/
-
-            /*//add Overlay
-            osd.addHandler('open', function(){
-                myImageRect = {ul:{x:500, y:500}, lr:{x:2500, y: 2500}};
-                myOverlayRect = {ul: osd.viewport.imageToViewportCoordinates(myImageRect.ul.x, myImageRect.ul.y), lr: osd.viewport.imageToViewportCoordinates(myImageRect.lr.x, myImageRect.lr.y)};
-                myOverlay = {x: myOverlayRect.ul.x,
-                    y: myOverlayRect.ul.y,
-                    width: myOverlayRect.lr.x - myOverlayRect.ul.x,
-                    height: myOverlayRect.lr.y - myOverlayRect.ul.y,
-                    className: 'overlay'}
-                osd.addOverlay(myOverlay);
-            });*/
 
             /* ------ Mirador ---------------------------------------*/
             const mdv = Mirador.viewer({

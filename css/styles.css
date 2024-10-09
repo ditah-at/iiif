@@ -1,9 +1,39 @@
-/* ---------- Viewers ------------------------------ */
+main {
+    font-size: 20px;
+}
 
+aside {
+    background-color: lightblue;
+}
+
+section {
+    margin: 5% 5% 10% 5%;
+    border-bottom: 1px solid lightblue;
+}
+
+a {
+    color: black !important;
+}
+
+strong {
+    font-weight: 600 !important;
+}
+
+figure {
+    border: 1px solid orange;
+    padding: 20px;
+}
+
+figure blockquote {
+    font-style: italic;
+    text-align: justify;
+}
+
+/* ---------- Viewers ------------------------------ */
 .viewer {
     height: 600px;
     position: relative;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
 }
 
 .overlay {
