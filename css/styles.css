@@ -1,27 +1,35 @@
-main {
-    font-size: 20px;
-}
-
-aside {
-    background-color: lightblue;
-}
+/* ---------- main ------------------------------ */
 
 section {
-    margin: 5% 5% 10% 5%;
-    border-bottom: 1px solid lightblue;
+    font-size: 20px;
+    margin: 5%;
+    border-bottom: 1px solid darkorange;
 }
 
 a {
-    color: black !important;
+    color:steelblue !important;
 }
 
 strong {
     font-weight: 600 !important;
 }
 
-figure {
-    border: 1px solid orange;
-    padding: 20px;
+ul {
+    margin-bottom: 2% !important;
+}
+
+code {
+    display: block;
+    padding: 2%;
+    margin-bottom: 2%;
+    color: white !important;
+    background-color: steelblue;
+    white-space-collapse: preserve;
+}
+
+figure /*used for citations*/{ 
+    border: 1px solid darkorange;
+    padding: 2%;
 }
 
 figure blockquote {
@@ -29,13 +37,32 @@ figure blockquote {
     text-align: justify;
 }
 
-/* ---------- Viewers ------------------------------ */
+/* ---------- sidebar ------------------------------ */
+
+aside {
+    background-color: steelblue;
+}
+
+aside a.navbar-brand {
+    color: white !important;
+}
+
+aside a.nav-link {
+    color: black !important;
+}
+
+aside a.nav-link:hover {
+    color: white !important;
+}
+
+/* ---------- viewer ------------------------------ */
 .viewer {
     height: 600px;
     position: relative;
-    border: 1px solid lightgray;
+    border: 1px solid darkorange;
+    margin-bottom: 2%;
 }
 
 .overlay {
-    border: 3px solid #ffc107;
+    border: 3px solid darkorange;
 }

@@ -21,14 +21,14 @@
     <body class="row">
         <aside class="col-2">
             <nav class="nav flex-column sticky-top p-3">
-                <a class="navbar-brand fw-bold" href="#">IIIF</a>
+                <a class="navbar-brand fw-bold">IIIF</a>
                 <a class="nav-link" href="#intro">Einführung</a>
                 <a class="nav-link active" href="#apis">APIs</a>
                 <a class="nav-link" href="#viewer">Viewer</a>
                 <a class="nav-link" href="#manifests">Manifeste</a>
             </nav>
         </aside>
-        <main class="col-10 p-3">
+        <main class="col-10">
             <section id="intro">
                 <h1>Einführung</h1>
                 <figure>
@@ -43,7 +43,7 @@
                             und sonstigen Präsentationslösungen im World Wide Web. </p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
-                        <a class="link-secondary" href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework" target="_blank">Wikipedia</a>
+                        <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework" target="_blank">Wikipedia</a>
                     </figcaption>
                 </figure>
                 <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. 
@@ -60,34 +60,55 @@
                     eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die 'Auslieferung' einzelner Bildquellen, 
                     während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen (beispielsweise eines Buches als chronologische Sequenz 
                     seiner Seiten) mitsamt zugehörigen Metadaten ermöglicht und steuert. Weiters umfasst IIIF die <strong>Authorization Flow API</strong> 
-                    (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery API</strong> (Versionierung), die <strong>Content Search API</strong> 
-                    (Durchsuchbarkeit) sowie die <strong>Content State API</strong> (Navigation der Presentation API). </p>
+                    (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery API</strong> (Versionierung), die <strong>Content 
+                    Search API</strong> (Durchsuchbarkeit) sowie die <strong>Content State API</strong> (Navigation der Presentation API). </p>
+                <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in Hinblick auf Digitale Editionen - 
+                    zu bündeln. Es richtet sich demnach primär an Webentwickler, die wissen wollen: </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in einem IIIF Viewer?</li>
+                        <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesen und Collections?</li>
+                        <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale Edition ein?</li>
+                    </ul>
+                <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und Betreiben eines IIIF Image Serves. 
+                    Zu <a href="https://iiif.io/get-started/image-servers/" target="_blank">diesem</a> und vielen weiteren Aspeken rund um IIIF, sowie 
+                    zur Vertiefung der im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die exzellente 
+                    <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf welche hier noch des Öfteren referenziert 
+                    werden wird. </p>
             </section>
             <section id="viewer">
                 <h1>Viewer</h1>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-3">
-                                <h3>Mirador</h3>
-                                <div id="mdv" class="viewer"></div>
-                            </div>
-                            <div class="col-3">
-                                <h3>OpenSeadragon</h3>
-                                <div id="osd" class="viewer"></div>
-                            </div>
-                            <div class="col-3">
-                                <h3>Universal Viewer</h3>
-                                <div id="uv" class="viewer uv"></div>
-                                <!-- The class 'uv' is needed as refered to in uv.min.css-->
-                            </div>
-                            <div class="col-3">
-                                <h3>Tify</h3>
-                                <div id="tify" class="viewer"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3>Mirador</h3>
+                <div id="mdv" class="viewer"></div>
+                <code>const mdv = Mirador.viewer({
+    id: 'mdv',
+    windows: [{
+        manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+    }]
+});</code>
+                <h3>OpenSeadragon</h3>
+                <div id="osd" class="viewer"></div>
+                <code>const osd = OpenSeadragon({
+    id: 'osd',
+    prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
+    sequenceMode: true,
+    tileSources: [
+        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json',
+        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
+        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
+    ]
+});</code>
+                <h3>Universal Viewer</h3>
+                <div id="uv" class="viewer uv"></div>
+                <!-- The class 'uv' is needed as refered to in uv.min.css-->
+                <code>const uv = UV.init('uv', {
+    manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+});</code>
+                <h3>Tify</h3>
+                <div id="tify" class="viewer"></div>
+                <code>const tify = new Tify({
+    container: '#tify',
+    manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+});</code>
             </section>
         </main>
         <script>
@@ -106,7 +127,7 @@
                     return myInfoJsonArray;
                 })
                 .then(function(myTileSources){
-                    //console.log(myTileSources)
+                    console.log(myTileSources)
                     const osd = OpenSeadragon({
                         id: 'osd',
                         prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
