@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>IIIF</title>
-        <!-- Project CSS -->
-        <link rel="stylesheet" href="css/styles.css"></link>
-        <!-- Bootstrap-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
-        <!-- Mirador-->
-        <script src="https://cdn.jsdelivr.net/npm/mirador@4.0.0-alpha.2/dist/mirador.min.js"></script>
-        <!-- OSD-->
-        <script src="https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/openseadragon.min.js"></script>
-        <!-- UV-->
-        <script src=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/umd/UV.min.js "></script>
-        <link href=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/uv.min.css" rel="stylesheet"></link>
-        <!-- Tify-->
-        <script src="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.css"></link>
-    </head>
-    <body class="row">
+
+<head>
+    <title>IIIF</title>
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mirador-->
+    <script src="https://cdn.jsdelivr.net/npm/mirador@4.0.0-alpha.2/dist/mirador.min.js"></script>
+    <!-- OSD-->
+    <script src="https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/openseadragon.min.js"></script>
+    <!-- UV-->
+    <script src=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/umd/UV.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/universalviewer@4.0.25/dist/uv.min.css" rel="stylesheet">
+    <!-- Tify-->
+    <script src="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.css">
+</head>
+
+<body>
+    <div class="row">
         <aside class="col-2">
             <nav class="nav flex-column sticky-top p-3">
                 <a class="navbar-brand fw-bold">IIIF</a>
-                <a class="nav-link" href="#intro">Einführung</a>
-                <a class="nav-link active" href="#apis">APIs</a>
-                <a class="nav-link" href="#viewer">Viewer</a>
-                <a class="nav-link" href="#manifests">Manifeste</a>
+                <a class="nav-link fw-bold" href="#intro">Einführung</a>
+                <a class="nav-link fw-bold" href="#image-api">IIIF Image API</a>
+                <!-- ## --><a class="nav-link ms-2" href="#image-information-requests">Image Information Requests</a>
+                <!-- ## --><a class="nav-link ms-2" href="#image-requests">Image Requests</a>
+                <a class="nav-link fw-bold" href="#presentation-api">IIIF Presentation API</a>
+                <!-- ## --><a class="nav-link ms-2" href="#manifests">Manifeste</a>
+                <!-- ## --><a class="nav-link ms-2" href="#collection">Collections</a>
+                <a class="nav-link fw-bold" href="#viewer">Viewer</a>
+
             </nav>
         </aside>
         <main class="col-10">
@@ -33,146 +41,225 @@
                 <h1>Einführung</h1>
                 <figure>
                     <blockquote class="blockquote">
-                        <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>; gesprochen „Triple-Ei-F“) 
-                            bietet einen Standard, wie digitale Bilder im Internet geteilt werden können. 
-                            IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer Initiative renommierter Gedächtnisorganisationen, 
-                            zu denen unter anderem die Harvard University, die Stanford University Libraries, die Cornell University, 
-                            die British Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und Norwegen gehören. 
-                            [...] IIIF schafft eine noch nie dagewesene Interoperabilität und ermöglicht einen institutionsübergreifenden Austausch 
-                            digitaler Objekte sowie ihre standortunabhängige Darstellung in unterschiedlichsten Viewern 
-                            und sonstigen Präsentationslösungen im World Wide Web. </p>
+                        <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
+                            gesprochen „Triple-Ei-F“) bietet einen Standard, wie digitale Bilder im Internet geteilt
+                            werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer
+                            Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die Harvard
+                            University, die Stanford University Libraries, die Cornell University, die British Library,
+                            die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und Norwegen
+                            gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und ermöglicht einen
+                            institutionsübergreifenden Austausch digitaler Objekte sowie ihre standortunabhängige
+                            Darstellung in unterschiedlichsten Viewern und sonstigen Präsentationslösungen im World Wide
+                            Web. </p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
-                        <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework" target="_blank">Wikipedia</a>
+                        <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework"
+                            target="_blank">Wikipedia</a>
                     </figcaption>
                 </figure>
-                <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. 
-                    In den allermeisten Fällen ist dabei der 'Lieferant' ein sogenannter <strong>(IIIF-) Image-Server</strong>, 
-                    also der Ort im Netz, an dem die Bilddaten liegen bzw. für die 'Abholung' aufbereitet werden. 
-                    Der 'Empfänger' ist zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. 
-                    Da IIIF unter Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), 
-                    funktioniert dies mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard 
-                    (wie es beispielsweise bei <strong>IIIF- fähigen <a href="#viewer">Viewern</a></strong> Fall ist), 
-                    lässt sich das Potential der Technologie voll ausschöpfen. </p>
-                <p>Vielerorts wird IIIF auch als Spezifikation eines Sets von Services oder <abbr title="application programming interface">API</abbr>s, 
-                    die diesen Standard unterstützen, definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die 
-                    <strong>IIIF Image API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses Tutorial 
-                    eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die 'Auslieferung' einzelner Bildquellen, 
-                    während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen (beispielsweise eines Buches als chronologische Sequenz 
-                    seiner Seiten) mitsamt zugehörigen Metadaten ermöglicht und steuert. Weiters umfasst IIIF die <strong>Authorization Flow API</strong> 
-                    (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery API</strong> (Versionierung), die <strong>Content 
-                    Search API</strong> (Durchsuchbarkeit) sowie die <strong>Content State API</strong> (Navigation der Presentation API). </p>
-                <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in Hinblick auf Digitale Editionen - 
-                    zu bündeln. Es richtet sich demnach primär an Webentwickler, die wissen wollen: </p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in einem IIIF Viewer?</li>
-                        <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesen und Collections?</li>
-                        <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale Edition ein?</li>
-                    </ul>
-                <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und Betreiben eines IIIF Image Serves. 
-                    Zu <a href="https://iiif.io/get-started/image-servers/" target="_blank">diesem</a> und vielen weiteren Aspeken rund um IIIF, sowie 
-                    zur Vertiefung der im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die exzellente 
-                    <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf welche hier noch des Öfteren referenziert 
-                    werden wird. </p>
+                <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. In den allermeisten
+                    Fällen ist dabei der 'Lieferant' ein sogenannter <strong>(IIIF-) Image-Server</strong>, also der Ort
+                    im Netz, an dem die Bilddaten liegen bzw. für die 'Abholung' aufbereitet werden. Der 'Empfänger' ist
+                    zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter
+                    Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), funktioniert dies
+                    mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard (wie
+                    es beispielsweise bei <strong>IIIF- fähigen <a href="#viewer">Viewern</a></strong> Fall ist), lässt
+                    sich das Potential der Technologie voll ausschöpfen. </p>
+                <p>Vielerorts wird IIIF auch als Spezifikation eines Sets von Services oder <abbr
+                        title="application programming interface">API</abbr>s, die diesen Standard unterstützen,
+                    definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
+                        API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses Tutorial
+                    eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die 'Auslieferung' einzelner
+                    Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen
+                    (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen Metadaten
+                    ermöglicht und steuert. Weiters umfasst der IIIF Standard die <strong>Authorization Flow
+                        API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery API</strong>
+                    (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit) sowie die
+                    <strong>Content State API</strong> (Navigation der Presentation API).
+                </p>
+                <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
+                    Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler, die
+                    wissen wollen: </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in einem
+                        IIIF Viewer?</li>
+                    <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten und
+                        Collections?</li>
+                    <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
+                        Edition ein?</li>
+                </ul>
+                <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
+                    Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
+                        target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur Vertiefung der
+                    im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
+                    exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
+                    welche hier noch des Öfteren referenziert werden wird. </p>
+                <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen, womit
+                    sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die Nomenklatur ist
+                    zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF Ressourcen (in der
+                    Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer einzelnen Buchseite- einer
+                    Ressource) wird durch einen <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
+                    referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird wird und
+                    sich folgendermaßen zusammensetzt: </p>
+                <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
+                <p>Beispiele für base-URIs sind: </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span data-bs-toggle="tooltip"
+                            data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
+                            https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
+                    </li>
+                    <li class="list-group-item"><span data-bs-toggle="tooltip"
+                            data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
+                    </li>
+                    <li class="list-group-item"><span data-bs-toggle="tooltip"
+                            data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
+                    </li>
+                </ul>
+                <p>Im (empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser auf das image information
+                    document (info.json) der betreffenden Ressource dereferenziert (dazu weiter unten mehr). </p>
+                <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version 3.0</strong>
+                    vor. Einige der <a href="https://iiif.io/api/image/3.0/change-log/" target="_blank">Änderungen zu
+                        Version 2</a> sind <strong>nicht abwärtskompatibel</strong><!-- TBC -->
+                </p>
+            </section>
+            <section id="image-api">
+                <h1>IIIF Image API</h1>
+                <p>An die <strong>Image API</strong> können grundsätzlich zwei unterschiedliche Arten von Abfragen
+                    (Requests) gestellt werden: </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Ein <strong>Image Information Requests</strong> gibt Metainformationen
+                        über die adressierte Ressource in Form eines <strong>image information document
+                            (info.json)</strong> zurück.</li>
+                    <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
+                        Ressource, also ein 'tatsächliches' Bild (bzw. einen Bildausschnitt) zurück. </li>
+                </ul>
+                <div id="image-information-requests">
+                    <h2>Image Information Requests</h2>
+                    <!-- <p><abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr></p> -->
+                </div>
+                <div id="image-requests">
+                    <h2>Image Requests</h2>
+                    <!-- <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
+                        Rückgabe konfigurieren. </p>
+                    <code><var data-bs-toggle="tooltip" data-bs-title="Default tooltip">{base-uri}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{region}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{size}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{rotation}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{quality}</var>.<var
+                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{format}</var></code> -->
+                </div>
             </section>
             <section id="viewer">
                 <h1>Viewer</h1>
                 <h3>Mirador</h3>
                 <div id="mdv" class="viewer"></div>
                 <code>const mdv = Mirador.viewer({
-    id: 'mdv',
-    windows: [{
-        manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-    }]
-});</code>
+        id: 'mdv',
+        windows: [{
+            manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+        }]
+    });</code>
                 <h3>OpenSeadragon</h3>
                 <div id="osd" class="viewer"></div>
                 <code>const osd = OpenSeadragon({
-    id: 'osd',
-    prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
-    sequenceMode: true,
-    tileSources: [
-        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json',
-        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
-        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
-    ]
-});</code>
+        id: 'osd',
+        prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
+        sequenceMode: true,
+        tileSources: [
+            'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json',
+            'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
+            'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
+        ]
+    });</code>
                 <h3>Universal Viewer</h3>
                 <div id="uv" class="viewer uv"></div>
                 <!-- The class 'uv' is needed as refered to in uv.min.css-->
                 <code>const uv = UV.init('uv', {
-    manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-});</code>
+        manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+    });</code>
                 <h3>Tify</h3>
                 <div id="tify" class="viewer"></div>
                 <code>const tify = new Tify({
-    container: '#tify',
-    manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-});</code>
+        container: '#tify',
+        manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+    });</code>
             </section>
         </main>
-        <script>
-            const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
+    </div>
+    <script>
+        /* -----# enable BS Tooltips ---------------------------*/
 
-            /* ------ OSD ------------------------------------------*/
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-            fetch(manifest)
-                .then(myManifest => myManifest.json())
-                .then(function(myManifestJSON){
-                    let myInfoJsonArray = [];
-                    for(let canvas of myManifestJSON['sequences'][0]['canvases']){
-                        let myImgID = canvas['images'][0]['resource']['service']['@id'].trim()
-                        myInfoJsonArray.push(`${myImgID}/info.json`)
-                    }
-                    return myInfoJsonArray;
-                })
-                .then(function(myTileSources){
-                    console.log(myTileSources)
-                    const osd = OpenSeadragon({
-                        id: 'osd',
-                        prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
-                        sequenceMode: true,
-                        tileSources: myTileSources
-                    });
-                    //add Overlay
-                    /*osd.addHandler('open', function(){
-                        myImageRect = {ul:{x:500, y:500}, lr:{x:2500, y: 2500}};
-                        myOverlayRect = {ul: osd.viewport.imageToViewportCoordinates(myImageRect.ul.x, myImageRect.ul.y), lr: osd.viewport.imageToViewportCoordinates(myImageRect.lr.x, myImageRect.lr.y)};
-                        myOverlay = {x: myOverlayRect.ul.x,
-                            y: myOverlayRect.ul.y,
-                            width: myOverlayRect.lr.x - myOverlayRect.ul.x,
-                            height: myOverlayRect.lr.y - myOverlayRect.ul.y,
-                            className: 'overlay'}
-                        osd.addOverlay(myOverlay);
-                    });*/
-                })
+        /* -----# IIIF Viewer ----------------------------------*/
+
+        const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
+
+        /* ----## OSD ------------------------------------------*/
+
+        fetch(manifest)
+            .then(myManifest => myManifest.json())
+            .then(function (myManifestJSON) {
+                let myInfoJsonArray = [];
+                for (let canvas of myManifestJSON['sequences'][0]['canvases']) {
+                    let myImgID = canvas['images'][0]['resource']['service']['@id'].trim()
+                    myInfoJsonArray.push(`${myImgID}/info.json`)
+                }
+                return myInfoJsonArray;
+            })
+            .then(function (myTileSources) {
+                console.log(myTileSources)
+                const osd = OpenSeadragon({
+                    id: 'osd',
+                    prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
+                    sequenceMode: true,
+                    tileSources: myTileSources
+                });
+                //add Overlay
+                /*osd.addHandler('open', function(){
+                    myImageRect = {ul:{x:500, y:500}, lr:{x:2500, y: 2500}};
+                    myOverlayRect = {ul: osd.viewport.imageToViewportCoordinates(myImageRect.ul.x, myImageRect.ul.y), lr: osd.viewport.imageToViewportCoordinates(myImageRect.lr.x, myImageRect.lr.y)};
+                    myOverlay = {x: myOverlayRect.ul.x,
+                        y: myOverlayRect.ul.y,
+                        width: myOverlayRect.lr.x - myOverlayRect.ul.x,
+                        height: myOverlayRect.lr.y - myOverlayRect.ul.y,
+                        className: 'overlay'}
+                    osd.addOverlay(myOverlay);
+                });*/
+            })
 
 
-            /* ------ Mirador ---------------------------------------*/
-            const mdv = Mirador.viewer({
-                id: 'mdv',
-                windows: [{
-                    manifestId: manifest/*,
+        /* ----## Mirador ---------------------------------------*/
+
+        const mdv = Mirador.viewer({
+            id: 'mdv',
+            windows: [{
+                manifestId: manifest/*,
                     view: 'single',
                     canvasIndex: 17
                 */}]
+        });
+
+        /* ----## UV --------------------------------------------*/
+
+        const uv = UV.init('uv', { manifest: manifest });
+
+        /*//Override CDN configs
+        uv.on("configure", function ({config, cb}) {
+            cb({
+                options: {leftPanelEnabled: false}
             });
+        });*/
 
-            /* ------ UV --------------------------------------------*/
-            const uv = UV.init('uv', {manifest: manifest});
+        /* ----## Tify ------------------------------------------*/
 
-            /*//Override CDN configs
-            uv.on("configure", function ({config, cb}) {
-                cb({
-                    options: {leftPanelEnabled: false}
-                });
-            });*/
+        const tify = new Tify({
+            container: '#tify',
+            manifestUrl: manifest
+        })
+    </script>
+</body>
 
-            /* ------ Tify ------------------------------------------*/
-            const tify = new Tify({
-                container: '#tify',
-                manifestUrl: manifest
-            })
-        </script>
-    </body>
 </html>
