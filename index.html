@@ -27,12 +27,17 @@
             <nav class="nav flex-column sticky-top p-3">
                 <a class="navbar-brand fw-bold">IIIF</a>
                 <a class="nav-link fw-bold" href="#intro">Einführung</a>
-                <a class="nav-link fw-bold" href="#image-api">IIIF Image API</a>
-                <!-- ## --><a class="nav-link ms-2" href="#image-information-requests">Image Information Requests</a>
-                <!-- ## --><a class="nav-link ms-2" href="#image-requests">Image Requests</a>
-                <a class="nav-link fw-bold" href="#presentation-api">IIIF Presentation API</a>
-                <!-- ## --><a class="nav-link ms-2" href="#manifests">Manifeste</a>
-                <!-- ## --><a class="nav-link ms-2" href="#collection">Collections</a>
+                <!-- ## --><a class="nav-link ms-2" href="#intro_about">Was ist IIIF?</a>
+                <!-- ## --><a class="nav-link ms-2" href="#intro_apis">IIIF APIs</a>
+                <!-- ## --><a class="nav-link ms-2" href="#intro_resources">IIIF Ressourcen</a>
+                <!-- ## --><a class="nav-link ms-2" href="#intro_versions">IIIF Versionen</a>
+                <a class="nav-link fw-bold" href="#imageAPI">IIIF Image API</a>
+                <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageInformationRequests">Image Information
+                    Requests</a>
+                <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageRequests">Image Requests</a>
+                <!-- <a class="nav-link fw-bold" href="#presentationAPI">IIIF Presentation API</a> -->
+                <!-- ## --><!-- <a class="nav-link ms-2" href="#manifests">Manifeste</a> -->
+                <!-- ## --><!-- <a class="nav-link ms-2" href="#collection">Collections</a> -->
                 <a class="nav-link fw-bold" href="#viewer">Viewer</a>
 
             </nav>
@@ -40,91 +45,131 @@
         <main class="col-10">
             <section id="intro">
                 <h1>Einführung</h1>
-                <figure>
-                    <blockquote class="blockquote">
-                        <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
-                            gesprochen „Triple-Ei-F“) bietet einen Standard, wie digitale Bilder im Internet geteilt
-                            werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer
-                            Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die Harvard
-                            University, die Stanford University Libraries, die Cornell University, die British Library,
-                            die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und Norwegen
-                            gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und ermöglicht einen
-                            institutionsübergreifenden Austausch digitaler Objekte sowie ihre standortunabhängige
-                            Darstellung in unterschiedlichsten Viewern und sonstigen Präsentationslösungen im World Wide
-                            Web. </p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                        <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework"
-                            target="_blank">Wikipedia</a>
-                    </figcaption>
-                </figure>
-                <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. In den allermeisten
-                    Fällen ist dabei der 'Lieferant' ein sogenannter <strong>(IIIF-) Image-Server</strong>, also der Ort
-                    im Netz, an dem die Bilddaten liegen bzw. für die 'Abholung' aufbereitet werden. Der 'Empfänger' ist
-                    zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter
-                    Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), funktioniert dies
-                    mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard (wie
-                    es beispielsweise bei <strong>IIIF- fähigen <a href="#viewer">Viewern</a></strong> Fall ist), lässt
-                    sich das Potential der Technologie voll ausschöpfen. </p>
-                <p>Vielerorts wird IIIF auch als Spezifikation eines Sets von Services oder <abbr
-                        title="application programming interface">API</abbr>s, die diesen Standard unterstützen,
-                    definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
-                        API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses Tutorial
-                    eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die 'Auslieferung' einzelner
-                    Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen
-                    (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen Metadaten
-                    ermöglicht und steuert. Weiters umfasst der IIIF Standard die <strong>Authorization Flow
-                        API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery API</strong>
-                    (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit) sowie die
-                    <strong>Content State API</strong> (Navigation der Presentation API).
-                </p>
-                <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
-                    Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler, die
-                    wissen wollen: </p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in einem
-                        IIIF Viewer?</li>
-                    <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten und
-                        Collections?</li>
-                    <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
-                        Edition ein?</li>
-                </ul>
-                <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
-                    Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
-                        target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur Vertiefung der
-                    im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
-                    exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
-                    welche hier noch des Öfteren referenziert werden wird. </p>
-                <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen, womit
-                    sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die Nomenklatur ist
-                    zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF Ressourcen (in der
-                    Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer einzelnen Buchseite- einer
-                    Ressource) wird durch einen <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
-                    referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird wird und
-                    sich folgendermaßen zusammensetzt: </p>
-                <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
-                <p>Beispiele für base-URIs sind: </p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <span data-bs-toggle="tooltip"
-                            data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
-                            https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
-                    </li>
-                    <li class="list-group-item"><span data-bs-toggle="tooltip"
-                            data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
-                    </li>
-                    <li class="list-group-item"><span data-bs-toggle="tooltip"
-                            data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
-                    </li>
-                </ul>
-                <p>Im (empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser auf das image information
-                    document (info.json) der betreffenden Ressource dereferenziert (dazu weiter unten mehr). </p>
-                <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version 3.0</strong>
-                    vor. Einige der <a href="https://iiif.io/api/image/3.0/change-log/" target="_blank">Änderungen zu
-                        Version 2</a> sind <strong>nicht abwärtskompatibel</strong><!-- TBC -->
-                </p>
+                <div id="intro_about">
+                    <h2>Was ist IIIF?</h2>
+                    <figure>
+                        <blockquote class="blockquote">
+                            <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
+                                gesprochen „Triple-Ei-F“) bietet einen Standard, wie digitale Bilder im Internet geteilt
+                                werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer
+                                Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die Harvard
+                                University, die Stanford University Libraries, die Cornell University, die British
+                                Library,
+                                die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und Norwegen
+                                gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und ermöglicht
+                                einen
+                                institutionsübergreifenden Austausch digitaler Objekte sowie ihre standortunabhängige
+                                Darstellung in unterschiedlichsten Viewern und sonstigen Präsentationslösungen im World
+                                Wide
+                                Web. </p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework"
+                                target="_blank">Wikipedia</a>
+                        </figcaption>
+                    </figure>
+                    <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. In den
+                        allermeisten
+                        Fällen ist dabei der 'Lieferant' ein sogenannter <strong>(IIIF-) Image-Server</strong>, also der
+                        Ort
+                        im Netz, an dem die Bilddaten liegen bzw. für die 'Abholung' aufbereitet werden. Der 'Empfänger'
+                        ist
+                        zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter
+                        Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), funktioniert
+                        dies
+                        mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard
+                        (wie
+                        es beispielsweise bei <strong>IIIF- fähigen <a href="#viewer">Viewern</a></strong> Fall ist),
+                        lässt
+                        sich das Potential der Technologie voll ausschöpfen. </p>
+                </div>
+                <div id="intro_apis">
+                    <h2>IIIF APIs</h2>
+                    <p>Vielerorts wird IIIF auch als Spezifikation eines Sets von Services oder <abbr
+                            title="application programming interface">API</abbr>s, die diesen Standard unterstützen,
+                        definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
+                            API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses
+                        Tutorial
+                        eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die 'Auslieferung' einzelner
+                        Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen
+                        (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen
+                        Metadaten
+                        ermöglicht und steuert. Weiters umfasst der IIIF Standard die <strong>Authorization Flow
+                            API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
+                            API</strong>
+                        (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit) sowie die
+                        <strong>Content State API</strong> (Navigation der Presentation API).
+                    </p>
+                    <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
+                        Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler,
+                        die
+                        wissen wollen: </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in
+                            einem
+                            IIIF Viewer?</li>
+                        <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten
+                            und
+                            Collections?</li>
+                        <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
+                            Edition ein?</li>
+                    </ul>
+                </div>
+                <div id="intro_resources">
+                    <h2>IIIF Ressourcen</h2>
+                    <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
+                        Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
+                            target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur Vertiefung
+                        der
+                        im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
+                        exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
+                        welche hier noch des Öfteren referenziert werden wird. </p>
+                    <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen,
+                        womit
+                        sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die Nomenklatur
+                        ist
+                        zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF Ressourcen (in
+                        der
+                        Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer einzelnen Buchseite-
+                        einer
+                        Ressource) wird durch einen <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
+                        referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird wird
+                        und
+                        sich folgendermaßen zusammensetzt: </p>
+                    <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
+                    <p>Beispiele für base-URIs sind: </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span data-bs-toggle="tooltip"
+                                data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
+                                https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
+                        </li>
+                        <li class="list-group-item"><span data-bs-toggle="tooltip"
+                                data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
+                        </li>
+                        <li class="list-group-item"><span data-bs-toggle="tooltip"
+                                data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
+                        </li>
+                    </ul>
+                    <p>Im (vom Framework empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser auf das
+                        <strong>image information document (info.json)</strong> der betreffenden Ressource
+                        dereferenziert (dazu weiter unten mehr).
+                    </p>
+                </div>
+                <div id="intro_versions">
+                    <h2>IIIF Versionen</h2>
+                    <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version
+                            3.0</strong>
+                        vor. Da einige der <a href="https://iiif.io/api/image/3.0/change-log/"
+                            target="_blank">Änderungen zu Version 2</a> <strong>nicht abwärtskompatibel</strong> sind
+                        macht es einen Unterschied, welche Version am jeweiligen Image Server implementiert ist. In der
+                        Praxis findet man - Stand 2024 - fast ausschließlich Implementationen der Version 2 vor
+                        (inklusive aller obigen Beispiele). Trotzdem wollen wir uns hier auf die APIs der Version 3.0
+                        konzentrieren und gegebenenfalls auf Änderungen zur vorherigen Version hinweisen.
+                    </p>
+                </div>
             </section>
-            <section id="image-api">
+            <section id="imageAPI">
                 <h1>IIIF Image API</h1>
                 <p>An die <strong>Image API</strong> können grundsätzlich zwei unterschiedliche Arten von Abfragen
                     (Requests) gestellt werden: </p>
@@ -135,11 +180,39 @@
                     <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
                         Ressource, also ein 'tatsächliches' Bild (bzw. einen Bildausschnitt) zurück. </li>
                 </ul>
-                <div id="image-information-requests">
+                <div id="imageAPI_imageInformationRequests">
                     <h2>Image Information Requests</h2>
-                    <!-- <p><abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr></p> -->
+                    <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong> erzeugt,
+                        das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den allermeisten Fällen
+                        (wiederum eine Empfehlung, manche IIIF Server erlauben jedoch eine benutzerdefinierte
+                        Namensgebung) <strong>info.json</strong> benannt, ist also eine Datei im <abbr
+                            title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
+                            title="JavaScript Object Notation for Linked Data"><a href="https://json-ld.org/"
+                                target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong> folgende
+                        Informationen bereitstellt:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>@context</strong>: Interpretationskontext des Dokuments. Für
+                            die Image API 3.0 stellt das Framework <em>http://iiif.io/api/image/3/context.json</em>
+                            bereit</li>
+                        <li class="list-group-item"><strong>id</strong>: (base-) URI der Ressource</li>
+                        <li class="list-group-item"><strong>type</strong>: Art (Version) der Image API,
+                            <em>ImageService3</em> für Version 3</li>
+                        <li class="list-group-item"><strong>protocol</strong>: Art des Services,
+                            <em>http://iiif.io/api/image</em> für die IIIF Image API</li>
+                        <li class="list-group-item"><strong>profile</strong>: <a class="iiif"
+                                href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance level</a>
+                            der Ressource</li>
+                        <li class="list-group-item"><strong>width</strong>, <strong>height</strong>: Initiale ('volle')
+                            Bilddimensionen</li>
+                    </ul>
+
+                    <!-- <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Bereitgestellte ('vorberechnete') Bilddimensionen [<i>sizes</i>]
+                        </li>
+                    </ul> -->
+
                 </div>
-                <div id="image-requests">
+                <div id="imageAPI_imageRequests">
                     <h2>Image Requests</h2>
                     <!-- <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
                         Rückgabe konfigurieren. </p>

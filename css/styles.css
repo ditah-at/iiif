@@ -10,8 +10,19 @@ a {
     color:steelblue !important;
 }
 
+a.iiif::after{
+    content: url('/img/iiif_logo_16.ico');
+    margin-left: 2px;
+}
+
 strong {
     font-weight: 600 !important;
+}
+
+em {
+    display: inline-block;
+    font-style: normal;
+    color: darkorange;
 }
 
 ul {
