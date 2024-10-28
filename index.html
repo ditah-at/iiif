@@ -50,38 +50,39 @@
                     <figure>
                         <blockquote class="blockquote">
                             <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
-                                gesprochen „Triple-Ei-F“) bietet einen Standard, wie digitale Bilder im Internet geteilt
+                                gesprochen <q>Triple-Ei-F</q>) bietet einen Standard, wie digitale Bilder im Internet
+                                geteilt
                                 werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer
                                 Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die Harvard
                                 University, die Stanford University Libraries, die Cornell University, die British
-                                Library,
-                                die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und Norwegen
-                                gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und ermöglicht
-                                einen
-                                institutionsübergreifenden Austausch digitaler Objekte sowie ihre standortunabhängige
-                                Darstellung in unterschiedlichsten Viewern und sonstigen Präsentationslösungen im World
-                                Wide
-                                Web. </p>
+                                Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und
+                                Norwegen gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und
+                                ermöglicht einen institutionsübergreifenden Austausch digitaler Objekte sowie ihre
+                                standortunabhängige Darstellung in unterschiedlichsten Viewern und sonstigen
+                                Präsentationslösungen im World Wide Web. </p>
                         </blockquote>
                         <figcaption class="blockquote-footer">
                             <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework"
                                 target="_blank">Wikipedia</a>
                         </figcaption>
                     </figure>
-                    <p>IIIF ist also ein Standard für das 'Ausliefern' von Bilddaten im World Wide Web. In den
+                    <p>IIIF ist also ein Standard für das <q>Ausliefern</q> von Bilddaten im World Wide Web. In den
                         allermeisten
-                        Fällen ist dabei der 'Lieferant' ein sogenannter <strong>(IIIF-) Image-Server</strong>, also der
+                        Fällen ist dabei der <q>Lieferant</q> ein sogenannter <strong>(IIIF-) Image-Server</strong>,
+                        also der
                         Ort
-                        im Netz, an dem die Bilddaten liegen bzw. für die 'Abholung' aufbereitet werden. Der 'Empfänger'
+                        im Netz, an dem die Bilddaten liegen bzw. für die <q>Abholung</q> aufbereitet werden. Der
+                        <q>Empfänger</q>
                         ist
                         zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter
                         Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), funktioniert
                         dies
                         mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard
                         (wie
-                        es beispielsweise bei <strong>IIIF- fähigen <a href="#viewer">Viewern</a></strong> Fall ist),
+                        es beispielsweise bei <strong>IIIF- fähigen Viewern</strong> Fall ist),
                         lässt
-                        sich das Potential der Technologie voll ausschöpfen. </p>
+                        sich das Potential der Technologie voll ausschöpfen.
+                    </p>
                 </div>
                 <div id="intro_apis">
                     <h2>IIIF APIs</h2>
@@ -89,28 +90,23 @@
                             title="application programming interface">API</abbr>s, die diesen Standard unterstützen,
                         definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
                             API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses
-                        Tutorial
-                        eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die 'Auslieferung' einzelner
-                        Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen
+                        Tutorial eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die
+                        <q>Auslieferung</q>
+                        einzelner Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen
                         (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen
-                        Metadaten
-                        ermöglicht und steuert. Weiters umfasst der IIIF Standard die <strong>Authorization Flow
-                            API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
-                            API</strong>
-                        (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit) sowie die
-                        <strong>Content State API</strong> (Navigation der Presentation API).
+                        Metadaten ermöglicht und steuert. Weiters umfasst der IIIF Standard die <strong>Authorization
+                            Flow API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
+                            API</strong> (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit)
+                        sowie die <strong>Content State API</strong> (Navigation der Presentation API).
                     </p>
                     <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
                         Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler,
-                        die
-                        wissen wollen: </p>
+                        die wissen wollen: </p>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in
-                            einem
-                            IIIF Viewer?</li>
+                            einem IIIF Viewer?</li>
                         <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten
-                            und
-                            Collections?</li>
+                            und Collections?</li>
                         <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
                             Edition ein?</li>
                     </ul>
@@ -119,23 +115,20 @@
                     <h2>IIIF Ressourcen</h2>
                     <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
                         Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
-                            target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur Vertiefung
+                            target="_blank">diesem</a> und vielen weiteren Aspekten
+                        rund um IIIF, sowie zur Vertiefung
                         der
                         im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
                         exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
                         welche hier noch des Öfteren referenziert werden wird. </p>
                     <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen,
-                        womit
-                        sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die Nomenklatur
-                        ist
-                        zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF Ressourcen (in
-                        der
-                        Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer einzelnen Buchseite-
-                        einer
-                        Ressource) wird durch einen <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
+                        womit sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die
+                        Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF
+                        Ressourcen (in der Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer
+                        einzelnen Buchseite- einer Ressource) wird durch einen <abbr
+                            title="Uniform Resource Identifier">URI</abbr> eindeutig
                         referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird wird
-                        und
-                        sich folgendermaßen zusammensetzt: </p>
+                        und sich folgendermaßen zusammensetzt: </p>
                     <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
                     <p>Beispiele für base-URIs sind: </p>
                     <ul class="list-group list-group-flush">
@@ -159,10 +152,9 @@
                 <div id="intro_versions">
                     <h2>IIIF Versionen</h2>
                     <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version
-                            3.0</strong>
-                        vor. Da einige der <a href="https://iiif.io/api/image/3.0/change-log/"
-                            target="_blank">Änderungen zu Version 2</a> <strong>nicht abwärtskompatibel</strong> sind
-                        macht es einen Unterschied, welche Version am jeweiligen Image Server implementiert ist. In der
+                            3.0</strong>vor. Da einige der Änderungen <strong>zu Version 2 nicht
+                            abwärtskompatibel</strong> sind macht es einen Unterschied, welche Version am jeweiligen
+                        Image Server implementiert ist. In der
                         Praxis findet man - Stand 2024 - fast ausschließlich Implementationen der Version 2 vor
                         (inklusive aller obigen Beispiele). Trotzdem wollen wir uns hier auf die APIs der Version 3.0
                         konzentrieren und gegebenenfalls auf Änderungen zur vorherigen Version hinweisen.
@@ -171,14 +163,14 @@
             </section>
             <section id="imageAPI">
                 <h1>IIIF Image API</h1>
-                <p>An die <strong>Image API</strong> können grundsätzlich zwei unterschiedliche Arten von Abfragen
+                <p>An die <strong><a href="https://iiif.io/api/image/3.0/" target="_blank">Image API</a></strong> können
+                    grundsätzlich zwei unterschiedliche Arten von Abfragen
                     (Requests) gestellt werden: </p>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Ein <strong>Image Information Requests</strong> gibt Metainformationen
-                        über die adressierte Ressource in Form eines <strong>image information document
-                            (info.json)</strong> zurück.</li>
+                        über die adressierte Ressource zurück.</li>
                     <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
-                        Ressource, also ein 'tatsächliches' Bild (bzw. einen Bildausschnitt) zurück. </li>
+                        Ressource, also ein <q>tatsächliches</q> Bild (bzw. einen Bildausschnitt) zurück. </li>
                 </ul>
                 <div id="imageAPI_imageInformationRequests">
                     <h2>Image Information Requests</h2>
@@ -189,32 +181,154 @@
                             title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
                             title="JavaScript Object Notation for Linked Data"><a href="https://json-ld.org/"
                                 target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong> folgende
-                        Informationen bereitstellt:</p>
+                        Informationen bereitstellen <strong>muss</strong>:</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>@context</strong>: Interpretationskontext des Dokuments. Für
-                            die Image API 3.0 stellt das Framework <em>http://iiif.io/api/image/3/context.json</em>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">@context</span>
+                            Interpretationskontext
+                            des Dokuments. Für
+                            die Image API 3.0 stellt das Framework <i>http://iiif.io/api/image/3/context.json</i>
                             bereit</li>
-                        <li class="list-group-item"><strong>id</strong>: (base-) URI der Ressource</li>
-                        <li class="list-group-item"><strong>type</strong>: Art (Version) der Image API,
-                            <em>ImageService3</em> für Version 3</li>
-                        <li class="list-group-item"><strong>protocol</strong>: Art des Services,
-                            <em>http://iiif.io/api/image</em> für die IIIF Image API</li>
-                        <li class="list-group-item"><strong>profile</strong>: <a class="iiif"
+                        <li class="list-group-item"><span class="badge bg-dark me-1">id</span> (base-) URI der Ressource
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">type</span> Art (Version) der Image
+                            API, <i>ImageService3</i> für Version 3
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">protocol</span> Art des Services,
+                            <i>http://iiif.io/api/image</i> für die IIIF Image API
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">profile</span> <a
                                 href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance level</a>
                             der Ressource</li>
-                        <li class="list-group-item"><strong>width</strong>, <strong>height</strong>: Initiale ('volle')
+                        <li class="list-group-item"><span class="badge bg-dark me-1">width</span><span
+                                class="badge bg-dark me-1">height</span> Initiale (<q>volle</q>)
                             Bilddimensionen</li>
                     </ul>
-
-                    <!-- <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Bereitgestellte ('vorberechnete') Bilddimensionen [<i>sizes</i>]
+                    <p>Des Weiterem <strong>kann</strong> angegeben sein:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span class="badge bg-dark me-1">sizes</span> Bereitgestellte
+                            (<q>vorberechnete</q>)
+                            Bilddimensionen</li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">maxWidth</span><span
+                                class="badge bg-dark me-1">maxHeight</span><span
+                                class="badge bg-dark me-1">maxArea</span> Maximale Dimensionen, in dem Bilder
+                            (beispielsweise über einen Image Request oder an einen Viewer) ausgeliefert werden
                         </li>
-                    </ul> -->
-
-                </div>
-                <div id="imageAPI_imageRequests">
-                    <h2>Image Requests</h2>
-                    <!-- <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
+                        <li class="list-group-item"><span class="badge bg-dark me-1">tiles</span> Informationen zur
+                            Kachelung der Ressource
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">preferredFormats</span><span
+                                class="badge bg-dark me-1">extraFormats</span> Gibt (Datei-)Formate an, die per Image
+                            Request abrufbar sind (<i>jpg</i>, <i>png</i>,
+                            <i>tif</i> etc.)
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">rights</span> Lizenzinformation zum
+                            Bildinhalt. <strong>Muss</strong> entweder einer <a
+                                href="https://creativecommons.org/licenses/" target="_blank">Creative Commons license
+                                URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>) oder einer
+                            <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements URI</a>
+                            (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
+                            entsprechen
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">extraQualities</span> Steht eine
+                            Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>, <i>bitonal</i>) zur
+                            Verfügung, werden diese hier aufgelistet
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">extraFeatures</span>
+                            Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über jene
+                            durch
+                            ihr jeweiliges <a href="https://iiif.io/api/image/3.0/compliance/"
+                                target="_blank">compliance level</a> definierten hinausgehen)
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">partOf</span><span
+                                class="badge bg-dark me-1">seeAlso</span><span class="badge bg-dark me-1">service</span>
+                            Verweis auf externe Ressourcen (beispielsweise Manifeste) oder Services
+                        </li>
+                    </ul>
+                    <!-- info.json V3 vs V2-->
+                    <p>Hier der Versuch einer <strong>Gegenüberstellung</strong> eines image information documents
+                        (info.json) auf Basis der Beispiele der offiziellen API-Dokumentation (in den <strong>
+                            Versionen <a href="https://iiif.io/api/image/3.0/#59-complete-response"
+                                target="_blank">3.0</a> bzw. <a href="https://iiif.io/api/image/2.1/#complete-response"
+                                target="_blank">2.1</a></strong>). Die Beispiele wurden geringfügig angepasst um eine
+                        bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller Änderungen
+                        findet sich im offiziellen <a href="https://iiif.io/api/image/3.0/change-log/"
+                            target="_blank">Image API 3.0 Change Log</a>.
+                    </p>
+                    <div class="row">
+                        <div class="col-6 p-1">
+                            <h3>Image API 3.0</h3>
+                            <code>{
+    "@context": "http://iiif.io/api/image<span data-bs-toggle="tooltip" data-bs-title="Verweis auf Version 3">/3/</span>context.json",
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/image-service-3/abc/123",
+    <span data-bs-toggle="tooltip" data-bs-title="Verpflichtend in Version 3, nun ohne vorangestelltem'@'">"type": "ImageService3"</span>,
+    "protocol": "http://iiif.io/api/image",
+    "profile": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 genügt der String 'level0'|'level1'|'level2'">"level1"</span>,
+    "width": 6000,
+    "height": 4000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) in Version 3">"maxWidth"</span>: 3000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) in Version 3">"maxHeight"</span>: 2000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) in Version 3">"maxArea"</span>: 4000000,
+    "sizes": [
+        {"width": 600, "height": 400},
+        {"width": 3000, "height": 2000}
+    ],
+    "tiles": [
+        {"width": 512, "scaleFactors": [ 1, 2, 4 ]},
+        {"width": 1024, "scaleFactors": [ 8, 16 ]},
+    ],
+    <span data-bs-toggle="tooltip" data-bs-title="Optional, ersetzt 'license'">"rights"</span>: <span data-bs-toggle="tooltip" data-bs-title="Darf nur(!) noch ein einzelner Wert/URI sein">"http://rightsstatements.org/vocab/InC-EDU/1.0/"</span>,
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"preferredFormats":</span> [ "png", "gif"],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"extraFormats":</span> [ "pdf" ],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/qualities">"extraQualities"</span>: [ "color", "gray" ],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/supports">"extraFeatures"</span>: [ "mirroring", "rotationArbitrary" ],
+    "service": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">[</span>
+        {
+        <span data-bs-toggle="tooltip" data-bs-title="Auch hier in Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/service/example",
+        <span data-bs-toggle="tooltip" data-bs-title="Auch hier in Version 3 ohne vorangestelltem'@'">"type"</span>: "Service",
+        "profile": "https://example.org/docs/example-service.html"
+        }
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">]</span>
+}</code>
+                        </div>
+                        <div class="col-6 p-1">
+                            <h3>Image API 2.0</h3>
+                            <code>{
+    "@context" : "http://iiif.io/api/image/2/context.json",
+    "@id" : "http://www.example.org/image-service-2/abc/123",
+    "protocol" : "http://iiif.io/api/image",
+    "width" : 6000,
+    "height" : 4000,
+    "sizes" : [
+        {"width" : 600, "height" : 400},
+        {"width" : 3000, "height": 2000}
+    ],
+    "tiles": [
+        {"width": 512, "scaleFactors": [ 1, 2, 4, 8, 16 ]},
+    ],
+    "license" : [
+        "http://example.org/rights/license1.html",
+        "http://rightsstatements.org/vocab/InC-EDU/1.0/"
+    ],
+    "profile" : [
+        "http://iiif.io/api/image/2/level2.json",
+        {
+        "formats" : [ "png", "gif", "pdf" ],
+        "qualities" : [ "color", "gray" ],
+        "supports" : [ "mirroring", "rotationArbitrary" ]
+       }
+    ],
+    "service" : {
+        "@context": "http://iiif.io/api/annex/service/physdim/1/context.json",
+        "profile": "http://iiif.io/api/annex/service/physdim",
+        "physicalScale": 0.0025,
+        "physicalUnits": "in"
+   }
+}</code>
+                        </div>
+                    </div>
+                    <div id="imageAPI_imageRequests">
+                        <h2>Image Requests</h2>
+                        <!-- <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
                         Rückgabe konfigurieren. </p>
                     <code><var data-bs-toggle="tooltip" data-bs-title="Default tooltip">{base-uri}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Default tooltip">{region}</var>/<var
@@ -222,7 +336,7 @@
                             data-bs-toggle="tooltip" data-bs-title="Default tooltip">{rotation}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Default tooltip">{quality}</var>.<var
                             data-bs-toggle="tooltip" data-bs-title="Default tooltip">{format}</var></code> -->
-                </div>
+                    </div>
             </section>
             <section id="viewer">
                 <h1>Viewer</h1>
@@ -232,8 +346,8 @@
         id: 'mdv',
         windows: [{
             manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-        }]
-    });</code>
+       }]
+   });</code>
                 <h3>OpenSeadragon</h3>
                 <div id="osd" class="viewer"></div>
                 <code>const osd = OpenSeadragon({
@@ -245,19 +359,19 @@
             'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
             'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
         ]
-    });</code>
+   });</code>
                 <h3>Universal Viewer</h3>
                 <div id="uv" class="viewer uv"></div>
-                <!-- The class 'uv' is needed as refered to in uv.min.css-->
+                <!-- The class 'uv' is needed as referred to in uv.min.css-->
                 <code>const uv = UV.init('uv', {
         manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-    });</code>
+   });</code>
                 <h3>Tify</h3>
                 <div id="tify" class="viewer"></div>
                 <code>const tify = new Tify({
         container: '#tify',
         manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-    });</code>
+   });</code>
             </section>
         </main>
     </div>
@@ -301,9 +415,8 @@
                         height: myOverlayRect.lr.y - myOverlayRect.ul.y,
                         className: 'overlay'}
                     osd.addOverlay(myOverlay);
-                });*/
+               });*/
             })
-
 
         /* ----## Mirador ---------------------------------------*/
 
@@ -324,8 +437,8 @@
         uv.on("configure", function ({config, cb}) {
             cb({
                 options: {leftPanelEnabled: false}
-            });
-        });*/
+           });
+       });*/
 
         /* ----## Tify ------------------------------------------*/
 
