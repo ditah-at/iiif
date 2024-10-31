@@ -57,3 +57,6 @@
 - [Simplest Annotation (cookbook, iiif.io)](https://iiif.io/api/cookbook/recipe/0266-full-canvas-annotation/)
 - [HTML & Annotations (cookbook, iiif.io)](https://iiif.io/api/cookbook/recipe/0019-html-in-annotations/)
 - [Simple Annotation — Tagging (cookbook, iiif.io)](https://iiif.io/api/cookbook/recipe/0021-tagging/)
+
+## Other Resources
+- [IIIF workshop @ ronallo](http://ronallo.com/iiif-workshop-new/)
