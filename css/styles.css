@@ -36,7 +36,7 @@ code {
     overflow: auto;
 }
 
-code > span {
+code>span {
     color: darkorange;
 }
 
@@ -49,6 +49,10 @@ figure {
 figure blockquote {
     font-style: italic;
     text-align: justify;
+}
+
+*[data-bs-toggle="tooltip"]:hover {
+    cursor: help;
 }
 
 /* ---------- sidebar ------------------------------ */
@@ -70,6 +74,7 @@ aside a.nav-link:hover {
 }
 
 /* ---------- viewer ------------------------------ */
+
 .viewer {
     height: 600px;
     position: relative;

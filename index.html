@@ -125,7 +125,7 @@
                         womit sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die
                         Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF
                         Ressourcen (in der Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer
-                        einzelnen Buchseite- einer Ressource) wird durch einen <abbr
+                        einzelnen Buchseite - einer Ressource) wird durch einen <abbr
                             title="Uniform Resource Identifier">URI</abbr> eindeutig
                         referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird wird
                         und sich folgendermaßen zusammensetzt: </p>
@@ -152,52 +152,85 @@
                 <div id="intro_versions">
                     <h2>IIIF Versionen</h2>
                     <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version
-                            3.0</strong>vor. Da einige der Änderungen <strong>zu Version 2 nicht
+                            3.0</strong> vor. Da einige der Änderungen <strong>zu Version 2 nicht
                             abwärtskompatibel</strong> sind macht es einen Unterschied, welche Version am jeweiligen
                         Image Server implementiert ist. In der
                         Praxis findet man - Stand 2024 - fast ausschließlich Implementationen der Version 2 vor
                         (inklusive aller obigen Beispiele). Trotzdem wollen wir uns hier auf die APIs der Version 3.0
                         konzentrieren und gegebenenfalls auf Änderungen zur vorherigen Version hinweisen.
                     </p>
+                    </blockquote>
                 </div>
             </section>
             <section id="imageAPI">
                 <h1>IIIF Image API</h1>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr
+                                title="Application Programming Interface">API</abbr> specifies a web service that
+                            returns an image in response to a standard <abbr
+                                title="Hypertext Transfer Protocol">HTTP</abbr> or <abbr
+                                title="Hypertext Transfer Protocol (Secure)">HTTPS</abbr> request. The URI can specify
+                            the region, size, rotation, quality characteristics and format of the requested image. A URI
+                            can also be constructed to request basic technical information about the image to support
+                            client applications. This <abbr title="Application Programming Interface">API</abbr> was
+                            conceived of to facilitate systematic reuse of image resources in digital image repositories
+                            maintained by cultural heritage organizations. It could be adopted by any image repository
+                            or service, and can be used to retrieve static images in response to a properly constructed
+                            URI.
+                        </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        <a href="https://iiif.io/api/image/3.0/#1-introduction" target="_blank">iiif.io</a>
+                    </figcaption>
+                </figure>
                 <p>An die <strong><a href="https://iiif.io/api/image/3.0/" target="_blank">Image API</a></strong> können
-                    grundsätzlich zwei unterschiedliche Arten von Abfragen
-                    (Requests) gestellt werden: </p>
+                    also grundsätzlich zwei unterschiedliche Arten von Abfragen (Requests) gestellt werden: </p>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Ein <strong>Image Information Requests</strong> gibt Metainformationen
+                    <li class="list-group-item">Ein <strong>Image Information Request</strong> gibt Metainformationen
                         über die adressierte Ressource zurück.</li>
                     <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
                         Ressource, also ein <q>tatsächliches</q> Bild (bzw. einen Bildausschnitt) zurück. </li>
                 </ul>
+                <p>Nachdem (Image) Information Requests meist automatisiert im Hintergrund - beispielsweise von
+                    einenViewer - gestellt werden, wird diese Funktionalität der Image API mancherorts etwas
+                    stiefmütterlich behandelt (wenn beispielsweise von <q>Image Delivery API</q> die Rede ist).
+                </p>
                 <div id="imageAPI_imageInformationRequests">
                     <h2>Image Information Requests</h2>
-                    <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong> erzeugt,
-                        das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den allermeisten Fällen
+                    <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong>
+                        erzeugt,
+                        das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den
+                        allermeisten Fällen
                         (wiederum eine Empfehlung, manche IIIF Server erlauben jedoch eine benutzerdefinierte
                         Namensgebung) <strong>info.json</strong> benannt, ist also eine Datei im <abbr
                             title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
                             title="JavaScript Object Notation for Linked Data"><a href="https://json-ld.org/"
-                                target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong> folgende
+                                target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong>
+                        folgende
                         Informationen bereitstellen <strong>muss</strong>:</p>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><span class="badge bg-dark me-1">@context</span>
                             Interpretationskontext
                             des Dokuments. Für
-                            die Image API 3.0 stellt das Framework <i>http://iiif.io/api/image/3/context.json</i>
-                            bereit</li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">id</span> (base-) URI der Ressource
+                            die Image API 3.0 stellt das Framework
+                            <i>http://iiif.io/api/image/3/context.json</i>
+                            bereit
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">type</span> Art (Version) der Image
+                        <li class="list-group-item"><span class="badge bg-dark me-1">id</span> (base-) URI der
+                            Ressource
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">type</span> Art (Version)
+                            der Image
                             API, <i>ImageService3</i> für Version 3
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">protocol</span> Art des Services,
+                        <li class="list-group-item"><span class="badge bg-dark me-1">protocol</span> Art des
+                            Services,
                             <i>http://iiif.io/api/image</i> für die IIIF Image API
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">profile</span> <a
-                                href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance level</a>
+                                href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance
+                                level</a>
                             der Ressource</li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">width</span><span
                                 class="badge bg-dark me-1">height</span> Initiale (<q>volle</q>)
@@ -205,36 +238,44 @@
                     </ul>
                     <p>Des Weiterem <strong>kann</strong> angegeben sein:</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span class="badge bg-dark me-1">sizes</span> Bereitgestellte
-                            (<q>vorberechnete</q>)
-                            Bilddimensionen</li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">sizes</span>
+                            Bereitgestellte (<q>vorberechnete</q>) Bilddimensionen</li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">maxWidth</span><span
                                 class="badge bg-dark me-1">maxHeight</span><span
                                 class="badge bg-dark me-1">maxArea</span> Maximale Dimensionen, in dem Bilder
                             (beispielsweise über einen Image Request oder an einen Viewer) ausgeliefert werden
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">tiles</span> Informationen zur
+                        <li class="list-group-item"><span class="badge bg-dark me-1">tiles</span> Informationen
+                            zur
                             Kachelung der Ressource
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">preferredFormats</span><span
-                                class="badge bg-dark me-1">extraFormats</span> Gibt (Datei-)Formate an, die per Image
+                                class="badge bg-dark me-1">extraFormats</span> Gibt (Datei-)Formate an, die per
+                            Image
                             Request abrufbar sind (<i>jpg</i>, <i>png</i>,
                             <i>tif</i> etc.)
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">rights</span> Lizenzinformation zum
+                        <li class="list-group-item"><span class="badge bg-dark me-1">rights</span>
+                            Lizenzinformation zum
                             Bildinhalt. <strong>Muss</strong> entweder einer <a
-                                href="https://creativecommons.org/licenses/" target="_blank">Creative Commons license
-                                URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>) oder einer
-                            <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements URI</a>
+                                href="https://creativecommons.org/licenses/" target="_blank">Creative Commons
+                                license
+                                URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>)
+                            oder einer
+                            <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements
+                                URI</a>
                             (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
                             entsprechen
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">extraQualities</span> Steht eine
-                            Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>, <i>bitonal</i>) zur
+                        <li class="list-group-item"><span class="badge bg-dark me-1">extraQualities</span> Steht
+                            eine
+                            Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>, <i>bitonal</i>)
+                            zur
                             Verfügung, werden diese hier aufgelistet
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">extraFeatures</span>
-                            Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über jene
+                            Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über
+                            jene
                             durch
                             ihr jeweiliges <a href="https://iiif.io/api/image/3.0/compliance/"
                                 target="_blank">compliance level</a> definierten hinausgehen)
@@ -245,12 +286,15 @@
                         </li>
                     </ul>
                     <!-- info.json V3 vs V2-->
-                    <p>Hier der Versuch einer <strong>Gegenüberstellung</strong> eines image information documents
+                    <p>Hier der Versuch einer <strong>Gegenüberstellung</strong> eines image information
+                        documents
                         (info.json) auf Basis der Beispiele der offiziellen API-Dokumentation (in den <strong>
                             Versionen <a href="https://iiif.io/api/image/3.0/#59-complete-response"
                                 target="_blank">3.0</a> bzw. <a href="https://iiif.io/api/image/2.1/#complete-response"
-                                target="_blank">2.1</a></strong>). Die Beispiele wurden geringfügig angepasst um eine
-                        bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller Änderungen
+                                target="_blank">2.1</a></strong>). Die Beispiele wurden geringfügig angepasst um
+                        eine
+                        bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller
+                        Änderungen
                         findet sich im offiziellen <a href="https://iiif.io/api/image/3.0/change-log/"
                             target="_blank">Image API 3.0 Change Log</a>.
                     </p>
@@ -326,40 +370,92 @@
 }</code>
                         </div>
                     </div>
-                    <div id="imageAPI_imageRequests">
-                        <h2>Image Requests</h2>
-                        <!-- <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
+                </div>
+                <div id="imageAPI_imageRequests">
+                    <h2>Image Requests</h2>
+                    <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
                         Rückgabe konfigurieren. </p>
-                    <code><var data-bs-toggle="tooltip" data-bs-title="Default tooltip">{base-uri}</var>/<var
-                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{region}</var>/<var
-                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{size}</var>/<var
-                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{rotation}</var>/<var
-                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{quality}</var>.<var
-                            data-bs-toggle="tooltip" data-bs-title="Default tooltip">{format}</var></code> -->
-                    </div>
+                    <code><var data-bs-toggle="tooltip" data-bs-title="URI der IIIF Ressource">{base-uri}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Auszuwählender Bildbereich">{region}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Größe der Rückgabe">{size}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Ausrichtung der Rückgabe">{rotation}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Qualität der Rückgabe">{quality}</var>.<var
+                            data-bs-toggle="tooltip" data-bs-title="(Datei-)Format der Rückgabe">{format}</var></code>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span class="badge bg-dark me-1">region</span>
+                            <strong>Auszuwählender</strong>,
+                            rechteckiger <strong>Bildbereich</strong> des Vollbildes. Möglich sind:
+                            <table class="table table-bordered table-striped my-2">
+                                <tr>
+                                    <th scope="col">full</th>
+                                    <td>Der gesamte Bildbereich</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">square</th>
+                                    <td>Der größtmögliche quadratische Bildbereich, der sich aus dem Vollbild generieren
+                                        lässt (die Seitenlänge entspricht damit dessen kürzester Seite)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">x,y,w,h</th>
+                                    <td>Absoluter Bildbereich, definiert durch dessen linken oberen Punkt
+                                        (<strong>x</strong>,<strong>y</strong>), Breite (<strong>w</strong>) und Höhe
+                                        (<strong>h</strong>) in Pixel</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">pct:x,y,w,h</th>
+                                    <td>Relativer Bildbereich. Die Angabe <i>pct:50,50,50,50</i> selektiert
+                                        demnach das untere rechte Viertel des Vollbildes
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">size</span>
+                            <strong>Dimensionen</strong>, in denen der ausgewählte Bildbereich (region) ausgeliefert
+                            werden soll. Möglich sind:
+                            <table class="table table-bordered table-striped my-2">
+                                <tr>
+                                    <th scope="col">max</th>
+                                    <td>Der gesamte ausgewählte Bildbereich </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">w,h</th>
+                                    <td>Exakte Breite (<strong>w</strong>) und Höhe (<strong>h</strong>) in Pixel</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">pct:n</th>
+                                    <td>Länge und Breite der Rückgabe entsprechen <strong>n</strong> Prozent (pct) der
+                                        Auswahl </td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">rotation</span></li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">quality</span></li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">format</span></li>
+                    </ul>
+                </div>
             </section>
             <section id="viewer">
                 <h1>Viewer</h1>
                 <h3>Mirador</h3>
                 <div id="mdv" class="viewer"></div>
                 <code>const mdv = Mirador.viewer({
-        id: 'mdv',
-        windows: [{
-            manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-       }]
-   });</code>
+    id: 'mdv',
+    windows: [{
+        manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+    }]
+});</code>
                 <h3>OpenSeadragon</h3>
                 <div id="osd" class="viewer"></div>
                 <code>const osd = OpenSeadragon({
-        id: 'osd',
-        prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
-        sequenceMode: true,
-        tileSources: [
-            'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json',
-            'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
-            'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
-        ]
-   });</code>
+    id: 'osd',
+    prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
+    sequenceMode: true,
+    tileSources: [
+        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json',
+        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
+        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
+    ]
+});</code>
                 <h3>Universal Viewer</h3>
                 <div id="uv" class="viewer uv"></div>
                 <!-- The class 'uv' is needed as referred to in uv.min.css-->
@@ -369,9 +465,9 @@
                 <h3>Tify</h3>
                 <div id="tify" class="viewer"></div>
                 <code>const tify = new Tify({
-        container: '#tify',
-        manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-   });</code>
+    container: '#tify',
+    manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+});</code>
             </section>
         </main>
     </div>
