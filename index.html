@@ -4,8 +4,6 @@
 <head>
     <title>IIIF</title>
     <link rel="icon" href="/img/iiif_logo_32.ico" type="image/vnd.microsoft.icon">
-    <!-- Project CSS -->
-    <link rel="stylesheet" href="css/styles.css">
     <!-- Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +17,8 @@
     <!-- Tify-->
     <script src="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.31.0/dist/tify.css">
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -28,8 +28,8 @@
                 <a class="navbar-brand fw-bold">IIIF</a>
                 <a class="nav-link fw-bold" href="#intro">Einführung</a>
                 <!-- ## --><a class="nav-link ms-2" href="#intro_about">Was ist IIIF?</a>
+                <!-- ## --><a class="nav-link ms-2" href="#intro_terms">Begriffliches</a>
                 <!-- ## --><a class="nav-link ms-2" href="#intro_apis">IIIF APIs</a>
-                <!-- ## --><a class="nav-link ms-2" href="#intro_resources">IIIF Ressourcen</a>
                 <!-- ## --><a class="nav-link ms-2" href="#intro_versions">IIIF Versionen</a>
                 <a class="nav-link fw-bold" href="#imageAPI">IIIF Image API</a>
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageInformationRequests">Image Information
@@ -83,6 +83,70 @@
                         lässt
                         sich das Potential der Technologie voll ausschöpfen.
                     </p>
+                    <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
+                        Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler,
+                        die wissen wollen: </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in
+                            einem IIIF Viewer?</li>
+                        <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten
+                            und Collections?</li>
+                        <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
+                            Edition ein?</li>
+                    </ul>
+                    <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
+                        Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
+                            target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur Vertiefung
+                        der im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
+                        exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
+                        welche hier noch des Öfteren referenziert werden wird. </p>
+                </div>
+                <div id="intro_terms">
+                    <h2>Begriffliches</h2>
+                    <div>
+                        <h3>IIIF Ressourcen</h3>
+                        <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen,
+                            womit sie als <strong>IIIF Ressourcen</strong> oder IIIF Services (die
+                            Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede dieser
+                            Ressourcen (in der Regel entspricht eine (Bild-)Quelle einer Ressource) wird durch einen
+                            <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
+                            referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird
+                            wird und sich folgendermaßen zusammensetzt:
+                        </p>
+                        <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
+                        <p>Beispiele für base-URIs sind: </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span data-bs-toggle="tooltip"
+                                    data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
+                                    https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
+                            </li>
+                            <li class="list-group-item"><span data-bs-toggle="tooltip"
+                                    data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
+                            </li>
+                            <li class="list-group-item"><span data-bs-toggle="tooltip"
+                                    data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
+                            </li>
+                        </ul>
+                        <p>Im (vom Framework empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser auf
+                            das
+                            <strong>image information document (info.json)</strong> der betreffenden Ressource
+                            dereferenziert (dazu weiter unten mehr).
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Vollbild</h3>
+                        <p>Wie bereits erwähnt repräsentiert jede IIIF Ressource im Regelfall eine einzelne Bildquelle,
+                            beispielsweise den Scan einer einzelnen (oder doppelten) Buchseite. Die <q>Qualität</q> der
+                            Ressource ist damit größtenteils von der <q>Qualität</q> der zugrundeliegenden Bilddatei -
+                            insbesondere deren Auflösung - abhängig bzw. durch diese limitiert. Das legt die Verwendung
+                            möglichst hoch auflösender Bilder (und damit <q>großer</q> Bilddateien) nahe, wobei IIIF
+                            Server auch Maximaldimensionen für die Bereitstellung von Ressourcen festlegen können. Mit
+                            dem Begriff <strong>Vollbild</strong> (<i>full image</i>) ist hier die -
+                            egal ob nun durch die zugrundeliegende Bilddatei oder die Implementation selbst definierte -
+                            höchstauflösendste vom Server bereitgestellte Version des gesamten Bildbereichs gemeint.
+                        </p>
+                    </div>
                 </div>
                 <div id="intro_apis">
                     <h2>IIIF APIs</h2>
@@ -98,55 +162,6 @@
                             Flow API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
                             API</strong> (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit)
                         sowie die <strong>Content State API</strong> (Navigation der Presentation API).
-                    </p>
-                    <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
-                        Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler,
-                        die wissen wollen: </p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in
-                            einem IIIF Viewer?</li>
-                        <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten
-                            und Collections?</li>
-                        <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
-                            Edition ein?</li>
-                    </ul>
-                </div>
-                <div id="intro_resources">
-                    <h2>IIIF Ressourcen</h2>
-                    <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
-                        Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
-                            target="_blank">diesem</a> und vielen weiteren Aspekten
-                        rund um IIIF, sowie zur Vertiefung
-                        der
-                        im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
-                        exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
-                        welche hier noch des Öfteren referenziert werden wird. </p>
-                    <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen,
-                        womit sie als <strong>IIIF Ressourcen</strong> oder <strong>IIIF Services</strong> (die
-                        Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede diese IIIF
-                        Ressourcen (in der Regel entspricht eine (Bild-)Quelle - beispielsweise das Faksimile einer
-                        einzelnen Buchseite - einer Ressource) wird durch einen <abbr
-                            title="Uniform Resource Identifier">URI</abbr> eindeutig
-                        referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird wird
-                        und sich folgendermaßen zusammensetzt: </p>
-                    <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
-                    <p>Beispiele für base-URIs sind: </p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <span data-bs-toggle="tooltip"
-                                data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
-                                https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
-                        </li>
-                        <li class="list-group-item"><span data-bs-toggle="tooltip"
-                                data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
-                        </li>
-                        <li class="list-group-item"><span data-bs-toggle="tooltip"
-                                data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
-                        </li>
-                    </ul>
-                    <p>Im (vom Framework empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser auf das
-                        <strong>image information document (info.json)</strong> der betreffenden Ressource
-                        dereferenziert (dazu weiter unten mehr).
                     </p>
                 </div>
                 <div id="intro_versions">
@@ -193,7 +208,7 @@
                         Ressource, also ein <q>tatsächliches</q> Bild (bzw. einen Bildausschnitt) zurück. </li>
                 </ul>
                 <p>Nachdem (Image) Information Requests meist automatisiert im Hintergrund - beispielsweise von
-                    einenViewer - gestellt werden, wird diese Funktionalität der Image API mancherorts etwas
+                    einem Viewer - gestellt werden, wird diese Funktionalität der Image API mancherorts etwas
                     stiefmütterlich behandelt (wenn beispielsweise von <q>Image Delivery API</q> die Rede ist).
                 </p>
                 <div id="imageAPI_imageInformationRequests">
@@ -230,8 +245,7 @@
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">profile</span> <a
                                 href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance
-                                level</a>
-                            der Ressource</li>
+                                level</a> der Ressource</li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">width</span><span
                                 class="badge bg-dark me-1">height</span> Initiale (<q>volle</q>)
                             Bilddimensionen</li>
@@ -246,8 +260,7 @@
                             (beispielsweise über einen Image Request oder an einen Viewer) ausgeliefert werden
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">tiles</span> Informationen
-                            zur
-                            Kachelung der Ressource
+                            zur Kachelung der Ressource
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">preferredFormats</span><span
                                 class="badge bg-dark me-1">extraFormats</span> Gibt (Datei-)Formate an, die per
@@ -428,7 +441,19 @@
                                 </tr>
                             </table>
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">rotation</span></li>
+                        <li class="list-group-item"><span
+                                class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe. Möglich sind:
+                            <table class="table table-bordered table-striped my-2">
+                                <tr>
+                                    <th scope="col">n</th>
+                                    <td>Das zurückgegeben Bild ist um <strong>n</strong>° im Uhrzeigersinn gedreht</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">!n</th>
+                                    <td>Das Bild wird zuerst horizontal gespiegelt und dann <strong>n</strong>° gedreht (<i>!0</i> bewirkt daher eine horizontale Spiegelung ohne Rotation)</td>
+                                </tr>
+                            </table>
+                        </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">quality</span></li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">format</span></li>
                     </ul>
