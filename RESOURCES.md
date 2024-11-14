@@ -10,8 +10,9 @@
 - [Viewers](https://iiif.io/get-started/iiif-viewers/)
 - [APIs](https://iiif.io/api/index.html)
     - [Image API 3.0](https://iiif.io/api/image/3.0/)
+        - [Compliance Levels](https://iiif.io/api/image/3.0/compliance/)
+        - [Image Request Playground](https://www.learniiif.org/image-api/playground.html)
     - [Presentation API 3.0](https://iiif.io/api/presentation/3.0/)
-    - [Compliance Levels](https://iiif.io/api/image/3.0/compliance/)
 
 ## [Mirador3](https://projectmirador.org/)  
 - [Github Project](https://github.com/ProjectMirador/)

@@ -22,6 +22,21 @@
 </head>
 
 <body>
+    <!-- SVG variables-->
+    <svg style="display: none;">
+        <symbol id="checkSVG" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="infoSVG" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="warningSVG" fill="darkorange" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
     <div class="row">
         <aside class="col-2">
             <nav class="nav flex-column sticky-top p-3">
@@ -32,6 +47,7 @@
                 <!-- ## --><a class="nav-link ms-2" href="#intro_apis">IIIF APIs</a>
                 <!-- ## --><a class="nav-link ms-2" href="#intro_versions">IIIF Versionen</a>
                 <a class="nav-link fw-bold" href="#imageAPI">IIIF Image API</a>
+                <!-- ## --><a class="nav-link ms-2" href="#imageAPI_compliance">Compliance Levels</a>
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageInformationRequests">Image Information
                     Requests</a>
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageRequests">Image Requests</a>
@@ -211,6 +227,17 @@
                     einem Viewer - gestellt werden, wird diese Funktionalität der Image API mancherorts etwas
                     stiefmütterlich behandelt (wenn beispielsweise von <q>Image Delivery API</q> die Rede ist).
                 </p>
+                <div id="imageAPI_compliance">
+                    <h2>Compliance Levels</h2>
+                    <p>Wichtig vorauszuschicken ist, dass IIIF Ressourcen unterschiedlich <q>stark</q> implementiert
+                        werden können, also nicht jede Ressource zwangsläufig alle <strong>Funktionalitäten</strong>
+                        (<i>features</i>) der Image API unterstützen muss. Damit ein Client (der beispielsweise auch ein
+                        IIIF Viewer sein kann) weiß, welche Funktionalitäten er von einer bestimmten Ressource erwarten
+                        kann (sprich welche Requests an die Image API möglich und sinnvoll sind), definiert das
+                        Framework drei <q>Konformitätsstufen</q> (<strong><a
+                                href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance
+                                Levels</a></strong>). [tba]</p>
+                </div>
                 <div id="imageAPI_imageInformationRequests">
                     <h2>Image Information Requests</h2>
                     <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong>
@@ -243,9 +270,8 @@
                             Services,
                             <i>http://iiif.io/api/image</i> für die IIIF Image API
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">profile</span> <a
-                                href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance
-                                level</a> der Ressource</li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">profile</span> Compliance level der
+                            Ressource</li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">width</span><span
                                 class="badge bg-dark me-1">height</span> Initiale (<q>volle</q>)
                             Bilddimensionen</li>
@@ -288,10 +314,7 @@
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">extraFeatures</span>
                             Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über
-                            jene
-                            durch
-                            ihr jeweiliges <a href="https://iiif.io/api/image/3.0/compliance/"
-                                target="_blank">compliance level</a> definierten hinausgehen)
+                            jene durch ihr jeweiliges Compliance Level definierten hinausgehen)
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">partOf</span><span
                                 class="badge bg-dark me-1">seeAlso</span><span class="badge bg-dark me-1">service</span>
@@ -313,7 +336,7 @@
                     </p>
                     <div class="row">
                         <div class="col-6 p-1">
-                            <h3>Image API 3.0</h3>
+                            <h3>Image API 3</h3>
                             <code>{
     "@context": "http://iiif.io/api/image<span data-bs-toggle="tooltip" data-bs-title="Verweis auf Version 3">/3/</span>context.json",
     <span data-bs-toggle="tooltip" data-bs-title="In Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/image-service-3/abc/123",
@@ -322,9 +345,9 @@
     "profile": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 genügt der String 'level0'|'level1'|'level2'">"level1"</span>,
     "width": 6000,
     "height": 4000,
-    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) in Version 3">"maxWidth"</span>: 3000,
-    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) in Version 3">"maxHeight"</span>: 2000,
-    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) in Version 3">"maxArea"</span>: 4000000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxWidth"</span>: 3000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxHeight"</span>: 2000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxArea"</span>: 4000000,
     "sizes": [
         {"width": 600, "height": 400},
         {"width": 3000, "height": 2000}
@@ -348,7 +371,7 @@
 }</code>
                         </div>
                         <div class="col-6 p-1">
-                            <h3>Image API 2.0</h3>
+                            <h3>Image API 2</h3>
                             <code>{
     "@context" : "http://iiif.io/api/image/2/context.json",
     "@id" : "http://www.example.org/image-service-2/abc/123",
@@ -386,36 +409,38 @@
                 </div>
                 <div id="imageAPI_imageRequests">
                     <h2>Image Requests</h2>
+                    <p>[tba]</p>
                     <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
                         Rückgabe konfigurieren. </p>
                     <code><var data-bs-toggle="tooltip" data-bs-title="URI der IIIF Ressource">{base-uri}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Auszuwählender Bildbereich">{region}</var>/<var
-                            data-bs-toggle="tooltip" data-bs-title="Größe der Rückgabe">{size}</var>/<var
+                            data-bs-toggle="tooltip" data-bs-title="Dimensionen der Rückgabe">{size}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Ausrichtung der Rückgabe">{rotation}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Qualität der Rückgabe">{quality}</var>.<var
                             data-bs-toggle="tooltip" data-bs-title="(Datei-)Format der Rückgabe">{format}</var></code>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><span class="badge bg-dark me-1">region</span>
-                            <strong>Auszuwählender</strong>,
+                            Auszuwählender,
                             rechteckiger <strong>Bildbereich</strong> des Vollbildes. Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th scope="col">full</th>
+                                    <th class="string">full</th>
                                     <td>Der gesamte Bildbereich</td>
                                 </tr>
                                 <tr>
-                                    <th scope="col">square</th>
+                                    <th class="string">square</th>
                                     <td>Der größtmögliche quadratische Bildbereich, der sich aus dem Vollbild generieren
                                         lässt (die Seitenlänge entspricht damit dessen kürzester Seite)</td>
                                 </tr>
                                 <tr>
-                                    <th scope="col">x,y,w,h</th>
+                                    <th class="variable">x,y,w,h</th>
                                     <td>Absoluter Bildbereich, definiert durch dessen linken oberen Punkt
-                                        (<strong>x</strong>,<strong>y</strong>), Breite (<strong>w</strong>) und Höhe
-                                        (<strong>h</strong>) in Pixel</td>
+                                        (<strong class="variable">x</strong>,<strong class="variable">y</strong>),
+                                        Breite (<strong class="variable">w</strong>) und Höhe
+                                        (<strong class="variable">h</strong>) in Pixel</td>
                                 </tr>
                                 <tr>
-                                    <th scope="col">pct:x,y,w,h</th>
+                                    <th class="variable">pct:x,y,w,h</th>
                                     <td>Relativer Bildbereich. Die Angabe <i>pct:50,50,50,50</i> selektiert
                                         demnach das untere rechte Viertel des Vollbildes
                                     </td>
@@ -423,39 +448,131 @@
                             </table>
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">size</span>
-                            <strong>Dimensionen</strong>, in denen der ausgewählte Bildbereich (region) ausgeliefert
+                            <strong>Dimensionen</strong> (<q>Größe</q>), in denen der ausgewählte Bildbereich (region)
+                            ausgeliefert
                             werden soll. Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th scope="col">max</th>
-                                    <td>Der gesamte ausgewählte Bildbereich </td>
+                                    <th class="string">max<svg class="iconSVG" data-bs-toggle="tooltip"
+                                            data-bs-html="true"
+                                            data-bs-title="In Version 2.0 noch <i>full</i>, in Version 2.1 <i>full</i> ODER <i>max</i>, in Version 3 ist NUR noch <i>max</i> zulässig. Hintergrund dürften die in Version 2.1 eingeführten Maximaldimensionen (<i>maxWidth</i>, <i>maxHeight</i>, <i>maxArea</i>) sein">
+                                            <use xlink:href="#warningSVG" />
+                                        </svg></th>
+                                    <td>Der ausgewählte Bildbereich in der größtmöglichen (bzw. -zugelassenen) Auflösung
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="col">w,h</th>
-                                    <td>Exakte Breite (<strong>w</strong>) und Höhe (<strong>h</strong>) in Pixel</td>
+                                    <th class="variable">w,h</th>
+                                    <td>Exakte Breite <strong class="variable">w</strong> und Höhe <strong
+                                            class="variable">h</strong> in Pixel. Kann zu Verzerrungen führen</td>
                                 </tr>
                                 <tr>
-                                    <th scope="col">pct:n</th>
-                                    <td>Länge und Breite der Rückgabe entsprechen <strong>n</strong> Prozent (pct) der
+                                    <th class="variable">!w,h</th>
+                                    <td>Die Auswahl wird genau so weit proportional (<strong>!</strong>) verkleinert,
+                                        dass sie gerade noch in ein <q>imaginäres Fenster</q> der Breite <strong
+                                            class="variable">w</strong> Pixel und Höhe <strong
+                                            class="variable">h</strong> Pixel passt</td>
+                                </tr>
+                                <tr>
+                                    <th class="variable">w,</th>
+                                    <td>Die Auswahl wird auf eine Breite von <strong class="variable">w</strong> Pixel
+                                        proportional verkleinert</td>
+                                </tr>
+                                <tr>
+                                    <th class="variable">,h</th>
+                                    <td>Die Auswahl wird auf eine Höhe von <strong class="variable">h</strong> Pixel
+                                        proportional verkleinert</td>
+                                </tr>
+                                <tr>
+                                    <th class="variable">pct:n</th>
+                                    <td>Länge und Breite der Rückgabe entsprechen <strong class="variable">n</strong>
+                                        Prozent (pct) der
                                         Auswahl </td>
                                 </tr>
                             </table>
+                            <p><svg class="iconSVG" data-bs-toggle="tooltip" data-bs-title="Neu in Version 3">
+                                    <use xlink:href="#warningSVG" />
+                                </svg><strong>Upscaling:</strong> Wird einem der obigen Dimensionsangaben ein Zirkumflex
+                                (<i>^</i>) vorangestellt (also <i>^max</i>, <strong class="variable">^!w,h</strong>,
+                                <strong class="variable">^,h</strong> etc.), versucht der IIIF Server den gewählten
+                                Bildausschnitt auf die gewünschten Dimensionen (nötigenfalls) hochzuskalieren. Das
+                                funktioniert jedoch nur dann, wenn der Server das Hochskalieren auch aktiv unterstützt
+                                (also wenn <i>sizeUpscaling</i> in den <i>extraFeatures</i> des info.json angegeben
+                                ist).
+                            </p>
                         </li>
                         <li class="list-group-item"><span
-                                class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe. Möglich sind:
+                                class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe.
+                            Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th scope="col">n</th>
-                                    <td>Das zurückgegeben Bild ist um <strong>n</strong>° im Uhrzeigersinn gedreht</td>
+                                    <th class="variable">n</th>
+                                    <td>Das zurückgegeben Bild ist um <strong class="variable">n</strong>° im
+                                        Uhrzeigersinn gedreht</td>
                                 </tr>
                                 <tr>
-                                    <th scope="col">!n</th>
-                                    <td>Das Bild wird zuerst horizontal gespiegelt und dann <strong>n</strong>° gedreht (<i>!0</i> bewirkt daher eine horizontale Spiegelung ohne Rotation)</td>
+                                    <th class="variable">!n</th>
+                                    <td>Das Bild wird zuerst horizontal gespiegelt und dann um <strong
+                                            class="variable">n</strong>° gedreht (<i>!0</i> bewirkt daher eine
+                                        horizontale Spiegelung ohne Rotation)</td>
                                 </tr>
                             </table>
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">quality</span></li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">format</span></li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">quality</span>
+                            <q><strong>Qualität</strong></q> der Rückgabe. Möglich sind:
+                            <table class="table table-bordered table-striped my-2">
+                                <tr>
+                                    <th class="string"><i>default</i></th>
+                                    <td>Die vom Server voreingestellte Bildqualität (entspricht zumeist <i>color</i>)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="string"><i>color</i></th>
+                                    <td>Alle (vorhandenen) Farbinformationen</td>
+                                </tr>
+                                <tr>
+                                    <th class="string"><i>gray</i></th>
+                                    <td>Schwarzweiß MIT Graustufen (s/w monochrom)</td>
+                                </tr>
+                                <tr>
+                                    <th class="string"><i>bitonal</i></th>
+                                    <td>Schwarzweiß OHNE Graustufen (s/w bitonal)</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item"><span class="badge bg-dark me-1">format</span>
+                            (Datei-)<strong>Format</strong> der Rückgabe. Unterstützt werden:
+                            <table class="table table-bordered table-striped my-2">
+                                <tr>
+                                    <th class="string">jpg</th>
+                                    <td>image/jpeg</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">tif</th>
+                                    <td>image/tiff</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">png</th>
+                                    <td>image/png</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">gif</th>
+                                    <td>image/gif</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">jp2</th>
+                                    <td>image/jp2</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">pdf</th>
+                                    <td>application/pdf</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">webp</th>
+                                    <td>image/webp</td>
+                                </tr>
+                            </table>
+                        </li>
                     </ul>
                 </div>
             </section>
