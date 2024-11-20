@@ -52,8 +52,10 @@
                     Requests</a>
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageRequests">Image Requests</a>
                 <!-- <a class="nav-link fw-bold" href="#presentationAPI">IIIF Presentation API</a> -->
-                <!-- ## --><!-- <a class="nav-link ms-2" href="#manifests">Manifeste</a> -->
-                <!-- ## --><!-- <a class="nav-link ms-2" href="#collection">Collections</a> -->
+                <!-- ## -->
+                <!-- <a class="nav-link ms-2" href="#manifests">Manifeste</a> -->
+                <!-- ## -->
+                <!-- <a class="nav-link ms-2" href="#collection">Collections</a> -->
                 <a class="nav-link fw-bold" href="#viewer">Viewer</a>
 
             </nav>
@@ -67,9 +69,9 @@
                         <blockquote class="blockquote">
                             <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
                                 gesprochen <q>Triple-Ei-F</q>) bietet einen Standard, wie digitale Bilder im Internet
-                                geteilt
-                                werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus einer
-                                Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die Harvard
+                                geteilt werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus
+                                einer Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die
+                                Harvard
                                 University, die Stanford University Libraries, die Cornell University, die British
                                 Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und
                                 Norwegen gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und
@@ -83,21 +85,14 @@
                         </figcaption>
                     </figure>
                     <p>IIIF ist also ein Standard für das <q>Ausliefern</q> von Bilddaten im World Wide Web. In den
-                        allermeisten
-                        Fällen ist dabei der <q>Lieferant</q> ein sogenannter <strong>(IIIF-) Image-Server</strong>,
-                        also der
-                        Ort
-                        im Netz, an dem die Bilddaten liegen bzw. für die <q>Abholung</q> aufbereitet werden. Der
-                        <q>Empfänger</q>
-                        ist
-                        zumeist der Browser, in dem die gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter
-                        Rücksichtnahme auf allgemeine Web-Standards entwickelt wurde (und weiter wird), funktioniert
-                        dies
-                        mit allen modernen Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard
-                        (wie
-                        es beispielsweise bei <strong>IIIF- fähigen Viewern</strong> Fall ist),
-                        lässt
-                        sich das Potential der Technologie voll ausschöpfen.
+                        allermeisten Fällen ist dabei der <q>Lieferant</q> ein sogenannter <strong>(IIIF-)
+                            Image-Server</strong>, also der Ort im Netz, an dem die Bilddaten liegen bzw. für die
+                        <q>Abholung</q> aufbereitet werden. Der <q>Empfänger</q> ist zumeist der Browser, in dem die
+                        gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter Rücksichtnahme auf allgemeine
+                        Web-Standards entwickelt wurde (und weiter wird), funktioniert dies mit allen modernen
+                        Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard (wie es
+                        beispielsweise bei <strong>IIIF- fähigen Viewern</strong> Fall ist), lässt sich das Potential
+                        der Technologie voll ausschöpfen.
                     </p>
                     <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
                         Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler,
@@ -129,7 +124,13 @@
                             referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird
                             wird und sich folgendermaßen zusammensetzt:
                         </p>
-                        <code><var data-bs-toggle="tooltip" data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var data-bs-toggle="tooltip" data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var data-bs-toggle="tooltip" data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
+                        <code><var data-bs-toggle="tooltip"
+                                data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var
+                                data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var
+                                data-bs-toggle="tooltip"
+                                data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var
+                                data-bs-toggle="tooltip"
+                                data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
                         <p>Beispiele für base-URIs sind: </p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -185,10 +186,10 @@
                     <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version
                             3.0</strong> vor. Da einige der Änderungen <strong>zu Version 2 nicht
                             abwärtskompatibel</strong> sind macht es einen Unterschied, welche Version am jeweiligen
-                        Image Server implementiert ist. In der
-                        Praxis findet man - Stand 2024 - fast ausschließlich Implementationen der Version 2 vor
-                        (inklusive aller obigen Beispiele). Trotzdem wollen wir uns hier auf die APIs der Version 3.0
-                        konzentrieren und gegebenenfalls auf Änderungen zur vorherigen Version hinweisen.
+                        Image Server implementiert ist. In der Praxis findet man - Stand 2024 - fast ausschließlich
+                        Implementationen der Version 2 vor (inklusive aller obigen Beispiele). Trotzdem wollen wir uns
+                        hier auf die APIs der Version 3.0 konzentrieren und gegebenenfalls auf Änderungen zur vorherigen
+                        Version hinweisen.
                     </p>
                     </blockquote>
                 </div>
@@ -230,94 +231,123 @@
                 <div id="imageAPI_compliance">
                     <h2>Compliance Levels</h2>
                     <p>Wichtig vorauszuschicken ist, dass IIIF Ressourcen unterschiedlich <q>stark</q> implementiert
-                        werden können, also nicht jede Ressource zwangsläufig alle <strong>Funktionalitäten</strong>
-                        (<i>features</i>) der Image API unterstützen muss. Damit ein Client (der beispielsweise auch ein
-                        IIIF Viewer sein kann) weiß, welche Funktionalitäten er von einer bestimmten Ressource erwarten
-                        kann (sprich welche Requests an die Image API möglich und sinnvoll sind), definiert das
-                        Framework drei <q>Konformitätsstufen</q> (<strong><a
-                                href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance
-                                Levels</a></strong>). [tba]</p>
+                        werden können, also <strong>nicht jede Ressource</strong> zwangsläufig <strong>alle
+                            Funktionalitäten</strong> (<i>features</i>) der Image API unterstützen muss. Für einen
+                        Client - der beispielsweise auch ein IIIF Viewer sein kann (und in den meisten Fällen
+                        wahrscheinlich auch ist) - ist es demnach nützlich vorab zu <q>wissen</q>, welche
+                        Funktionalitäten er für eine bestimmten Ressource vom Server erwarten kann - sprich: welche
+                        Requests an die Image API möglich und sinnvoll sind. Zu diesem Zweck unterscheidet das Framework
+                        drei <q>Konformitätsstufen</q> (<strong><a href="https://iiif.io/api/image/3.0/compliance/"
+                                target="_blank">Compliance Levels</a></strong>), die den
+                        <strong><q>Mindestfunktionsumfang</q></strong> jeder Ressource auf den ersten Blick ersichtlich
+                        machen sollen:
+                    </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong><i>level0</i></strong>: Mindestanforderungen für alle IIIF Ressourcen. Der Server
+                            muss im Prinzip nur das Vollbild als <i>.jpg</i> in einer beliebigen, voreingestellten
+                            (<i>default</i>) Qualität ausliefern können
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i>level1</i></strong>: Empfohlener Implementationsstandard. Es können zusätzlich
+                            auch Bildausschnitte adressiert und in verschiedenen Auflösungen angefordert werden
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i>level2</i></strong>: Zusätzlich sind Adressierungen sowohl über Prozentangaben
+                            (<i>pct:</i>) als auch über Maximaldimensionen (<i>!</i>) implementiert. Die Rückgabe muß
+                            zudem als Portable Network Graphics (<i>.png</i>) und - sofern möglich, also wenn das
+                            <q>Original</q> nicht selbst monochrom bzw. schwarzweiß ist - in den Qualitäten
+                            <i>color</i> und <i>gray</i> verfügbar sein sowie orthogonale Rotation (<i>90</i>,
+                            <i>180</i>, <i>270</i>) unterstützen.
+                        </li>
+                    </ul>
+                    <p>[tbc]</p>
                 </div>
                 <div id="imageAPI_imageInformationRequests">
                     <h2>Image Information Requests</h2>
                     <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong>
-                        erzeugt,
-                        das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den
-                        allermeisten Fällen
-                        (wiederum eine Empfehlung, manche IIIF Server erlauben jedoch eine benutzerdefinierte
-                        Namensgebung) <strong>info.json</strong> benannt, ist also eine Datei im <abbr
-                            title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
+                        erzeugt, das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den
+                        allermeisten Fällen (wiederum eine Empfehlung, manche IIIF Server erlauben jedoch eine
+                        benutzerdefinierte Namensgebung) <strong>info.json</strong> benannt, ist also eine Datei im
+                        <abbr title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
                             title="JavaScript Object Notation for Linked Data"><a href="https://json-ld.org/"
                                 target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong>
-                        folgende
-                        Informationen bereitstellen <strong>muss</strong>:</p>
+                        folgende Informationen bereitstellen <strong>muss</strong>:
+                    </p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span class="badge bg-dark me-1">@context</span>
-                            Interpretationskontext
-                            des Dokuments. Für
-                            die Image API 3.0 stellt das Framework
-                            <i>http://iiif.io/api/image/3/context.json</i>
-                            bereit
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">@context</span>
+                            Interpretationskontext des Dokuments. Für die Image API 3.0 stellt das Framework
+                            <i>http://iiif.io/api/image/3/context.json</i> bereit
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">id</span> (base-) URI der
-                            Ressource
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">id</span>
+                            (base-) URI der Ressource
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">type</span> Art (Version)
-                            der Image
-                            API, <i>ImageService3</i> für Version 3
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">type</span>
+                            Art (Version) der Image API, <i>ImageService3</i> für Version 3
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">protocol</span> Art des
-                            Services,
-                            <i>http://iiif.io/api/image</i> für die IIIF Image API
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">protocol</span>
+                            Art des Services, <i>http://iiif.io/api/image</i> für die IIIF Image API
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">profile</span> Compliance level der
-                            Ressource</li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">width</span><span
-                                class="badge bg-dark me-1">height</span> Initiale (<q>volle</q>)
-                            Bilddimensionen</li>
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">profile</span>
+                            Compliance level der Ressource
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">width</span>
+                            <span class="badge bg-dark me-1">height</span>
+                            Initiale (<q>volle</q>) Bilddimensionen
+                        </li>
                     </ul>
                     <p>Des Weiterem <strong>kann</strong> angegeben sein:</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span class="badge bg-dark me-1">sizes</span>
-                            Bereitgestellte (<q>vorberechnete</q>) Bilddimensionen</li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">maxWidth</span><span
-                                class="badge bg-dark me-1">maxHeight</span><span
-                                class="badge bg-dark me-1">maxArea</span> Maximale Dimensionen, in dem Bilder
-                            (beispielsweise über einen Image Request oder an einen Viewer) ausgeliefert werden
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">sizes</span>
+                            Bereitgestellte (<q>vorberechnete</q>) Bilddimensionen
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">tiles</span> Informationen
-                            zur Kachelung der Ressource
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">maxWidth</span>
+                            <span class="badge bg-dark me-1">maxHeight</span>
+                            <span class="badge bg-dark me-1">maxArea</span>
+                            Maximale Dimensionen, in dem Bilder (beispielsweise über einen Image Request oder an einen
+                            Viewer) ausgeliefert werden
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">preferredFormats</span><span
-                                class="badge bg-dark me-1">extraFormats</span> Gibt (Datei-)Formate an, die per
-                            Image
-                            Request abrufbar sind (<i>jpg</i>, <i>png</i>,
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">tiles</span>
+                            Informationen zur Kachelung der Ressource
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">preferredFormats</span>
+                            <span class="badge bg-dark me-1">extraFormats</span>
+                            Gibt (Datei-)Formate an, die per Image Request abrufbar sind (<i>jpg</i>, <i>png</i>,
                             <i>tif</i> etc.)
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">rights</span>
-                            Lizenzinformation zum
-                            Bildinhalt. <strong>Muss</strong> entweder einer <a
-                                href="https://creativecommons.org/licenses/" target="_blank">Creative Commons
-                                license
-                                URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>)
-                            oder einer
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">rights</span>
+                            Lizenzinformation zum Bildinhalt. <strong>Muss</strong> entweder einer <a
+                                href="https://creativecommons.org/licenses/" target="_blank">Creative Commons license
+                                URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>) oder einer
                             <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements
-                                URI</a>
-                            (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
+                                URI</a> (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
                             entsprechen
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">extraQualities</span> Steht
-                            eine
-                            Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>, <i>bitonal</i>)
-                            zur
-                            Verfügung, werden diese hier aufgelistet
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">extraQualities</span>
+                            Steht eine Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>,
+                            <i>bitonal</i>) zur Verfügung, werden diese hier aufgelistet
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">extraFeatures</span>
-                            Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über
-                            jene durch ihr jeweiliges Compliance Level definierten hinausgehen)
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">extraFeatures</span>
+                            Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über jene
+                            durch ihr jeweiliges Compliance Level definierten hinausgehen)
                         </li>
-                        <li class="list-group-item"><span class="badge bg-dark me-1">partOf</span><span
-                                class="badge bg-dark me-1">seeAlso</span><span class="badge bg-dark me-1">service</span>
+                        <li class="list-group-item">
+                            <span class="badge bg-dark me-1">partOf</span>
+                            <span class="badge bg-dark me-1">seeAlso</span>
+                            <span class="badge bg-dark me-1">service</span>
                             Verweis auf externe Ressourcen (beispielsweise Manifeste) oder Services
                         </li>
                     </ul>
@@ -357,8 +387,8 @@
         {"width": 1024, "scaleFactors": [ 8, 16 ]},
     ],
     <span data-bs-toggle="tooltip" data-bs-title="Optional, ersetzt 'license'">"rights"</span>: <span data-bs-toggle="tooltip" data-bs-title="Darf nur(!) noch ein einzelner Wert/URI sein">"http://rightsstatements.org/vocab/InC-EDU/1.0/"</span>,
-    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"preferredFormats":</span> [ "png", "gif"],
-    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"extraFormats":</span> [ "pdf" ],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"preferredFormats"</span>: [ "png", "gif"],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"extraFormats"</span>: [ "pdf" ],
     <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/qualities">"extraQualities"</span>: [ "color", "gray" ],
     <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/supports">"extraFeatures"</span>: [ "mirroring", "rotationArbitrary" ],
     "service": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">[</span>
@@ -395,14 +425,14 @@
         "formats" : [ "png", "gif", "pdf" ],
         "qualities" : [ "color", "gray" ],
         "supports" : [ "mirroring", "rotationArbitrary" ]
-       }
+        }
     ],
     "service" : {
-        "@context": "http://iiif.io/api/annex/service/physdim/1/context.json",
-        "profile": "http://iiif.io/api/annex/service/physdim",
-        "physicalScale": 0.0025,
-        "physicalUnits": "in"
-   }
+    "@context": "http://iiif.io/api/annex/service/physdim/1/context.json",
+    "profile": "http://iiif.io/api/annex/service/physdim",
+    "physicalScale": 0.0025,
+    "physicalUnits": "in"
+    }
 }</code>
                         </div>
                     </div>
@@ -424,37 +454,40 @@
                             rechteckiger <strong>Bildbereich</strong> des Vollbildes. Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th class="string">full</th>
+                                    <th class="string">full<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 0">0</span></th>
                                     <td>Der gesamte Bildbereich</td>
                                 </tr>
                                 <tr>
-                                    <th class="string">square</th>
+                                    <th class="string">square<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 1">1</span></th>
                                     <td>Der größtmögliche quadratische Bildbereich, der sich aus dem Vollbild generieren
                                         lässt (die Seitenlänge entspricht damit dessen kürzester Seite)</td>
                                 </tr>
                                 <tr>
-                                    <th class="variable">x,y,w,h</th>
+                                    <th class="variable">x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 1">1</span></th>
                                     <td>Absoluter Bildbereich, definiert durch dessen linken oberen Punkt
                                         (<strong class="variable">x</strong>,<strong class="variable">y</strong>),
                                         Breite (<strong class="variable">w</strong>) und Höhe
                                         (<strong class="variable">h</strong>) in Pixel</td>
                                 </tr>
                                 <tr>
-                                    <th class="variable">pct:x,y,w,h</th>
+                                    <th class="variable">pct:x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 2">2</span></th>
                                     <td>Relativer Bildbereich. Die Angabe <i>pct:50,50,50,50</i> selektiert
-                                        demnach das untere rechte Viertel des Vollbildes
-                                    </td>
+                                        demnach das untere rechte Viertel des Vollbildes</td>
                                 </tr>
                             </table>
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">size</span>
                             <strong>Dimensionen</strong> (<q>Größe</q>), in denen der ausgewählte Bildbereich (region)
-                            ausgeliefert
-                            werden soll. Möglich sind:
+                            ausgeliefert werden soll. Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th class="string">max<svg class="iconSVG" data-bs-toggle="tooltip"
-                                            data-bs-html="true"
+                                    <th class="string">max<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 0">0</span><svg class="iconSVG"
+                                            data-bs-toggle="tooltip" data-bs-html="true"
                                             data-bs-title="In Version 2.0 noch <i>full</i>, in Version 2.1 <i>full</i> ODER <i>max</i>, in Version 3 ist NUR noch <i>max</i> zulässig. Hintergrund dürften die in Version 2.1 eingeführten Maximaldimensionen (<i>maxWidth</i>, <i>maxHeight</i>, <i>maxArea</i>) sein">
                                             <use xlink:href="#warningSVG" />
                                         </svg></th>
@@ -462,32 +495,36 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="variable">w,h</th>
+                                    <th class="variable">w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 1">1</span></th>
                                     <td>Exakte Breite <strong class="variable">w</strong> und Höhe <strong
                                             class="variable">h</strong> in Pixel. Kann zu Verzerrungen führen</td>
                                 </tr>
                                 <tr>
-                                    <th class="variable">!w,h</th>
+                                    <th class="variable">w,<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 1">1</span></th>
+                                    <td>Die Auswahl wird auf eine Breite von <strong class="variable">w</strong> Pixel
+                                        proportional verkleinert</td>
+                                </tr>
+                                <tr>
+                                    <th class="variable">,h<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 1">1</span></th>
+                                    <td>Die Auswahl wird auf eine Höhe von <strong class="variable">h</strong> Pixel
+                                        proportional verkleinert</td>
+                                </tr>
+                                <tr>
+                                    <th class="variable">!w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 2">2</span></th>
                                     <td>Die Auswahl wird genau so weit proportional (<strong>!</strong>) verkleinert,
                                         dass sie gerade noch in ein <q>imaginäres Fenster</q> der Breite <strong
                                             class="variable">w</strong> Pixel und Höhe <strong
                                             class="variable">h</strong> Pixel passt</td>
                                 </tr>
                                 <tr>
-                                    <th class="variable">w,</th>
-                                    <td>Die Auswahl wird auf eine Breite von <strong class="variable">w</strong> Pixel
-                                        proportional verkleinert</td>
-                                </tr>
-                                <tr>
-                                    <th class="variable">,h</th>
-                                    <td>Die Auswahl wird auf eine Höhe von <strong class="variable">h</strong> Pixel
-                                        proportional verkleinert</td>
-                                </tr>
-                                <tr>
-                                    <th class="variable">pct:n</th>
+                                    <th class="variable">pct:n<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 2">2</span></th>
                                     <td>Länge und Breite der Rückgabe entsprechen <strong class="variable">n</strong>
-                                        Prozent (pct) der
-                                        Auswahl </td>
+                                        Prozent (pct) der Auswahl</td>
                                 </tr>
                             </table>
                             <p><svg class="iconSVG" data-bs-toggle="tooltip" data-bs-title="Neu in Version 3">
@@ -502,11 +539,14 @@
                             </p>
                         </li>
                         <li class="list-group-item"><span
-                                class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe.
+                                class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe
                             Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th class="variable">n</th>
+                                    <th class="variable">n<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-html="true"
+                                            data-bs-title="<i>0</i> (keine Rotation) funktioniert bei allen Ressourcen (Compliance Level 0).<br/>Level 2 verlangt lediglich orthogonale (<i>90</i>, <i>180</i>, <i>270</i>) Rotation .<br/>Rotationen um beliebige Winkel (<i>rotationArbitrary</i>) sind auf keinem Level verpflichtend, können aber als <i>extraFeatures</i> implementiert sein">0/2/-</span>
+                                    </th>
                                     <td>Das zurückgegeben Bild ist um <strong class="variable">n</strong>° im
                                         Uhrzeigersinn gedreht</td>
                                 </tr>
@@ -522,16 +562,19 @@
                             <q><strong>Qualität</strong></q> der Rückgabe. Möglich sind:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th class="string"><i>default</i></th>
+                                    <th class="string"><i>default</i><span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 0">0</span></th>
                                     <td>Die vom Server voreingestellte Bildqualität (entspricht zumeist <i>color</i>)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="string"><i>color</i></th>
+                                    <th class="string"><i>color</i><span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 2 (wenn anwendbar)">2</span></th>
                                     <td>Alle (vorhandenen) Farbinformationen</td>
                                 </tr>
                                 <tr>
-                                    <th class="string"><i>gray</i></th>
+                                    <th class="string"><i>gray</i><span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 2 (wenn anwendbar)">2</span></th>
                                     <td>Schwarzweiß MIT Graustufen (s/w monochrom)</td>
                                 </tr>
                                 <tr>
@@ -544,16 +587,18 @@
                             (Datei-)<strong>Format</strong> der Rückgabe. Unterstützt werden:
                             <table class="table table-bordered table-striped my-2">
                                 <tr>
-                                    <th class="string">jpg</th>
+                                    <th class="string">jpg<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 0">0</span></th>
                                     <td>image/jpeg</td>
+                                </tr>
+                                <tr>
+                                    <th class="string">png<span class="cl badge" data-bs-toggle="tooltip"
+                                            data-bs-title="Compliance Level 2">2</span></th>
+                                    <td>image/png</td>
                                 </tr>
                                 <tr>
                                     <th class="string">tif</th>
                                     <td>image/tiff</td>
-                                </tr>
-                                <tr>
-                                    <th class="string">png</th>
-                                    <td>image/png</td>
                                 </tr>
                                 <tr>
                                     <th class="string">gif</th>
@@ -574,6 +619,100 @@
                             </table>
                         </li>
                     </ul>
+                </div>
+                <div id="imageAPI_imageRequests_examples">
+                    <h2>region</h2>
+                    <!-- region images-->
+                    <div class="row">
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
+                        </div>
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg" />
+                        </div>
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg" />
+                        </div>
+                    </div>
+                    <!-- region URIs -->
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
+                                target="_blank">.../<strong>full</strong>/max/0/default.jpg</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg"
+                                target="_blank">.../<strong>1500,1250,300,300</strong>/max/0/default.jpg</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg"
+                                target="_blank">.../<strong>pct:50,50,10,10</strong>/max/0/default.jpg</a>
+                        </div>
+                    </div>
+                    <h2>size</h2>
+                    <!-- size row 1 images-->
+                    <div class="row">
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
+                        </div>
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg" />
+                        </div>
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg" />
+                        </div>
+                    </div>
+                    <!-- size row 1 URIs -->
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
+                                target="_blank">.../full/<strong>max</strong>/0/default.jpg</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg"
+                                target="_blank">.../full/<strong>300,300</strong>/0/default.jpg</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg"
+                                target="_blank">.../full/<strong>300,</strong>/0/default.jpg</a>
+                        </div>
+                    </div>
+                     <!-- size row 2 images-->
+                     <div class="row">
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/,300/0/default.jpg" />
+                        </div>
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg" />
+                        </div>
+                        <div class="ire col-lg-4">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/default.jpg" />
+                        </div>
+                    </div>
+                    <!-- size row 2 URIs -->
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/,300/0/default.jpg"
+                                target="_blank">.../full/<strong>,300</strong>/0/default.jpg</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg"
+                                target="_blank">.../full/<strong>!300,300</strong>/0/default.jpg</a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10,/0/default.jpg"
+                                target="_blank">.../full/<strong>pct:10</strong>/0/default.jpg</a>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="viewer">
@@ -602,8 +741,8 @@
                 <div id="uv" class="viewer uv"></div>
                 <!-- The class 'uv' is needed as referred to in uv.min.css-->
                 <code>const uv = UV.init('uv', {
-        manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-   });</code>
+    manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+});</code>
                 <h3>Tify</h3>
                 <div id="tify" class="viewer"></div>
                 <code>const tify = new Tify({
@@ -615,16 +754,11 @@
     </div>
     <script>
         /* -----# enable BS Tooltips ---------------------------*/
-
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
         /* -----# IIIF Viewer ----------------------------------*/
-
         const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
-
         /* ----## OSD ------------------------------------------*/
-
         fetch(manifest)
             .then(myManifest => myManifest.json())
             .then(function (myManifestJSON) {
@@ -655,31 +789,28 @@
                     osd.addOverlay(myOverlay);
                });*/
             })
-
         /* ----## Mirador ---------------------------------------*/
-
         const mdv = Mirador.viewer({
             id: 'mdv',
             windows: [{
-                manifestId: manifest/*,
-                    view: 'single',
-                    canvasIndex: 17
-                */}]
+                manifestId: manifest
+                /*,
+                                    view: 'single',
+                                    canvasIndex: 17
+                                */
+            }]
         });
-
         /* ----## UV --------------------------------------------*/
-
-        const uv = UV.init('uv', { manifest: manifest });
-
+        const uv = UV.init('uv', {
+            manifest: manifest
+        });
         /*//Override CDN configs
         uv.on("configure", function ({config, cb}) {
             cb({
                 options: {leftPanelEnabled: false}
            });
        });*/
-
         /* ----## Tify ------------------------------------------*/
-
         const tify = new Tify({
             container: '#tify',
             manifestUrl: manifest
