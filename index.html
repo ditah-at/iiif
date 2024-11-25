@@ -40,6 +40,7 @@
     <div class="row">
         <aside class="col-2">
             <nav class="nav flex-column sticky-top p-3">
+                <a class="navbar-brand fw-bold" href="#about">Über das Projekt</a>
                 <a class="navbar-brand fw-bold">IIIF</a>
                 <a class="nav-link fw-bold" href="#intro">Einführung</a>
                 <!-- ## --><a class="nav-link ms-2" href="#intro_about">Was ist IIIF?</a>
@@ -56,9 +57,35 @@
                 <!-- ## --><!-- <a class="nav-link ms-2" href="#collection">Collections</a> -->
                 <a class="nav-link fw-bold" href="#viewer">Viewer</a>
 
+                <a class="navbar-brand fw-bold" href="#literature">Weiterführende Literatur</a>
+
             </nav>
         </aside>
         <main class="col-10">
+            <section id="about">
+                <h1>Über das Projekt</h1>
+                <p>Das International Image Interoperability Framework (IIIF) ist ein internationaler Standard zum Austausch von digitalen Bildern und Bilddaten. 
+                    Digitale Editionen teilen die übergeordnete Zielsetzung in Hinblick auf meist in Textform überlieferte Information; unter dem Stichwort „Distributed Editions“ 
+                    werden die Vorteile in der Anwendung von IIIF schon länger diskutiert (van Zundert 2018, Witt 2018, Drucker 2021). Obwohl IIIF in vielen Applikationen 
+                    digitaler Editionen genutzt wird, um Bilddaten etwa von Faksimiles darzustellen, sind die Möglichkeiten nicht ausgeschöpft.
+                </p>
+                <p>
+                    Das betrifft ein knowledge gap zwischen technischer Umsetzung und Anforderungen aus den Editionsprojekten – in beide Richtungen: Einerseits gibt es Features, 
+                    die sowohl in den IIIF-Spezifikationen als auch in Viewern implementiert sind, die aber nicht genutzt werden, da sie nicht bekannt sind oder für den Anwendungsfall 
+                    als nicht sinnvoll erachtet werden; andererseits wünschen Editionsprojekte – als BenutzerInnen ihrer eigenen Editionen wie als bemühte BereitstellerInnen von dem 
+                    jeweiligen Material angemessenen Funktionalitäten – Features im Umgang mit Bilddaten, deren vorhandene technische Implementierbarkeit den EntwicklerInnen der Präsentationsschichten 
+                    nicht bekannt ist.</p>
+                    <p>
+                    Die Editionswissenschaft hat ihrerseits die Bedeutung von faksimilierenden Reproduktionen für die Rechtfertigung editorischer Entscheidungen zur Kenntnis genommen und sie in 
+                    unterschiedlichen Gradierungen auf einer Skala zwischen reiner Reproduktion (und Sicherung etwa fragilen Materials) und interpretatorischem Eingriff verortet (Bosse 2023, 16f). 
+                    Geht es um digitale Editionen, so zeigt sich in einer vorläufigen Literaturrecherche in den Bänden und Beiheften von Editio sowie in den Rezensionen aus RIDE: Es liegt der Fokus entweder 
+                    auf UI-Elementen (wobei Viewer als Standardkomponenten kaum besondere Aufmerksamkeit erfahren), oder auf der technischen Implementierung der Bildauslieferung (wobei IIIF als Schlagwort für 
+                    die Qualität der Umsetzung einer Applikation ausreichend scheint). Die Möglichkeiten von IIIF und ihre spezifische Anwendbarkeit für digitale Editionen sind jedenfalls von dieser Seite nicht 
+                    systematisch erfasst.</p>
+                    </p>
+
+                </section>
+                
             <section id="intro">
                 <h1>Einführung</h1>
                 <div id="intro_about">
@@ -611,6 +638,29 @@
     manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
 });</code>
             </section>
+
+
+            <section id="literature">
+                <h1>Weiterführende Literatur</h1>
+                <div>
+                    <ul>
+                        <li>Kränzle, A., Ritter, G., Sieber, Ch. 2023: Sources Online: Eine nachhaltige Infrastruktur für digitale wissenschaftliche Texteditionen auf der Grundlage von TEI Publisher und IIIF: Sources Online: A Sustainable Infrastructure for Digital Scholarly Text Editions Based on TEI Publisher and IIIF, ABI Technik 43/3,158-167. DOI: 10.1515/abitech-2023-0030.</li>
+                        <li>The digital Analysis of Syriac Handwriting (DASH) Projekt: Augmenting Manuscript Studies via Interactive Scriptcharts and IIIF: https://dh2020.adho.org/wp-content/uploads/2020/07/442_TheDigitalAnalysisofSyriacHandwritingDASHProjectAugmentingManuscriptStudiesviaInteractiveScriptchartsandIIIF.html</li>
+                        <li>Mertens, I. 2021. Zwei Seiten einer Medaille – IIIF und die Arbeit mit digitalen Bildbeständen. In: Zeitschrift für digitale Geisteswissenschaften. Wolfenbüttel. DOI: 10.17175/2021_002</li>
+                        <li>van Zundert, J. 2018: On Not Writing a Review about Mirador: Mirador, IIIF, and the Epistemological Gains of Distributed Digital Scholarly Resources. Digital Medievalist 11(1): 5, pp. 1–48, DOI: 10.16995/dm.78.</li>
+                        <li>Witt, J. C. 2018. Digital Scholarly Editions and API Consuming Applications. In: Digital Scholarly Editions as Interfaces, hg. v. R. Bleier, M. Bürgermeister, H. Klug, et al. (Schriften des Instituts für Dokumentologie und Editorik 12), 219–247. http://nbn-resolving.de/urn:nbn:de:hbz:38-91182.
+                    </li>
+                    </ul>
+                </div>
+
+
+
+                </section>
+
+
+
+
+
         </main>
     </div>
     <script>
