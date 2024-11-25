@@ -58,13 +58,30 @@ span.cl {
 }
 
 div.ire {
-    /*used for image request examples*/
+    /*used for rows image request examples*/
     background: repeating-conic-gradient(#f2f2f2 0% 25%, transparent 0% 50%) 50% / 20px 20px;
-    /*margin:5px;*/
-    padding: 0px;
     border: 1px solid black;
     overflow: scroll;
     aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+div.ire>a {
+    padding: 5px;
+    background-color: #f2f2f2;
+    display: inline-block;
+    position: sticky;
+    top: 0;
+    left: 0;
+    font-size: 50%;
+}
+
+div.ire>a>strong {
+    font-weight: 800;
+}
+
+div.ire>img {
+    position: absolute;
 }
 
 ul {

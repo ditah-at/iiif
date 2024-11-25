@@ -261,7 +261,6 @@
                             <i>180</i>, <i>270</i>) unterstützen.
                         </li>
                     </ul>
-                    <p>[tbc]</p>
                 </div>
                 <div id="imageAPI_imageInformationRequests">
                     <h2>Image Information Requests</h2>
@@ -439,9 +438,15 @@
                 </div>
                 <div id="imageAPI_imageRequests">
                     <h2>Image Requests</h2>
-                    <p>[tba]</p>
-                    <p>Über die Parametrisierung des <strong>Request-URI</strong> lässt sich das Format der
-                        Rückgabe konfigurieren. </p>
+                    <p>IIIF <strong>Image Requests</strong> (<q>Bildanforderungen</q> oder <q>-aufrufe</q>) sind
+                        unbestritten das zentrale Feature (und verkörpern gewissermaßen die Grundidee) des Frameworks.
+                        Einfach ausgedrückt könnte man sagen, dass mit IIIF Bilder (Ressourcen) über <q>normale</q>
+                        HTTP(S) Requests (<q>Links</q>) dynamisch in verschiedensten <q>Varianten</q> (Ausschnitten,
+                        Größen, Rotationen, <q>Qualitäten</q> und Formaten) so ausgeliefert werden können, als ob diese
+                        unter der jeweiligen <q>Adresse</q> (<abbr title="Uniform Resource Locator">URL</abbr>)
+                        <q>tatsächlich</q> (also als Bilddateien am Server) hinterlegt wären. Über die
+                        <strong>Parametrisierung</strong> dieses URL (<strong>Request-URI</strong>) lässt sich dabei
+                        konfigurieren, welche <q>Variante</q> des Bildes konkret zurückgegeben werden soll. </p>
                     <code><var data-bs-toggle="tooltip" data-bs-title="URI der IIIF Ressource">{base-uri}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Auszuwählender Bildbereich">{region}</var>/<var
                             data-bs-toggle="tooltip" data-bs-title="Dimensionen der Rückgabe">{size}</var>/<var
@@ -449,6 +454,7 @@
                             data-bs-toggle="tooltip" data-bs-title="Qualität der Rückgabe">{quality}</var>.<var
                             data-bs-toggle="tooltip" data-bs-title="(Datei-)Format der Rückgabe">{format}</var></code>
                     <ul class="list-group list-group-flush">
+                        <!-- region -->
                         <li class="list-group-item"><span class="badge bg-dark me-1">region</span>
                             Auszuwählender,
                             rechteckiger <strong>Bildbereich</strong> des Vollbildes. Möglich sind:
@@ -479,7 +485,42 @@
                                         demnach das untere rechte Viertel des Vollbildes</td>
                                 </tr>
                             </table>
+                            <div class="row g-2">
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
+                                            target="_blank">.../<strong>full</strong>/max/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/square/max/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/square/max/0/default.jpg"
+                                            target="_blank">.../<strong>square</strong>/max/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg"
+                                            target="_blank">.../<strong>1500,1250,300,300</strong>/max/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg"
+                                            target="_blank">.../<strong>pct:50,50,10,10</strong>/max/0/default.jpg</a>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
+                        <!-- size -->
                         <li class="list-group-item"><span class="badge bg-dark me-1">size</span>
                             <strong>Dimensionen</strong> (<q>Größe</q>), in denen der ausgewählte Bildbereich (region)
                             ausgeliefert werden soll. Möglich sind:
@@ -527,16 +568,66 @@
                                         Prozent (pct) der Auswahl</td>
                                 </tr>
                             </table>
+                            <div class="row g-2">
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg"
+                                            target="_blank">.../full/<strong>300,300</strong>/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg"
+                                            target="_blank">.../full/<strong>300,</strong>/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg"
+                                            target="_blank">.../full/<strong>!300,300</strong>/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10,/0/default.jpg"
+                                            target="_blank">.../full/<strong>pct:10</strong>/0/default.jpg</a>
+                                    </div>
+                                </div>
+                            </div>
                             <p><svg class="iconSVG" data-bs-toggle="tooltip" data-bs-title="Neu in Version 3">
                                     <use xlink:href="#warningSVG" />
                                 </svg><strong>Upscaling:</strong> Wird einem der obigen Dimensionsangaben ein Zirkumflex
                                 (<i>^</i>) vorangestellt (also <i>^max</i>, <strong class="variable">^!w,h</strong>,
                                 <strong class="variable">^,h</strong> etc.), versucht der IIIF Server den gewählten
                                 Bildausschnitt auf die gewünschten Dimensionen (nötigenfalls) hochzuskalieren. Das
-                                funktioniert jedoch nur dann, wenn der Server das Hochskalieren auch aktiv unterstützt
-                                (also wenn <i>sizeUpscaling</i> in den <i>extraFeatures</i> des info.json angegeben
-                                ist).
+                                funktioniert jedoch nur dann, wenn der Server das Hochskalieren auch aktiv unterstützt.
                             </p>
+                            <div class="row g-2">
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^!400,400/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^!400,400/0/default.jpg"
+                                            target="_blank">.../1500,1250,300,300/<strong>^!400,400</strong>/0/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^pct:200/0/default.jpg" />
+                                        <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^pct:200/0/default.jpg"
+                                            target="_blank">.../1500,1250,300,300/<strong>^pct:200</strong>/0/default.jpg</a>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="list-group-item"><span
                                 class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe
@@ -557,6 +648,33 @@
                                         horizontale Spiegelung ohne Rotation)</td>
                                 </tr>
                             </table>
+                            <!-- ToDo: Die Ressourcen in https://image-api.iiif.io/api/image/3.0/example/reference unterstützen mirroring NICHT, das Beispiel ist daher V2. Finde ich eine andere in V3? -->
+                            <div class="row g-2">
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/0/default.jpg" />
+                                        <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/0/default.jpg"
+                                            target="_blank">.../full/!300,300/<strong>0</strong>/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!0/default.jpg" />
+                                        <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!0/default.jpg"
+                                            target="_blank">.../full/!300,300/<strong>!0</strong>/default.jpg</a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 p-md-2">
+                                    <div class="ire">
+                                        <img
+                                            src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!332.5/default.jpg" />
+                                        <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!332.5/default.jpg"
+                                            target="_blank">.../full/!300,300/<strong>!332.5</strong>/default.jpg</a>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="list-group-item"><span class="badge bg-dark me-1">quality</span>
                             <q><strong>Qualität</strong></q> der Rückgabe. Möglich sind:
@@ -565,7 +683,6 @@
                                     <th class="string"><i>default</i><span class="cl badge" data-bs-toggle="tooltip"
                                             data-bs-title="Compliance Level 0">0</span></th>
                                     <td>Die vom Server voreingestellte Bildqualität (entspricht zumeist <i>color</i>)
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="string"><i>color</i><span class="cl badge" data-bs-toggle="tooltip"
@@ -620,97 +737,29 @@
                         </li>
                     </ul>
                 </div>
-                <div id="imageAPI_imageRequests_examples">
-                    <h2>region</h2>
-                    <!-- region images-->
-                    <div class="row">
-                        <div class="ire col-lg-4">
+                <div class="row g-2">
+                    <div class="col-xl-3 col-lg-6 p-md-2">
+                        <div class="ire">
                             <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
-                        </div>
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg" />
-                        </div>
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg" />
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/gray.jpg" />
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/gray.jpg"
+                                target="_blank">.../full/pct:10/0/<strong>gray</strong>.jpg</a>
                         </div>
                     </div>
-                    <!-- region URIs -->
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
-                                target="_blank">.../<strong>full</strong>/max/0/default.jpg</a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg"
-                                target="_blank">.../<strong>1500,1250,300,300</strong>/max/0/default.jpg</a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg"
-                                target="_blank">.../<strong>pct:50,50,10,10</strong>/max/0/default.jpg</a>
+                    <div class="col-xl-3 col-lg-6 p-md-2">
+                        <div class="ire">
+                            <img
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/bitonal.jpg" />
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/bitonal.jpg"
+                                target="_blank">.../full/pct:10/0/<strong>bitonal</strong>.jpg</a>
                         </div>
                     </div>
-                    <h2>size</h2>
-                    <!-- size row 1 images-->
-                    <div class="row">
-                        <div class="ire col-lg-4">
+                    <div class="col-xl-3 col-lg-6 p-md-2">
+                        <div class="ire">
                             <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
-                        </div>
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg" />
-                        </div>
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg" />
-                        </div>
-                    </div>
-                    <!-- size row 1 URIs -->
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
-                                target="_blank">.../full/<strong>max</strong>/0/default.jpg</a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg"
-                                target="_blank">.../full/<strong>300,300</strong>/0/default.jpg</a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg"
-                                target="_blank">.../full/<strong>300,</strong>/0/default.jpg</a>
-                        </div>
-                    </div>
-                     <!-- size row 2 images-->
-                     <div class="row">
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/,300/0/default.jpg" />
-                        </div>
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg" />
-                        </div>
-                        <div class="ire col-lg-4">
-                            <img
-                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/default.jpg" />
-                        </div>
-                    </div>
-                    <!-- size row 2 URIs -->
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/,300/0/default.jpg"
-                                target="_blank">.../full/<strong>,300</strong>/0/default.jpg</a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg"
-                                target="_blank">.../full/<strong>!300,300</strong>/0/default.jpg</a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10,/0/default.jpg"
-                                target="_blank">.../full/<strong>pct:10</strong>/0/default.jpg</a>
+                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/color.png" />
+                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/color.png"
+                                target="_blank">.../full/pct:10/0/<strong>color</strong>.<strong>png</strong></a>
                         </div>
                     </div>
                 </div>
@@ -756,6 +805,7 @@
         /* -----# enable BS Tooltips ---------------------------*/
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
         /* -----# IIIF Viewer ----------------------------------*/
         const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
         /* ----## OSD ------------------------------------------*/
@@ -770,7 +820,7 @@
                 return myInfoJsonArray;
             })
             .then(function (myTileSources) {
-                console.log(myTileSources)
+                //console.log(myTileSources)
                 const osd = OpenSeadragon({
                     id: 'osd',
                     prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
@@ -815,6 +865,15 @@
             container: '#tify',
             manifestUrl: manifest
         })
+
+        /* -----# Get Example Image Dimensions  ----------------------------------*/
+        window.addEventListener("load", function () {
+            document.querySelectorAll('div.ire').forEach(function (myDiv) {
+                const myImg = myDiv.querySelector('img'), myA = myDiv.querySelector('a');
+                const w = myImg.clientWidth, h = myImg.clientHeight;
+                myA.innerHTML += (` [${w}x${h}px]`);
+            });
+        });
     </script>
 </body>
 
