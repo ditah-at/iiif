@@ -66,331 +66,389 @@
         <main class="col-10">
             <section id="about">
                 <h1>Über das Projekt</h1>
-                <p>Das International Image Interoperability Framework (IIIF) ist ein internationaler Standard zum Austausch von digitalen Bildern und Bilddaten. 
-                    Digitale Editionen teilen die übergeordnete Zielsetzung in Hinblick auf meist in Textform überlieferte Information; unter dem Stichwort „Distributed Editions“ 
-                    werden die Vorteile in der Anwendung von IIIF schon länger diskutiert (van Zundert 2018, Witt 2018, Drucker 2021). Obwohl IIIF in vielen Applikationen 
-                    digitaler Editionen genutzt wird, um Bilddaten etwa von Faksimiles darzustellen, sind die Möglichkeiten nicht ausgeschöpft.
+                <p>Das International Image Interoperability Framework (IIIF) ist ein internationaler Standard zum
+                    Austausch von digitalen Bildern und Bilddaten.
+                    Digitale Editionen teilen die übergeordnete Zielsetzung in Hinblick auf meist in Textform
+                    überlieferte Information; unter dem Stichwort „Distributed Editions“
+                    werden die Vorteile in der Anwendung von IIIF schon länger diskutiert (van Zundert 2018, Witt 2018,
+                    Drucker 2021). Obwohl IIIF in vielen Applikationen
+                    digitaler Editionen genutzt wird, um Bilddaten etwa von Faksimiles darzustellen, sind die
+                    Möglichkeiten nicht ausgeschöpft.
                 </p>
                 <p>
-                    Das betrifft ein knowledge gap zwischen technischer Umsetzung und Anforderungen aus den Editionsprojekten - in beide Richtungen: Einerseits gibt es Features, 
-                    die sowohl in den IIIF-Spezifikationen als auch in Viewern implementiert sind, die aber nicht genutzt werden, da sie nicht bekannt sind oder für den Anwendungsfall 
-                    als nicht sinnvoll erachtet werden; andererseits wünschen Editionsprojekte - als BenutzerInnen ihrer eigenen Editionen wie als bemühte BereitstellerInnen von dem 
-                    jeweiligen Material angemessenen Funktionalitäten - Features im Umgang mit Bilddaten, deren vorhandene technische Implementierbarkeit den EntwicklerInnen der Präsentationsschichten 
+                    Das betrifft ein knowledge gap zwischen technischer Umsetzung und Anforderungen aus den
+                    Editionsprojekten - in beide Richtungen: Einerseits gibt es Features,
+                    die sowohl in den IIIF-Spezifikationen als auch in Viewern implementiert sind, die aber nicht
+                    genutzt werden, da sie nicht bekannt sind oder für den Anwendungsfall
+                    als nicht sinnvoll erachtet werden; andererseits wünschen Editionsprojekte - als BenutzerInnen ihrer
+                    eigenen Editionen wie als bemühte BereitstellerInnen von dem
+                    jeweiligen Material angemessenen Funktionalitäten - Features im Umgang mit Bilddaten, deren
+                    vorhandene technische Implementierbarkeit den EntwicklerInnen der Präsentationsschichten
                     nicht bekannt ist.</p>
-                    <p>
-                    Die Editionswissenschaft hat ihrerseits die Bedeutung von faksimilierenden Reproduktionen für die Rechtfertigung editorischer Entscheidungen zur Kenntnis genommen und sie in 
-                    unterschiedlichen Gradierungen auf einer Skala zwischen reiner Reproduktion (und Sicherung etwa fragilen Materials) und interpretatorischem Eingriff verortet (Bosse 2023, 16f). 
-                    Geht es um digitale Editionen, so zeigt sich in einer vorläufigen Literaturrecherche in den Bänden und Beiheften von Editio sowie in den Rezensionen aus RIDE: Es liegt der Fokus entweder 
-                    auf UI-Elementen (wobei Viewer als Standardkomponenten kaum besondere Aufmerksamkeit erfahren), oder auf der technischen Implementierung der Bildauslieferung (wobei IIIF als Schlagwort für 
-                    die Qualität der Umsetzung einer Applikation ausreichend scheint). Die Möglichkeiten von IIIF und ihre spezifische Anwendbarkeit für digitale Editionen sind jedenfalls von dieser Seite nicht 
+                <p>
+                    Die Editionswissenschaft hat ihrerseits die Bedeutung von faksimilierenden Reproduktionen für die
+                    Rechtfertigung editorischer Entscheidungen zur Kenntnis genommen und sie in
+                    unterschiedlichen Gradierungen auf einer Skala zwischen reiner Reproduktion (und Sicherung etwa
+                    fragilen Materials) und interpretatorischem Eingriff verortet (Bosse 2023, 16f).
+                    Geht es um digitale Editionen, so zeigt sich in einer vorläufigen Literaturrecherche in den Bänden
+                    und Beiheften von Editio sowie in den Rezensionen aus RIDE: Es liegt der Fokus entweder
+                    auf UI-Elementen (wobei Viewer als Standardkomponenten kaum besondere Aufmerksamkeit erfahren), oder
+                    auf der technischen Implementierung der Bildauslieferung (wobei IIIF als Schlagwort für
+                    die Qualität der Umsetzung einer Applikation ausreichend scheint). Die Möglichkeiten von IIIF und
+                    ihre spezifische Anwendbarkeit für digitale Editionen sind jedenfalls von dieser Seite nicht
                     systematisch erfasst.</p>
-                </section>
-                <section id="iiif">
-                    <div id="intro">
-                        <h1>Einführung</h1>
-                        <div id="intro_about">
-                            <h2>Was ist IIIF?</h2>
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
-                                        gesprochen <q>Triple-Ei-F</q>) bietet einen Standard, wie digitale Bilder im Internet
-                                        geteilt werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation aus
-                                        einer Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die
-                                        Harvard
-                                        University, die Stanford University Libraries, die Cornell University, die British
-                                        Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich und
-                                        Norwegen gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und
-                                        ermöglicht einen institutionsübergreifenden Austausch digitaler Objekte sowie ihre
-                                        standortunabhängige Darstellung in unterschiedlichsten Viewern und sonstigen
-                                        Präsentationslösungen im World Wide Web. </p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework"
-                                        target="_blank">Wikipedia</a>
-                                </figcaption>
-                            </figure>
-                            <p>IIIF ist also ein Standard für das <q>Ausliefern</q> von Bilddaten im World Wide Web. In den
-                                allermeisten Fällen ist dabei der <q>Lieferant</q> ein sogenannter <strong>(IIIF-)
-                                    Image-Server</strong>, also der Ort im Netz, an dem die Bilddaten liegen bzw. für die
-                                <q>Abholung</q> aufbereitet werden. Der <q>Empfänger</q> ist zumeist der Browser, in dem die
-                                gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter Rücksichtnahme auf allgemeine
-                                Web-Standards entwickelt wurde (und weiter wird), funktioniert dies mit allen modernen
-                                Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard (wie es
-                                beispielsweise bei <strong>IIIF- fähigen Viewern</strong> Fall ist), lässt sich das Potential
-                                der Technologie voll ausschöpfen.
+            </section>
+            <section id="iiif">
+                <div id="intro">
+                    <h1>Einführung</h1>
+                    <div id="intro_about">
+                        <h2>Was ist IIIF?</h2>
+                        <figure>
+                            <blockquote class="blockquote">
+                                <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
+                                    gesprochen <q>Triple-Ei-F</q>) bietet einen Standard, wie digitale Bilder im
+                                    Internet
+                                    geteilt werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation
+                                    aus
+                                    einer Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die
+                                    Harvard
+                                    University, die Stanford University Libraries, die Cornell University, die British
+                                    Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich
+                                    und
+                                    Norwegen gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und
+                                    ermöglicht einen institutionsübergreifenden Austausch digitaler Objekte sowie ihre
+                                    standortunabhängige Darstellung in unterschiedlichsten Viewern und sonstigen
+                                    Präsentationslösungen im World Wide Web. </p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <a href="https://de.wikipedia.org/wiki/International_Image_Interoperability_Framework"
+                                    target="_blank">Wikipedia</a>
+                            </figcaption>
+                        </figure>
+                        <p>IIIF ist also ein Standard für das <q>Ausliefern</q> von Bilddaten im World Wide Web. In den
+                            allermeisten Fällen ist dabei der <q>Lieferant</q> ein sogenannter <strong>(IIIF-)
+                                Image-Server</strong>, also der Ort im Netz, an dem die Bilddaten liegen bzw. für die
+                            <q>Abholung</q> aufbereitet werden. Der <q>Empfänger</q> ist zumeist der Browser, in dem die
+                            gelieferten Bilddaten dargestellt werden sollen. Da IIIF unter Rücksichtnahme auf allgemeine
+                            Web-Standards entwickelt wurde (und weiter wird), funktioniert dies mit allen modernen
+                            Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard (wie es
+                            beispielsweise bei <strong>IIIF- fähigen Viewern</strong> Fall ist), lässt sich das
+                            Potential
+                            der Technologie voll ausschöpfen.
+                        </p>
+                        <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung -
+                            insbesondere in
+                            Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an
+                            Webentwickler,
+                            die wissen wollen: </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw.
+                                in
+                                einem IIIF Viewer?</li>
+                            <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von
+                                Manifesten
+                                und Collections?</li>
+                            <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine
+                                Digitale
+                                Edition ein?</li>
+                        </ul>
+                        <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen
+                            und
+                            Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
+                                target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur
+                            Vertiefung
+                            der im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf
+                            die
+                            exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen,
+                            auf
+                            welche hier noch des Öfteren referenziert werden wird. </p>
+                    </div>
+                    <div id="intro_terms">
+                        <h2>Begriffliches</h2>
+                        <div>
+                            <h3>IIIF Ressourcen</h3>
+                            <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung
+                                stehen,
+                                womit sie als <strong>IIIF Ressourcen</strong> oder IIIF Services (die
+                                Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede
+                                dieser
+                                Ressourcen (in der Regel entspricht eine (Bild-)Quelle einer Ressource) wird durch einen
+                                <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
+                                referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt
+                                wird
+                                wird und sich folgendermaßen zusammensetzt:
                             </p>
-                            <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung - insbesondere in
-                                Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an Webentwickler,
-                                die wissen wollen: </p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw. in
-                                    einem IIIF Viewer?</li>
-                                <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von Manifesten
-                                    und Collections?</li>
-                                <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine Digitale
-                                    Edition ein?</li>
-                            </ul>
-                            <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen und
-                                Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
-                                    target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur Vertiefung
-                                der im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf die
-                                exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf
-                                welche hier noch des Öfteren referenziert werden wird. </p>
-                        </div>
-                        <div id="intro_terms">
-                            <h2>Begriffliches</h2>
-                            <div>
-                                <h3>IIIF Ressourcen</h3>
-                                <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung stehen,
-                                    womit sie als <strong>IIIF Ressourcen</strong> oder IIIF Services (die
-                                    Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede dieser
-                                    Ressourcen (in der Regel entspricht eine (Bild-)Quelle einer Ressource) wird durch einen
-                                    <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
-                                    referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird
-                                    wird und sich folgendermaßen zusammensetzt:
-                                </p>
-                                <code><var data-bs-toggle="tooltip"
+                            <code><var data-bs-toggle="tooltip"
                                         data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var
                                         data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var
                                         data-bs-toggle="tooltip"
                                         data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var
                                         data-bs-toggle="tooltip"
                                         data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
-                                <p>Beispiele für base-URIs sind: </p>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <span data-bs-toggle="tooltip"
-                                            data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
-                                            https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
-                                    </li>
-                                    <li class="list-group-item"><span data-bs-toggle="tooltip"
-                                            data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
-                                    </li>
-                                    <li class="list-group-item"><span data-bs-toggle="tooltip"
-                                            data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
-                                    </li>
-                                </ul>
-                                <p>Im (vom Framework empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser auf
-                                    das
-                                    <strong>image information document (info.json)</strong> der betreffenden Ressource
-                                    dereferenziert (dazu weiter unten mehr).
-                                </p>
-                            </div>
-                            <div>
-                                <h3>Vollbild</h3>
-                                <p>Wie bereits erwähnt repräsentiert jede IIIF Ressource im Regelfall eine einzelne Bildquelle,
-                                    beispielsweise den Scan einer einzelnen (oder doppelten) Buchseite. Die <q>Qualität</q> der
-                                    Ressource ist damit größtenteils von der <q>Qualität</q> der zugrundeliegenden Bilddatei -
-                                    insbesondere deren Auflösung - abhängig bzw. durch diese limitiert. Das legt die Verwendung
-                                    möglichst hoch auflösender Bilder (und damit <q>großer</q> Bilddateien) nahe, wobei IIIF
-                                    Server auch Maximaldimensionen für die Bereitstellung von Ressourcen festlegen können. Mit
-                                    dem Begriff <strong>Vollbild</strong> (<i>full image</i>) ist hier die -
-                                    egal ob nun durch die zugrundeliegende Bilddatei oder die Implementation selbst definierte -
-                                    höchstauflösendste vom Server bereitgestellte Version des gesamten Bildbereichs gemeint.
-                                </p>
-                            </div>
-                        </div>
-                        <div id="intro_apis">
-                            <h2>IIIF APIs</h2>
-                            <p>Vielerorts wird IIIF auch als Spezifikation eines Sets von Services oder <abbr
-                                    title="application programming interface">API</abbr>s, die diesen Standard unterstützen,
-                                definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
-                                    API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses
-                                Tutorial eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die
-                                <q>Auslieferung</q>
-                                einzelner Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren Einzelquellen
-                                (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen
-                                Metadaten ermöglicht und steuert. Weiters umfasst der IIIF Standard die <strong>Authorization
-                                    Flow API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
-                                    API</strong> (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit)
-                                sowie die <strong>Content State API</strong> (Navigation der Presentation API).
+                            <p>Beispiele für base-URIs sind: </p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <span data-bs-toggle="tooltip"
+                                        data-bs-title="ÖNB | Austrian Books Online (APO) | Selectarum stirpium Americanarum historia, in qua ad Linnaeanum systema determinatae (etc.) | Bild 2">
+                                        https://iiif.onb.ac.at/images/ABO/Z165851607/00000002</span>
+                                </li>
+                                <li class="list-group-item"><span data-bs-toggle="tooltip"
+                                        data-bs-title="GAMS | Early Medieval Glosses And The Question Of Their Genesis: A Case Study On The Vienna Bede - Electronic transcription of Vienna, Österreichische Nationalbibliothek, Codex 15298 (olim Suppl. 2698) | Bild 1">https://gams.uni-graz.at/iiif/o:glossvibe.bvi/IMAGE.1</span>
+                                </li>
+                                <li class="list-group-item"><span data-bs-toggle="tooltip"
+                                        data-bs-title="DigiVatLib | Vergilius, Opera (fragmenta) | Bild 5">https://digi.vatlib.it/iiif/MSS_Vat.lat.3225/res/img0005</span>
+                                </li>
+                            </ul>
+                            <p>Im (vom Framework empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser
+                                auf
+                                das
+                                <strong>image information document (info.json)</strong> der betreffenden Ressource
+                                dereferenziert (dazu weiter unten mehr).
                             </p>
                         </div>
-                        <div id="intro_versions">
-                            <h2>IIIF Versionen</h2>
-                            <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version
-                                    3.0</strong> vor. Da einige der Änderungen <strong>zu Version 2 nicht
-                                    abwärtskompatibel</strong> sind macht es einen Unterschied, welche Version am jeweiligen
-                                Image Server implementiert ist. In der Praxis findet man - Stand 2024 - fast ausschließlich
-                                Implementationen der Version 2 vor (inklusive aller obigen Beispiele). Trotzdem wollen wir uns
-                                hier auf die APIs der Version 3.0 konzentrieren und gegebenenfalls auf Änderungen zur vorherigen
-                                Version hinweisen.
+                        <div>
+                            <h3>Vollbild</h3>
+                            <p>Wie bereits erwähnt repräsentiert jede IIIF Ressource im Regelfall eine einzelne
+                                Bildquelle,
+                                beispielsweise den Scan einer einzelnen (oder doppelten) Buchseite. Die <q>Qualität</q>
+                                der
+                                Ressource ist damit größtenteils von der <q>Qualität</q> der zugrundeliegenden Bilddatei
+                                -
+                                insbesondere deren Auflösung - abhängig bzw. durch diese limitiert. Das legt die
+                                Verwendung
+                                möglichst hoch auflösender Bilder (und damit <q>großer</q> Bilddateien) nahe, wobei IIIF
+                                Server auch Maximaldimensionen für die Bereitstellung von Ressourcen festlegen können.
+                                Mit
+                                dem Begriff <strong>Vollbild</strong> (<i>full image</i>) ist hier die -
+                                egal ob nun durch die zugrundeliegende Bilddatei oder die Implementation selbst
+                                definierte -
+                                höchstauflösendste vom Server bereitgestellte Version des gesamten Bildbereichs gemeint.
                             </p>
                         </div>
                     </div>
-                    <div id="imageAPI">
-                        <h1>IIIF Image API</h1>
-                        <figure>
-                            <blockquote class="blockquote">
-                                <p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr
-                                        title="Application Programming Interface">API</abbr> specifies a web service that
-                                    returns an image in response to a standard <abbr
-                                        title="Hypertext Transfer Protocol">HTTP</abbr> or <abbr
-                                        title="Hypertext Transfer Protocol (Secure)">HTTPS</abbr> request. The URI can specify
-                                    the region, size, rotation, quality characteristics and format of the requested image. A URI
-                                    can also be constructed to request basic technical information about the image to support
-                                    client applications. This <abbr title="Application Programming Interface">API</abbr> was
-                                    conceived of to facilitate systematic reuse of image resources in digital image repositories
-                                    maintained by cultural heritage organizations. It could be adopted by any image repository
-                                    or service, and can be used to retrieve static images in response to a properly constructed
-                                    URI.
-                                </p>
-                            </blockquote>
-                            <figcaption class="blockquote-footer">
-                                <a href="https://iiif.io/api/image/3.0/#1-introduction" target="_blank">iiif.io</a>
-                            </figcaption>
-                        </figure>
-                        <p>An die <strong><a href="https://iiif.io/api/image/3.0/" target="_blank">Image API</a></strong> können
-                            also grundsätzlich zwei unterschiedliche Arten von Abfragen (Requests) gestellt werden: </p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Ein <strong>Image Information Request</strong> gibt Metainformationen
-                                über die adressierte Ressource zurück.</li>
-                            <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
-                                Ressource, also ein <q>tatsächliches</q> Bild (bzw. einen Bildausschnitt) zurück. </li>
-                        </ul>
-                        <p>Nachdem (Image) Information Requests meist automatisiert im Hintergrund - beispielsweise von
-                            einem Viewer - gestellt werden, wird diese Funktionalität der Image API mancherorts etwas
-                            stiefmütterlich behandelt (wenn beispielsweise von <q>Image Delivery API</q> die Rede ist).
+                    <div id="intro_apis">
+                        <h2>IIIF APIs</h2>
+                        <p>Vielerorts wird IIIF auch als Spezifikation eines Sets von Services oder <abbr
+                                title="application programming interface">API</abbr>s, die diesen Standard unterstützen,
+                            definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
+                                API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses
+                            Tutorial eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die
+                            <q>Auslieferung</q>
+                            einzelner Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren
+                            Einzelquellen
+                            (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen
+                            Metadaten ermöglicht und steuert. Weiters umfasst der IIIF Standard die
+                            <strong>Authorization
+                                Flow API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
+                                API</strong> (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit)
+                            sowie die <strong>Content State API</strong> (Navigation der Presentation API).
                         </p>
-                        <div id="imageAPI_compliance">
-                            <h2>Compliance Levels</h2>
-                            <p>Wichtig vorauszuschicken ist, dass IIIF Ressourcen unterschiedlich <q>stark</q> implementiert
-                                werden können, also <strong>nicht jede Ressource</strong> zwangsläufig <strong>alle
-                                    Funktionalitäten</strong> (<i>features</i>) der Image API unterstützen muss. Für einen
-                                Client - der beispielsweise auch ein IIIF Viewer sein kann (und in den meisten Fällen
-                                wahrscheinlich auch ist) - ist es demnach nützlich vorab zu <q>wissen</q>, welche
-                                Funktionalitäten er für eine bestimmten Ressource vom Server erwarten kann - sprich: welche
-                                Requests an die Image API möglich und sinnvoll sind. Zu diesem Zweck unterscheidet das Framework
-                                drei <q>Konformitätsstufen</q> (<strong><a href="https://iiif.io/api/image/3.0/compliance/"
-                                        target="_blank">Compliance Levels</a></strong>), die den
-                                <strong><q>Mindestfunktionsumfang</q></strong> jeder Ressource auf den ersten Blick ersichtlich
-                                machen sollen:
+                    </div>
+                    <div id="intro_versions">
+                        <h2>IIIF Versionen</h2>
+                        <p>Sowohl die Image- als auch die Presentation API liegen seit 2020 in der <strong>Version
+                                3.0</strong> vor. Da einige der Änderungen <strong>zu Version 2 nicht
+                                abwärtskompatibel</strong> sind macht es einen Unterschied, welche Version am jeweiligen
+                            Image Server implementiert ist. In der Praxis findet man - Stand 2024 - fast ausschließlich
+                            Implementationen der Version 2 vor (inklusive aller obigen Beispiele). Trotzdem wollen wir
+                            uns
+                            hier auf die APIs der Version 3.0 konzentrieren und gegebenenfalls auf Änderungen zur
+                            vorherigen
+                            Version hinweisen.
+                        </p>
+                    </div>
+                </div>
+                <div id="imageAPI">
+                    <h1>IIIF Image API</h1>
+                    <figure>
+                        <blockquote class="blockquote">
+                            <p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr
+                                    title="Application Programming Interface">API</abbr> specifies a web service that
+                                returns an image in response to a standard <abbr
+                                    title="Hypertext Transfer Protocol">HTTP</abbr> or <abbr
+                                    title="Hypertext Transfer Protocol (Secure)">HTTPS</abbr> request. The URI can
+                                specify
+                                the region, size, rotation, quality characteristics and format of the requested image. A
+                                URI
+                                can also be constructed to request basic technical information about the image to
+                                support
+                                client applications. This <abbr title="Application Programming Interface">API</abbr> was
+                                conceived of to facilitate systematic reuse of image resources in digital image
+                                repositories
+                                maintained by cultural heritage organizations. It could be adopted by any image
+                                repository
+                                or service, and can be used to retrieve static images in response to a properly
+                                constructed
+                                URI.
                             </p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <strong><i>level0</i></strong>: Mindestanforderungen für alle IIIF Ressourcen. Der Server
-                                    muss im Prinzip nur das Vollbild als <i>.jpg</i> in einer beliebigen, voreingestellten
-                                    (<i>default</i>) Qualität ausliefern können
-                                </li>
-                                <li class="list-group-item">
-                                    <strong><i>level1</i></strong>: Empfohlener Implementationsstandard. Es können zusätzlich
-                                    auch Bildausschnitte adressiert und in verschiedenen Auflösungen angefordert werden
-                                </li>
-                                <li class="list-group-item">
-                                    <strong><i>level2</i></strong>: Zusätzlich sind Adressierungen sowohl über Prozentangaben
-                                    (<i>pct:</i>) als auch über Maximaldimensionen (<i>!</i>) implementiert. Die Rückgabe muß
-                                    zudem als Portable Network Graphics (<i>.png</i>) und - sofern möglich, also wenn das
-                                    <q>Original</q> nicht selbst monochrom bzw. schwarzweiß ist - in den Qualitäten
-                                    <i>color</i> und <i>gray</i> verfügbar sein sowie orthogonale Rotation (<i>90</i>,
-                                    <i>180</i>, <i>270</i>) unterstützen.
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="imageAPI_imageInformationRequests">
-                            <h2>Image Information Requests</h2>
-                            <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong>
-                                erzeugt, das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den
-                                allermeisten Fällen (wiederum eine Empfehlung, manche IIIF Server erlauben jedoch eine
-                                benutzerdefinierte Namensgebung) <strong>info.json</strong> benannt, ist also eine Datei im
-                                <abbr title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
-                                    title="JavaScript Object Notation for Linked Data"><a href="https://json-ld.org/"
-                                        target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong>
-                                folgende Informationen bereitstellen <strong>muss</strong>:
-                            </p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">@context</span>
-                                    Interpretationskontext des Dokuments. Für die Image API 3.0 stellt das Framework
-                                    <i>http://iiif.io/api/image/3/context.json</i> bereit
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">id</span>
-                                    (base-) URI der Ressource
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">type</span>
-                                    Art (Version) der Image API, <i>ImageService3</i> für Version 3
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">protocol</span>
-                                    Art des Services, <i>http://iiif.io/api/image</i> für die IIIF Image API
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">profile</span>
-                                    Compliance level der Ressource
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">width</span>
-                                    <span class="badge bg-dark me-1">height</span>
-                                    Initiale (<q>volle</q>) Bilddimensionen
-                                </li>
-                            </ul>
-                            <p>Des Weiterem <strong>kann</strong> angegeben sein:</p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">sizes</span>
-                                    Bereitgestellte (<q>vorberechnete</q>) Bilddimensionen
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">maxWidth</span>
-                                    <span class="badge bg-dark me-1">maxHeight</span>
-                                    <span class="badge bg-dark me-1">maxArea</span>
-                                    Maximale Dimensionen, in dem Bilder (beispielsweise über einen Image Request oder an einen
-                                    Viewer) ausgeliefert werden
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">tiles</span>
-                                    Informationen zur Kachelung der Ressource
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">preferredFormats</span>
-                                    <span class="badge bg-dark me-1">extraFormats</span>
-                                    Gibt (Datei-)Formate an, die per Image Request abrufbar sind (<i>jpg</i>, <i>png</i>,
-                                    <i>tif</i> etc.)
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">rights</span>
-                                    Lizenzinformation zum Bildinhalt. <strong>Muss</strong> entweder einer <a
-                                        href="https://creativecommons.org/licenses/" target="_blank">Creative Commons license
-                                        URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>) oder einer
-                                    <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements
-                                        URI</a> (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
-                                    entsprechen
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">extraQualities</span>
-                                    Steht eine Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>,
-                                    <i>bitonal</i>) zur Verfügung, werden diese hier aufgelistet
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">extraFeatures</span>
-                                    Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über jene
-                                    durch ihr jeweiliges Compliance Level definierten hinausgehen)
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="badge bg-dark me-1">partOf</span>
-                                    <span class="badge bg-dark me-1">seeAlso</span>
-                                    <span class="badge bg-dark me-1">service</span>
-                                    Verweis auf externe Ressourcen (beispielsweise Manifeste) oder Services
-                                </li>
-                            </ul>
-                            <!-- info.json V3 vs V2-->
-                            <p>Hier der Versuch einer <strong>Gegenüberstellung</strong> eines image information
-                                documents
-                                (info.json) auf Basis der Beispiele der offiziellen API-Dokumentation (in den <strong>
-                                    Versionen <a href="https://iiif.io/api/image/3.0/#59-complete-response"
-                                        target="_blank">3.0</a> bzw. <a href="https://iiif.io/api/image/2.1/#complete-response"
-                                        target="_blank">2.1</a></strong>). Die Beispiele wurden geringfügig angepasst um
-                                eine
-                                bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller
-                                Änderungen
-                                findet sich im offiziellen <a href="https://iiif.io/api/image/3.0/change-log/"
-                                    target="_blank">Image API 3.0 Change Log</a>.
-                            </p>
-                            <div class="row">
-                                <div class="col-6 p-1">
-                                    <h3>Image API 3</h3>
-                                    <code>{
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            <a href="https://iiif.io/api/image/3.0/#1-introduction" target="_blank">iiif.io</a>
+                        </figcaption>
+                    </figure>
+                    <p>An die <strong><a href="https://iiif.io/api/image/3.0/" target="_blank">Image API</a></strong>
+                        können
+                        also grundsätzlich zwei unterschiedliche Arten von Abfragen (Requests) gestellt werden: </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Ein <strong>Image Information Request</strong> gibt
+                            Metainformationen
+                            über die adressierte Ressource zurück.</li>
+                        <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
+                            Ressource, also ein <q>tatsächliches</q> Bild (bzw. einen Bildausschnitt) zurück. </li>
+                    </ul>
+                    <p>Nachdem (Image) Information Requests meist automatisiert im Hintergrund - beispielsweise von
+                        einem Viewer - gestellt werden, wird diese Funktionalität der Image API mancherorts etwas
+                        stiefmütterlich behandelt (wenn beispielsweise von <q>Image Delivery API</q> die Rede ist).
+                    </p>
+                    <div id="imageAPI_compliance">
+                        <h2>Compliance Levels</h2>
+                        <p>Wichtig vorauszuschicken ist, dass IIIF Ressourcen unterschiedlich <q>stark</q> implementiert
+                            werden können, also <strong>nicht jede Ressource</strong> zwangsläufig <strong>alle
+                                Funktionalitäten</strong> (<i>features</i>) der Image API unterstützen muss. Für einen
+                            Client - der beispielsweise auch ein IIIF Viewer sein kann (und in den meisten Fällen
+                            wahrscheinlich auch ist) - ist es demnach nützlich vorab zu <q>wissen</q>, welche
+                            Funktionalitäten er für eine bestimmten Ressource vom Server erwarten kann - sprich: welche
+                            Requests an die Image API möglich und sinnvoll sind. Zu diesem Zweck unterscheidet das
+                            Framework
+                            drei <q>Konformitätsstufen</q> (<strong><a href="https://iiif.io/api/image/3.0/compliance/"
+                                    target="_blank">Compliance Levels</a></strong>), die den
+                            <strong><q>Mindestfunktionsumfang</q></strong> jeder Ressource auf den ersten Blick
+                            ersichtlich
+                            machen sollen:
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong><i>level0</i></strong>: Mindestanforderungen für alle IIIF Ressourcen. Der
+                                Server
+                                muss im Prinzip nur das Vollbild als <i>.jpg</i> in einer beliebigen, voreingestellten
+                                (<i>default</i>) Qualität ausliefern können
+                            </li>
+                            <li class="list-group-item">
+                                <strong><i>level1</i></strong>: Empfohlener Implementationsstandard. Es können
+                                zusätzlich
+                                auch Bildausschnitte adressiert und in verschiedenen Auflösungen angefordert werden
+                            </li>
+                            <li class="list-group-item">
+                                <strong><i>level2</i></strong>: Zusätzlich sind Adressierungen sowohl über
+                                Prozentangaben
+                                (<i>pct:</i>) als auch über Maximaldimensionen (<i>!</i>) implementiert. Die Rückgabe
+                                muß
+                                zudem als Portable Network Graphics (<i>.png</i>) und - sofern möglich, also wenn das
+                                <q>Original</q> nicht selbst monochrom bzw. schwarzweiß ist - in den Qualitäten
+                                <i>color</i> und <i>gray</i> verfügbar sein sowie orthogonale Rotation (<i>90</i>,
+                                <i>180</i>, <i>270</i>) unterstützen.
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="imageAPI_imageInformationRequests">
+                        <h2>Image Information Requests</h2>
+                        <p>Für jede IIIF Ressource wird ein sogenanntes <strong>image information document</strong>
+                            erzeugt, das strukturierte Metadaten über die Ressource beinhaltet. Dieses ist in den
+                            allermeisten Fällen (wiederum eine Empfehlung, manche IIIF Server erlauben jedoch eine
+                            benutzerdefinierte Namensgebung) <strong>info.json</strong> benannt, ist also eine Datei im
+                            <abbr title="JavaScript Object Notation">JSON</abbr> - genauer gesagt <abbr
+                                title="JavaScript Object Notation for Linked Data"><a href="https://json-ld.org/"
+                                    target="_blank">JSON-LD</a></abbr> - Format, die <strong>zumindest</strong>
+                            folgende Informationen bereitstellen <strong>muss</strong>:
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">@context</span>
+                                Interpretationskontext des Dokuments. Für die Image API 3.0 stellt das Framework
+                                <i>http://iiif.io/api/image/3/context.json</i> bereit
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">id</span>
+                                (base-) URI der Ressource
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">type</span>
+                                Art (Version) der Image API, <i>ImageService3</i> für Version 3
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">protocol</span>
+                                Art des Services, <i>http://iiif.io/api/image</i> für die IIIF Image API
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">profile</span>
+                                Compliance level der Ressource
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">width</span>
+                                <span class="badge bg-dark me-1">height</span>
+                                Initiale (<q>volle</q>) Bilddimensionen
+                            </li>
+                        </ul>
+                        <p>Des Weiterem <strong>kann</strong> angegeben sein:</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">sizes</span>
+                                Bereitgestellte (<q>vorberechnete</q>) Bilddimensionen
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">maxWidth</span>
+                                <span class="badge bg-dark me-1">maxHeight</span>
+                                <span class="badge bg-dark me-1">maxArea</span>
+                                Maximale Dimensionen, in dem Bilder (beispielsweise über einen Image Request oder an
+                                einen
+                                Viewer) ausgeliefert werden
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">tiles</span>
+                                Informationen zur Kachelung der Ressource
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">preferredFormats</span>
+                                <span class="badge bg-dark me-1">extraFormats</span>
+                                Gibt (Datei-)Formate an, die per Image Request abrufbar sind (<i>jpg</i>, <i>png</i>,
+                                <i>tif</i> etc.)
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">rights</span>
+                                Lizenzinformation zum Bildinhalt. <strong>Muss</strong> entweder einer <a
+                                    href="https://creativecommons.org/licenses/" target="_blank">Creative Commons
+                                    license
+                                    URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>) oder
+                                einer
+                                <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements
+                                    URI</a> (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
+                                entsprechen
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">extraQualities</span>
+                                Steht eine Ressource in mehreren <q>Qualitäten</q> (<i>color</i>, <i>gray</i>,
+                                <i>bitonal</i>) zur Verfügung, werden diese hier aufgelistet
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">extraFeatures</span>
+                                Funktionalitäten, die der Service für die Ressource zur Verfügung stellt (und über jene
+                                durch ihr jeweiliges Compliance Level definierten hinausgehen)
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">partOf</span>
+                                <span class="badge bg-dark me-1">seeAlso</span>
+                                <span class="badge bg-dark me-1">service</span>
+                                Verweis auf externe Ressourcen (beispielsweise Manifeste) oder Services
+                            </li>
+                        </ul>
+                        <!-- info.json V3 vs V2-->
+                        <p>Hier der Versuch einer <strong>Gegenüberstellung</strong> eines image information
+                            documents
+                            (info.json) auf Basis der Beispiele der offiziellen API-Dokumentation (in den <strong>
+                                Versionen <a href="https://iiif.io/api/image/3.0/#59-complete-response"
+                                    target="_blank">3.0</a> bzw. <a
+                                    href="https://iiif.io/api/image/2.1/#complete-response"
+                                    target="_blank">2.1</a></strong>). Die Beispiele wurden geringfügig angepasst um
+                            eine
+                            bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller
+                            Änderungen
+                            findet sich im offiziellen <a href="https://iiif.io/api/image/3.0/change-log/"
+                                target="_blank">Image API 3.0 Change Log</a>.
+                        </p>
+                        <div class="row">
+                            <div class="col-6 p-1">
+                                <h3>Image API 3</h3>
+                                <code>{
             "@context": "http://iiif.io/api/image<span data-bs-toggle="tooltip" data-bs-title="Verweis auf Version 3">/3/</span>context.json",
             <span data-bs-toggle="tooltip" data-bs-title="In Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/image-service-3/abc/123",
             <span data-bs-toggle="tooltip" data-bs-title="Verpflichtend in Version 3, nun ohne vorangestelltem'@'">"type": "ImageService3"</span>,
@@ -422,10 +480,10 @@
                 }
             <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">]</span>
         }</code>
-                                </div>
-                                <div class="col-6 p-1">
-                                    <h3>Image API 2</h3>
-                                    <code>{
+                            </div>
+                            <div class="col-6 p-1">
+                                <h3>Image API 2</h3>
+                                <code>{
             "@context" : "http://iiif.io/api/image/2/context.json",
             "@id" : "http://www.example.org/image-service-2/abc/123",
             "protocol" : "http://iiif.io/api/image",
@@ -457,350 +515,362 @@
             "physicalUnits": "in"
             }
         }</code>
-                                </div>
                             </div>
                         </div>
-                        <div id="imageAPI_imageRequests">
-                            <h2>Image Requests</h2>
-                            <p>IIIF <strong>Image Requests</strong> (<q>Bildanforderungen</q> oder <q>-aufrufe</q>) sind
-                                unbestritten das zentrale Feature (und verkörpern gewissermaßen die Grundidee) des Frameworks.
-                                Einfach ausgedrückt könnte man sagen, dass mit IIIF Bilder (Ressourcen) über <q>normale</q>
-                                HTTP(S) Requests (<q>Links</q>) dynamisch in verschiedensten <q>Varianten</q> (Ausschnitten,
-                                Größen, Rotationen, <q>Qualitäten</q> und Formaten) so ausgeliefert werden können, als ob diese
-                                unter der jeweiligen <q>Adresse</q> (<abbr title="Uniform Resource Locator">URL</abbr>)
-                                <q>tatsächlich</q> (also als Bilddateien am Server) hinterlegt wären. Über die
-                                <strong>Parametrisierung</strong> dieses URL (<strong>Request-URI</strong>) lässt sich dabei
-                                konfigurieren, welche <q>Variante</q> des Bildes konkret zurückgegeben werden soll. </p>
-                            <code><var data-bs-toggle="tooltip" data-bs-title="URI der IIIF Ressource">{base-uri}</var>/<var
+                    </div>
+                    <div id="imageAPI_imageRequests">
+                        <h2>Image Requests</h2>
+                        <p>IIIF <strong>Image Requests</strong> (<q>Bildanforderungen</q> oder <q>-aufrufe</q>) sind
+                            unbestritten das zentrale Feature (und verkörpern gewissermaßen die Grundidee) des
+                            Frameworks.
+                            Einfach ausgedrückt könnte man sagen, dass mit IIIF Bilder (Ressourcen) über <q>normale</q>
+                            HTTP(S) Requests (<q>Links</q>) dynamisch in verschiedensten <q>Varianten</q> (Ausschnitten,
+                            Größen, Rotationen, <q>Qualitäten</q> und Formaten) so ausgeliefert werden können, als ob
+                            diese
+                            unter der jeweiligen <q>Adresse</q> (<abbr title="Uniform Resource Locator">URL</abbr>)
+                            <q>tatsächlich</q> (also als Bilddateien am Server) hinterlegt wären. Über die
+                            <strong>Parametrisierung</strong> dieses URL (<strong>Request-URI</strong>) lässt sich dabei
+                            konfigurieren, welche <q>Variante</q> des Bildes konkret zurückgegeben werden soll.
+                        </p>
+                        <code><var data-bs-toggle="tooltip" data-bs-title="URI der IIIF Ressource">{base-uri}</var>/<var
                                     data-bs-toggle="tooltip" data-bs-title="Auszuwählender Bildbereich">{region}</var>/<var
                                     data-bs-toggle="tooltip" data-bs-title="Dimensionen der Rückgabe">{size}</var>/<var
                                     data-bs-toggle="tooltip" data-bs-title="Ausrichtung der Rückgabe">{rotation}</var>/<var
                                     data-bs-toggle="tooltip" data-bs-title="Qualität der Rückgabe">{quality}</var>.<var
                                     data-bs-toggle="tooltip" data-bs-title="(Datei-)Format der Rückgabe">{format}</var></code>
-                            <ul class="list-group list-group-flush">
-                                <!-- region -->
-                                <li class="list-group-item"><span class="badge bg-dark me-1">region</span>
-                                    Auszuwählender,
-                                    rechteckiger <strong>Bildbereich</strong> des Vollbildes. Möglich sind:
-                                    <table class="table table-bordered table-striped my-2">
-                                        <tr>
-                                            <th class="string">full<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 0">0</span></th>
-                                            <td>Der gesamte Bildbereich</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">square<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 1">1</span></th>
-                                            <td>Der größtmögliche quadratische Bildbereich, der sich aus dem Vollbild generieren
-                                                lässt (die Seitenlänge entspricht damit dessen kürzester Seite)</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 1">1</span></th>
-                                            <td>Absoluter Bildbereich, definiert durch dessen linken oberen Punkt
-                                                (<strong class="variable">x</strong>,<strong class="variable">y</strong>),
-                                                Breite (<strong class="variable">w</strong>) und Höhe
-                                                (<strong class="variable">h</strong>) in Pixel</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">pct:x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 2">2</span></th>
-                                            <td>Relativer Bildbereich. Die Angabe <i>pct:50,50,50,50</i> selektiert
-                                                demnach das untere rechte Viertel des Vollbildes</td>
-                                        </tr>
-                                    </table>
-                                    <div class="row g-2">
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
-                                                    target="_blank">.../<strong>full</strong>/max/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/square/max/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/square/max/0/default.jpg"
-                                                    target="_blank">.../<strong>square</strong>/max/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg"
-                                                    target="_blank">.../<strong>1500,1250,300,300</strong>/max/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg"
-                                                    target="_blank">.../<strong>pct:50,50,10,10</strong>/max/0/default.jpg</a>
-                                            </div>
+                        <ul class="list-group list-group-flush">
+                            <!-- region -->
+                            <li class="list-group-item"><span class="badge bg-dark me-1">region</span>
+                                Auszuwählender,
+                                rechteckiger <strong>Bildbereich</strong> des Vollbildes. Möglich sind:
+                                <table class="table table-bordered table-striped my-2">
+                                    <tr>
+                                        <th class="string">full<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 0">0</span></th>
+                                        <td>Der gesamte Bildbereich</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">square<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 1">1</span></th>
+                                        <td>Der größtmögliche quadratische Bildbereich, der sich aus dem Vollbild
+                                            generieren
+                                            lässt (die Seitenlänge entspricht damit dessen kürzester Seite)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 1">1</span></th>
+                                        <td>Absoluter Bildbereich, definiert durch dessen linken oberen Punkt
+                                            (<strong class="variable">x</strong>,<strong class="variable">y</strong>),
+                                            Breite (<strong class="variable">w</strong>) und Höhe
+                                            (<strong class="variable">h</strong>) in Pixel</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">pct:x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 2">2</span></th>
+                                        <td>Relativer Bildbereich. Die Angabe <i>pct:50,50,50,50</i> selektiert
+                                            demnach das untere rechte Viertel des Vollbildes</td>
+                                    </tr>
+                                </table>
+                                <div class="row g-2">
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/max/0/default.jpg"
+                                                target="_blank">.../<strong>full</strong>/max/0/default.jpg</a>
                                         </div>
                                     </div>
-                                </li>
-                                <!-- size -->
-                                <li class="list-group-item"><span class="badge bg-dark me-1">size</span>
-                                    <strong>Dimensionen</strong> (<q>Größe</q>), in denen der ausgewählte Bildbereich (region)
-                                    ausgeliefert werden soll. Möglich sind:
-                                    <table class="table table-bordered table-striped my-2">
-                                        <tr>
-                                            <th class="string">max<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 0">0</span><svg class="iconSVG"
-                                                    data-bs-toggle="tooltip" data-bs-html="true"
-                                                    data-bs-title="In Version 2.0 noch <i>full</i>, in Version 2.1 <i>full</i> ODER <i>max</i>, in Version 3 ist NUR noch <i>max</i> zulässig. Hintergrund dürften die in Version 2.1 eingeführten Maximaldimensionen (<i>maxWidth</i>, <i>maxHeight</i>, <i>maxArea</i>) sein">
-                                                    <use xlink:href="#warningSVG" />
-                                                </svg></th>
-                                            <td>Der ausgewählte Bildbereich in der größtmöglichen (bzw. -zugelassenen) Auflösung
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">w,h<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 1">1</span></th>
-                                            <td>Exakte Breite <strong class="variable">w</strong> und Höhe <strong
-                                                    class="variable">h</strong> in Pixel. Kann zu Verzerrungen führen</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">w,<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 1">1</span></th>
-                                            <td>Die Auswahl wird auf eine Breite von <strong class="variable">w</strong> Pixel
-                                                proportional verkleinert</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">,h<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 1">1</span></th>
-                                            <td>Die Auswahl wird auf eine Höhe von <strong class="variable">h</strong> Pixel
-                                                proportional verkleinert</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">!w,h<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 2">2</span></th>
-                                            <td>Die Auswahl wird genau so weit proportional (<strong>!</strong>) verkleinert,
-                                                dass sie gerade noch in ein <q>imaginäres Fenster</q> der Breite <strong
-                                                    class="variable">w</strong> Pixel und Höhe <strong
-                                                    class="variable">h</strong> Pixel passt</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">pct:n<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 2">2</span></th>
-                                            <td>Länge und Breite der Rückgabe entsprechen <strong class="variable">n</strong>
-                                                Prozent (pct) der Auswahl</td>
-                                        </tr>
-                                    </table>
-                                    <div class="row g-2">
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg"
-                                                    target="_blank">.../full/<strong>300,300</strong>/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg"
-                                                    target="_blank">.../full/<strong>300,</strong>/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg"
-                                                    target="_blank">.../full/<strong>!300,300</strong>/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10,/0/default.jpg"
-                                                    target="_blank">.../full/<strong>pct:10</strong>/0/default.jpg</a>
-                                            </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/square/max/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/square/max/0/default.jpg"
+                                                target="_blank">.../<strong>square</strong>/max/0/default.jpg</a>
                                         </div>
                                     </div>
-                                    <p><svg class="iconSVG" data-bs-toggle="tooltip" data-bs-title="Neu in Version 3">
-                                            <use xlink:href="#warningSVG" />
-                                        </svg><strong>Upscaling:</strong> Wird einem der obigen Dimensionsangaben ein Zirkumflex
-                                        (<i>^</i>) vorangestellt (also <i>^max</i>, <strong class="variable">^!w,h</strong>,
-                                        <strong class="variable">^,h</strong> etc.), versucht der IIIF Server den gewählten
-                                        Bildausschnitt auf die gewünschten Dimensionen (nötigenfalls) hochzuskalieren. Das
-                                        funktioniert jedoch nur dann, wenn der Server das Hochskalieren auch aktiv unterstützt.
-                                    </p>
-                                    <div class="row g-2">
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^!400,400/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^!400,400/0/default.jpg"
-                                                    target="_blank">.../1500,1250,300,300/<strong>^!400,400</strong>/0/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^pct:200/0/default.jpg" />
-                                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^pct:200/0/default.jpg"
-                                                    target="_blank">.../1500,1250,300,300/<strong>^pct:200</strong>/0/default.jpg</a>
-                                            </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/max/0/default.jpg"
+                                                target="_blank">.../<strong>1500,1250,300,300</strong>/max/0/default.jpg</a>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="list-group-item"><span
-                                        class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe
-                                    Möglich sind:
-                                    <table class="table table-bordered table-striped my-2">
-                                        <tr>
-                                            <th class="variable">n<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-html="true"
-                                                    data-bs-title="<i>0</i> (keine Rotation) funktioniert bei allen Ressourcen (Compliance Level 0).<br/>Level 2 verlangt lediglich orthogonale (<i>90</i>, <i>180</i>, <i>270</i>) Rotation .<br/>Rotationen um beliebige Winkel (<i>rotationArbitrary</i>) sind auf keinem Level verpflichtend, können aber als <i>extraFeatures</i> implementiert sein">0/2/-</span>
-                                            </th>
-                                            <td>Das zurückgegeben Bild ist um <strong class="variable">n</strong>° im
-                                                Uhrzeigersinn gedreht</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="variable">!n</th>
-                                            <td>Das Bild wird zuerst horizontal gespiegelt und dann um <strong
-                                                    class="variable">n</strong>° gedreht (<i>!0</i> bewirkt daher eine
-                                                horizontale Spiegelung ohne Rotation)</td>
-                                        </tr>
-                                    </table>
-                                    <!-- ToDo: Die Ressourcen in https://image-api.iiif.io/api/image/3.0/example/reference unterstützen mirroring NICHT, das Beispiel ist daher V2. Finde ich eine andere in V3? -->
-                                    <div class="row g-2">
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/0/default.jpg" />
-                                                <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/0/default.jpg"
-                                                    target="_blank">.../full/!300,300/<strong>0</strong>/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!0/default.jpg" />
-                                                <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!0/default.jpg"
-                                                    target="_blank">.../full/!300,300/<strong>!0</strong>/default.jpg</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 p-md-2">
-                                            <div class="ire">
-                                                <img
-                                                    src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!332.5/default.jpg" />
-                                                <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!332.5/default.jpg"
-                                                    target="_blank">.../full/!300,300/<strong>!332.5</strong>/default.jpg</a>
-                                            </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/pct:50,50,10,10/max/0/default.jpg"
+                                                target="_blank">.../<strong>pct:50,50,10,10</strong>/max/0/default.jpg</a>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="list-group-item"><span class="badge bg-dark me-1">quality</span>
-                                    <q><strong>Qualität</strong></q> der Rückgabe. Möglich sind:
-                                    <table class="table table-bordered table-striped my-2">
-                                        <tr>
-                                            <th class="string"><i>default</i><span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 0">0</span></th>
-                                            <td>Die vom Server voreingestellte Bildqualität (entspricht zumeist <i>color</i>)
-                                        </tr>
-                                        <tr>
-                                            <th class="string"><i>color</i><span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 2 (wenn anwendbar)">2</span></th>
-                                            <td>Alle (vorhandenen) Farbinformationen</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string"><i>gray</i><span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 2 (wenn anwendbar)">2</span></th>
-                                            <td>Schwarzweiß MIT Graustufen (s/w monochrom)</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string"><i>bitonal</i></th>
-                                            <td>Schwarzweiß OHNE Graustufen (s/w bitonal)</td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="list-group-item"><span class="badge bg-dark me-1">format</span>
-                                    (Datei-)<strong>Format</strong> der Rückgabe. Unterstützt werden:
-                                    <table class="table table-bordered table-striped my-2">
-                                        <tr>
-                                            <th class="string">jpg<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 0">0</span></th>
-                                            <td>image/jpeg</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">png<span class="cl badge" data-bs-toggle="tooltip"
-                                                    data-bs-title="Compliance Level 2">2</span></th>
-                                            <td>image/png</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">tif</th>
-                                            <td>image/tiff</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">gif</th>
-                                            <td>image/gif</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">jp2</th>
-                                            <td>image/jp2</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">pdf</th>
-                                            <td>application/pdf</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="string">webp</th>
-                                            <td>image/webp</td>
-                                        </tr>
-                                    </table>
-                                </li>
-                            </ul>
+                                </div>
+                            </li>
+                            <!-- size -->
+                            <li class="list-group-item"><span class="badge bg-dark me-1">size</span>
+                                <strong>Dimensionen</strong> (<q>Größe</q>), in denen der ausgewählte Bildbereich
+                                (region)
+                                ausgeliefert werden soll. Möglich sind:
+                                <table class="table table-bordered table-striped my-2">
+                                    <tr>
+                                        <th class="string">max<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 0">0</span><svg class="iconSVG"
+                                                data-bs-toggle="tooltip" data-bs-html="true"
+                                                data-bs-title="In Version 2.0 noch <i>full</i>, in Version 2.1 <i>full</i> ODER <i>max</i>, in Version 3 ist NUR noch <i>max</i> zulässig. Hintergrund dürften die in Version 2.1 eingeführten Maximaldimensionen (<i>maxWidth</i>, <i>maxHeight</i>, <i>maxArea</i>) sein">
+                                                <use xlink:href="#warningSVG" />
+                                            </svg></th>
+                                        <td>Der ausgewählte Bildbereich in der größtmöglichen (bzw. -zugelassenen)
+                                            Auflösung
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 1">1</span></th>
+                                        <td>Exakte Breite <strong class="variable">w</strong> und Höhe <strong
+                                                class="variable">h</strong> in Pixel. Kann zu Verzerrungen führen</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">w,<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 1">1</span></th>
+                                        <td>Die Auswahl wird auf eine Breite von <strong class="variable">w</strong>
+                                            Pixel
+                                            proportional verkleinert</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">,h<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 1">1</span></th>
+                                        <td>Die Auswahl wird auf eine Höhe von <strong class="variable">h</strong> Pixel
+                                            proportional verkleinert</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">!w,h<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 2">2</span></th>
+                                        <td>Die Auswahl wird genau so weit proportional (<strong>!</strong>)
+                                            verkleinert,
+                                            dass sie gerade noch in ein <q>imaginäres Fenster</q> der Breite <strong
+                                                class="variable">w</strong> Pixel und Höhe <strong
+                                                class="variable">h</strong> Pixel passt</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">pct:n<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 2">2</span></th>
+                                        <td>Länge und Breite der Rückgabe entsprechen <strong
+                                                class="variable">n</strong>
+                                            Prozent (pct) der Auswahl</td>
+                                    </tr>
+                                </table>
+                                <div class="row g-2">
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,300/0/default.jpg"
+                                                target="_blank">.../full/<strong>300,300</strong>/0/default.jpg</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/300,/0/default.jpg"
+                                                target="_blank">.../full/<strong>300,</strong>/0/default.jpg</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/!300,300/0/default.jpg"
+                                                target="_blank">.../full/<strong>!300,300</strong>/0/default.jpg</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10,/0/default.jpg"
+                                                target="_blank">.../full/<strong>pct:10</strong>/0/default.jpg</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p><svg class="iconSVG" data-bs-toggle="tooltip" data-bs-title="Neu in Version 3">
+                                        <use xlink:href="#warningSVG" />
+                                    </svg><strong>Upscaling:</strong> Wird einem der obigen Dimensionsangaben ein
+                                    Zirkumflex
+                                    (<i>^</i>) vorangestellt (also <i>^max</i>, <strong class="variable">^!w,h</strong>,
+                                    <strong class="variable">^,h</strong> etc.), versucht der IIIF Server den gewählten
+                                    Bildausschnitt auf die gewünschten Dimensionen (nötigenfalls) hochzuskalieren. Das
+                                    funktioniert jedoch nur dann, wenn der Server das Hochskalieren auch aktiv
+                                    unterstützt.
+                                </p>
+                                <div class="row g-2">
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^!400,400/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^!400,400/0/default.jpg"
+                                                target="_blank">.../1500,1250,300,300/<strong>^!400,400</strong>/0/default.jpg</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^pct:200/0/default.jpg" />
+                                            <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/1500,1250,300,300/^pct:200/0/default.jpg"
+                                                target="_blank">.../1500,1250,300,300/<strong>^pct:200</strong>/0/default.jpg</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item"><span
+                                    class="badge bg-dark me-1">rotation</span><strong>Ausrichtung</strong> der Rückgabe
+                                Möglich sind:
+                                <table class="table table-bordered table-striped my-2">
+                                    <tr>
+                                        <th class="variable">n<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-html="true"
+                                                data-bs-title="<i>0</i> (keine Rotation) funktioniert bei allen Ressourcen (Compliance Level 0).<br/>Level 2 verlangt lediglich orthogonale (<i>90</i>, <i>180</i>, <i>270</i>) Rotation .<br/>Rotationen um beliebige Winkel (<i>rotationArbitrary</i>) sind auf keinem Level verpflichtend, können aber als <i>extraFeatures</i> implementiert sein">0/2/-</span>
+                                        </th>
+                                        <td>Das zurückgegeben Bild ist um <strong class="variable">n</strong>° im
+                                            Uhrzeigersinn gedreht</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="variable">!n</th>
+                                        <td>Das Bild wird zuerst horizontal gespiegelt und dann um <strong
+                                                class="variable">n</strong>° gedreht (<i>!0</i> bewirkt daher eine
+                                            horizontale Spiegelung ohne Rotation)</td>
+                                    </tr>
+                                </table>
+                                <!-- ToDo: Die Ressourcen in https://image-api.iiif.io/api/image/3.0/example/reference unterstützen mirroring NICHT, das Beispiel ist daher V2. Finde ich eine andere in V3? -->
+                                <div class="row g-2">
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/0/default.jpg" />
+                                            <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/0/default.jpg"
+                                                target="_blank">.../full/!300,300/<strong>0</strong>/default.jpg</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!0/default.jpg" />
+                                            <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!0/default.jpg"
+                                                target="_blank">.../full/!300,300/<strong>!0</strong>/default.jpg</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 p-md-2">
+                                        <div class="ire">
+                                            <img
+                                                src="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!332.5/default.jpg" />
+                                            <a href="https://ids.lib.harvard.edu/ids/iiif/43182083/full/!300,300/!332.5/default.jpg"
+                                                target="_blank">.../full/!300,300/<strong>!332.5</strong>/default.jpg</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item"><span class="badge bg-dark me-1">quality</span>
+                                <q><strong>Qualität</strong></q> der Rückgabe. Möglich sind:
+                                <table class="table table-bordered table-striped my-2">
+                                    <tr>
+                                        <th class="string"><i>default</i><span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 0">0</span></th>
+                                        <td>Die vom Server voreingestellte Bildqualität (entspricht zumeist
+                                            <i>color</i>)
+                                    </tr>
+                                    <tr>
+                                        <th class="string"><i>color</i><span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 2 (wenn anwendbar)">2</span></th>
+                                        <td>Alle (vorhandenen) Farbinformationen</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string"><i>gray</i><span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 2 (wenn anwendbar)">2</span></th>
+                                        <td>Schwarzweiß MIT Graustufen (s/w monochrom)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string"><i>bitonal</i></th>
+                                        <td>Schwarzweiß OHNE Graustufen (s/w bitonal)</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li class="list-group-item"><span class="badge bg-dark me-1">format</span>
+                                (Datei-)<strong>Format</strong> der Rückgabe. Unterstützt werden:
+                                <table class="table table-bordered table-striped my-2">
+                                    <tr>
+                                        <th class="string">jpg<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 0">0</span></th>
+                                        <td>image/jpeg</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">png<span class="cl badge" data-bs-toggle="tooltip"
+                                                data-bs-title="Compliance Level 2">2</span></th>
+                                        <td>image/png</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">tif</th>
+                                        <td>image/tiff</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">gif</th>
+                                        <td>image/gif</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">jp2</th>
+                                        <td>image/jp2</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">pdf</th>
+                                        <td>application/pdf</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="string">webp</th>
+                                        <td>image/webp</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-xl-3 col-lg-6 p-md-2">
+                            <div class="ire">
+                                <img
+                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/gray.jpg" />
+                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/gray.jpg"
+                                    target="_blank">.../full/pct:10/0/<strong>gray</strong>.jpg</a>
+                            </div>
                         </div>
-                        <div class="row g-2">
-                            <div class="col-xl-3 col-lg-6 p-md-2">
-                                <div class="ire">
-                                    <img
-                                        src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/gray.jpg" />
-                                    <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/gray.jpg"
-                                        target="_blank">.../full/pct:10/0/<strong>gray</strong>.jpg</a>
-                                </div>
+                        <div class="col-xl-3 col-lg-6 p-md-2">
+                            <div class="ire">
+                                <img
+                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/bitonal.jpg" />
+                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/bitonal.jpg"
+                                    target="_blank">.../full/pct:10/0/<strong>bitonal</strong>.jpg</a>
                             </div>
-                            <div class="col-xl-3 col-lg-6 p-md-2">
-                                <div class="ire">
-                                    <img
-                                        src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/bitonal.jpg" />
-                                    <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/bitonal.jpg"
-                                        target="_blank">.../full/pct:10/0/<strong>bitonal</strong>.jpg</a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 p-md-2">
-                                <div class="ire">
-                                    <img
-                                        src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/color.png" />
-                                    <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/color.png"
-                                        target="_blank">.../full/pct:10/0/<strong>color</strong>.<strong>png</strong></a>
-                                </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 p-md-2">
+                            <div class="ire">
+                                <img
+                                    src="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/color.png" />
+                                <a href="https://image-api.iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/full/pct:10/0/color.png"
+                                    target="_blank">.../full/pct:10/0/<strong>color</strong>.<strong>png</strong></a>
                             </div>
                         </div>
                     </div>
-                    <div id="viewer">
-                        <h1>Viewer</h1>
-                        <h3>Mirador</h3>
-                        <div id="mdv" class="viewer"></div>
-                        <code>const mdv = Mirador.viewer({
+                </div>
+                <div id="viewer">
+                    <h1>Viewer</h1>
+                    <h3>Mirador</h3>
+                    <div id="mdv" class="viewer"></div>
+                    <code>const mdv = Mirador.viewer({
     id: 'mdv',
     windows: [{
         manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
     }]
 });</code>
-                        <h3>OpenSeadragon</h3>
-                        <div id="osd" class="viewer"></div>
-                            <code>const osd = OpenSeadragon({
+                    <h3>OpenSeadragon</h3>
+                    <div id="osd" class="viewer"></div>
+                    <code>const osd = OpenSeadragon({
     id: 'osd',
     prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
     sequenceMode: true,
@@ -810,15 +880,15 @@
         'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
     ]
 });</code>
-                        <h3>Universal Viewer</h3>
-                        <div id="uv" class="viewer uv"></div>
-                        <!-- The class 'uv' is needed as referred to in uv.min.css-->
-                        <code>const uv = UV.init('uv', {
+                    <h3>Universal Viewer</h3>
+                    <div id="uv" class="viewer uv"></div>
+                    <!-- The class 'uv' is needed as referred to in uv.min.css-->
+                    <code>const uv = UV.init('uv', {
     manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
 });</code>
-                <h3>Tify</h3>
-                <div id="tify" class="viewer"></div>
-                <code>const tify = new Tify({
+                    <h3>Tify</h3>
+                    <div id="tify" class="viewer"></div>
+                    <code>const tify = new Tify({
     container: '#tify',
     manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
 });</code>
@@ -827,12 +897,29 @@
             <section id="literature">
                 <h1>Weiterführende Literatur</h1>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Kränzle, A., Ritter, G., Sieber, Ch. 2023: Sources Online: Eine nachhaltige Infrastruktur für digitale wissenschaftliche Texteditionen auf der Grundlage von TEI Publisher und IIIF: Sources Online: A Sustainable Infrastructure for Digital Scholarly Text Editions Based on TEI Publisher and IIIF, ABI Technik 43/3,158-167. DOI: 10.1515/abitech-2023-0030.</li>
-                    <li class="list-group-item">The digital Analysis of Syriac Handwriting (DASH) Projekt: Augmenting Manuscript Studies via Interactive Scriptcharts and IIIF: https://dh2020.adho.org/wp-content/uploads/2020/07/442_TheDigitalAnalysisofSyriacHandwritingDASHProjectAugmentingManuscriptStudiesviaInteractiveScriptchartsandIIIF.html</li>
-                    <li class="list-group-item">Mertens, I. 2021. Zwei Seiten einer Medaille - IIIF und die Arbeit mit digitalen Bildbeständen. In: Zeitschrift für digitale Geisteswissenschaften. Wolfenbüttel. DOI: 10.17175/2021_002</li>
-                    <li class="list-group-item">van Zundert, J. 2018: On Not Writing a Review about Mirador: Mirador, IIIF, and the Epistemological Gains of Distributed Digital Scholarly Resources. Digital Medievalist 11(1): 5, pp. 1-48, DOI: 10.16995/dm.78.</li>
-                    <li class="list-group-item">Witt, J. C. 2018. Digital Scholarly Editions and API Consuming Applications. In: Digital Scholarly Editions as Interfaces, hg. v. R. Bleier, M. Bürgermeister, H. Klug, et al. (Schriften des Instituts für Dokumentologie und Editorik 12), 219-247. http://nbn-resolving.de/urn:nbn:de:hbz:38-91182.
+                    <li class="list-group-item">Kränzle, A., Ritter, G., Sieber, Ch. 2023: Sources Online: Eine
+                        nachhaltige Infrastruktur für digitale wissenschaftliche Texteditionen auf der Grundlage von TEI
+                        Publisher und IIIF: Sources Online: A Sustainable Infrastructure for Digital Scholarly Text
+                        Editions Based on TEI Publisher and IIIF, ABI Technik 43/3,158-167. <a
+                            href="https://doi.org/10.1515/abitech-2023-0030" target="_blank">DOI:
+                            10.1515/abitech-2023-0030</a>.</li>
+                    <li class="list-group-item">The digital Analysis of Syriac Handwriting (DASH) Projekt: Augmenting
+                        Manuscript Studies via Interactive Scriptcharts and IIIF: <a
+                            href="https://dh2020.adho.org/wp-content/uploads/2020/07/442_TheDigitalAnalysisofSyriacHandwritingDASHProjectAugmentingManuscriptStudiesviaInteractiveScriptchartsandIIIF.html"
+                            target="_blank">https://dh2020.adho.org/wp-content/uploads/2020/07/442_TheDigitalAnalysisofSyriacHandwritingDASHProjectAugmentingManuscriptStudiesviaInteractiveScriptchartsandIIIF.html</a>
                     </li>
+                    <li class="list-group-item">Mertens, I. 2021. Zwei Seiten einer Medaille - IIIF und die Arbeit mit
+                        digitalen Bildbeständen. In: Zeitschrift für digitale Geisteswissenschaften. Wolfenbüttel. <a
+                            href="https://doi.org/10.17175/2021_002" target="_blank">DOI: 10.17175/2021_002</a></li>
+                    <li class="list-group-item">van Zundert, J. 2018: On Not Writing a Review about Mirador: Mirador,
+                        IIIF, and the Epistemological Gains of Distributed Digital Scholarly Resources. Digital
+                        Medievalist 11(1): 5, pp. 1-48, <a href="https://doi.org/10.16995/dm.78" target="_blank">DOI:
+                            10.16995/dm.78</a>.</li>
+                    <li class="list-group-item">Witt, J. C. 2018. Digital Scholarly Editions and API Consuming
+                        Applications. In: Digital Scholarly Editions as Interfaces, hg. v. R. Bleier, M. Bürgermeister,
+                        H. Klug, et al. (Schriften des Instituts für Dokumentologie und Editorik 12), 219-247. <a
+                            href="http://nbn-resolving.de/urn:nbn:de:hbz:38-91182"
+                            target="_blank">http://nbn-resolving.de/urn:nbn:de:hbz:38-91182</a>.</li>
                 </ul>
             </section>
         </main>
