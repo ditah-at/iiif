@@ -52,7 +52,7 @@
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageInformationRequests">Image Information
                     Requests</a>
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageRequests">Image Requests</a>
-                <!-- <a class="nav-link fw-bold" href="#presentationAPI">IIIF Presentation API</a> -->
+                <a class="nav-link fw-bold" href="#presentationAPI">IIIF Presentation API</a>
                 <!-- ## -->
                 <!-- <a class="nav-link ms-2" href="#manifests">Manifeste</a> -->
                 <!-- ## -->
@@ -209,19 +209,14 @@
                         <div>
                             <h3>Vollbild</h3>
                             <p>Wie bereits erwähnt repräsentiert jede IIIF Ressource im Regelfall eine einzelne
-                                Bildquelle,
-                                beispielsweise den Scan einer einzelnen (oder doppelten) Buchseite. Die <q>Qualität</q>
-                                der
-                                Ressource ist damit größtenteils von der <q>Qualität</q> der zugrundeliegenden Bilddatei
-                                -
-                                insbesondere deren Auflösung - abhängig bzw. durch diese limitiert. Das legt die
-                                Verwendung
-                                möglichst hoch auflösender Bilder (und damit <q>großer</q> Bilddateien) nahe, wobei IIIF
-                                Server auch Maximaldimensionen für die Bereitstellung von Ressourcen festlegen können.
-                                Mit
-                                dem Begriff <strong>Vollbild</strong> (<i>full image</i>) ist hier die -
-                                egal ob nun durch die zugrundeliegende Bilddatei oder die Implementation selbst
-                                definierte -
+                                Bildquelle, beispielsweise den Scan einer einzelnen (oder doppelten) Buchseite. Die
+                                <q>Qualität</q> der Ressource ist damit größtenteils von der <q>Qualität</q> der
+                                zugrundeliegenden Bilddatei - insbesondere deren Auflösung - abhängig bzw. durch diese
+                                limitiert. Das legt die Verwendung möglichst hoch auflösender Bilder (und damit
+                                <q>großer</q> Bilddateien) nahe, wobei IIIF Server auch Maximaldimensionen für die
+                                Bereitstellung von Ressourcen festlegen können. Mit dem Begriff
+                                <strong>Vollbild</strong> (<i>full image</i>) ist hier die - egal ob nun durch die
+                                zugrundeliegende Bilddatei oder die Implementation selbst definierte -
                                 höchstauflösendste vom Server bereitgestellte Version des gesamten Bildbereichs gemeint.
                             </p>
                         </div>
@@ -251,8 +246,7 @@
                                 abwärtskompatibel</strong> sind macht es einen Unterschied, welche Version am jeweiligen
                             Image Server implementiert ist. In der Praxis findet man - Stand 2024 - fast ausschließlich
                             Implementationen der Version 2 vor (inklusive aller obigen Beispiele). Trotzdem wollen wir
-                            uns
-                            hier auf die APIs der Version 3.0 konzentrieren und gegebenenfalls auf Änderungen zur
+                            uns hier auf die APIs der Version 3.0 konzentrieren und gegebenenfalls auf Änderungen zur
                             vorherigen
                             Version hinweisen.
                         </p>
@@ -857,6 +851,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="presentationAPI">
+                    <h1>IIIF Presentation API</h1>
+                    <figure>
+                        <blockquote class="blockquote">
+                            <p>The objective of the <abbr
+                                    title="International Image Interoperability Framework">IIIF</abbr> (pronounced
+                                <q>Triple-Eye-Eff</q>) Presentation <abbr
+                                    title="Application Programming Interface">API</abbr> is to provide the information
+                                necessary to allow a rich, online viewing environment for compound digital objects to be
+                                presented to a human user, often in conjunction with the <a
+                                    href="https://iiif.io/api/image/3.0/" target="_blank">IIIF Image API</a>.
+                            </p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            <a href="https://iiif.io/api/presentation/3.0/#11-objectives-and-scope"
+                                target="_blank">iiif.io</a>
+                        </figcaption>
+                    </figure>
+                    <p>Die <a href="https://iiif.io/api/presentation/3.0/" target="_blank">IIIF Presentation API</a>
+                        dient also - hauptsächlich - der Repräsentation von <q>zusammengesetzten</q> (<i>compound</i>)
+                        (Bild-)Objekten. Darunter versteht man - grob verallgemeinert - Bild<q>sammlungen</q> bzw. - im
+                        Bezug auf IIIF - <q>Arrangements</q> bestehender Einzelressourcen. Der gängigste Anwendungsfall
+                        hierfür ist die Anzeige von Büchern (bzw. gebundenen Texte allgemein) als Komposition einzelner Buchseiten (bzw. Vor- und Rückseiten). [tbc]</p>
                 </div>
                 <div id="viewer">
                     <h1>Viewer</h1>

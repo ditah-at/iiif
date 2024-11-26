@@ -1,9 +1,14 @@
 /* ---------- main ------------------------------ */
 
-section {
+main>section {
     font-size: 20px;
     margin: 50px;
     border-bottom: 1px solid steelblue;
+}
+
+main>section>div {
+    padding-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 h2 {
