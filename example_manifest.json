@@ -1,0 +1,185 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://www.ditah.at/iiif/example_manifest.json",
+  "type": "Manifest",
+  "label": {
+    "none": [
+      "Compendium Historiae in Cambridge, Corpus Christi College, MS 29, p1-3"
+    ]
+  },
+  "metadata": [
+    {
+      "label": {
+        "de": [
+          "Autor"
+        ],
+        "none": [
+          "Author"
+        ]
+      },
+      "value": {
+        "de": [
+          "Peter von Poitiers"
+        ],
+        "none": [
+          "Peter of Poitiers"
+        ]
+      }
+    },
+    {
+      "label": {
+        "de": [
+          "Datierung"
+        ],
+        "none": [
+          "Date"
+        ]
+      },
+      "value": {
+        "none": [
+          "1200 - 1225"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "de": [
+      "Ein Manifest-Beispiel aus dem Compendium Historiae-Projekt"
+    ],
+    "none": [
+      "A manifest example from the Compendium Historiae project"
+    ]
+  },
+  "requiredStatement": {
+    "label": {
+      "de": [
+        "Bildrechte"
+      ],
+      "none": [
+        "Image rights"
+      ]
+    },
+    "value": {
+      "none": [
+        "Corpus Christi College, Cambridge"
+      ]
+    }
+  },
+  "rights": "http://creativecommons.org/licenses/by/4.0/",
+  "provider": [
+    {
+      "id": "https://www.ditah.at/",
+      "type": "Agent",
+      "label": {
+        "de": [
+          "Digitale Transformation der Österreichischen Geisteswissenschaften"
+        ],
+        "none": [
+          "Digital Transformation of Austrian Humanities"
+        ]
+      },
+      "logo": [
+        {
+          "id": "https://www.ditah.at/images/DiTAH_Logo_blau-01.svg",
+          "type": "Image",
+          "format": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "https://www.ditah.at/iiif/example_manifest/canvas1",
+      "type": "Canvas",
+      "label": "f. vir",
+      "height": "8586",
+      "width": "5962",
+      "items": [
+        {
+          "id": "https://www.ditah.at/iiif/example_manifest/canvas1/annoPage1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://www.ditah.at/iiif/example_manifest/canvas1/annoPage1/anno1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://www.ditah.at/iiif/example_manifest/canvas1",
+              "body": {
+                "id": "https://www.ditah.at/iiif/example_manifest/canvas1/annoPage1/anno1/image1",
+                "type": "Image",
+                "service": {
+                  "id": "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_R_TC_46",
+                  "profile": "level2",
+                  "type": "ImageService2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://www.ditah.at/iiif/example_manifest/canvas2",
+      "type": "Canvas",
+      "label": "f. viv",
+      "height": "8634",
+      "width": "6010",
+      "items": [
+        {
+          "id": "https://www.ditah.at/iiif/example_manifest/canvas2/annoPage1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://www.ditah.at/iiif/example_manifest/canvas2/annoPage1/anno1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://www.ditah.at/iiif/example_manifest/canvas2",
+              "body": {
+                "id": "https://www.ditah.at/iiif/example_manifest/canvas2/annoPage1/anno1/image1",
+                "type": "Image",
+                "format": "image/jpeg",
+                "height": "8634",
+                "width": "6010",
+                "service": {
+                  "id": "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_V_TC_46",
+                  "profile": "level2",
+                  "type": "ImageService2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://www.ditah.at/iiif/example_manifest/canvas3",
+      "type": "Canvas",
+      "label": "f. viir",
+      "height": "8575",
+      "width": "5938",
+      "items": [
+        {
+          "id": "https://www.ditah.at/iiif/example_manifest/canvas3/annoPage1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://www.ditah.at/iiif/example_manifest/canvas3/annoPage1/anno1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://www.ditah.at/iiif/example_manifest/canvas3",
+              "body": {
+                "id": "https://www.ditah.at/iiif/example_manifest/canvas3/annoPage1/anno1/image1",
+                "type": "Image",
+                "service": {
+                  "id": "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vii_R_TC_46",
+                  "profile": "level2",
+                  "type": "ImageService2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

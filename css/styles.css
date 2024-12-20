@@ -126,6 +126,12 @@ figure blockquote {
 
 aside {
     background-color: steelblue;
+    position: sticky;
+    top: 0;
+}
+
+aside>nav {
+    overflow: hidden;
 }
 
 aside a.navbar-brand {

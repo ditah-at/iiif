@@ -53,12 +53,9 @@
                     Requests</a>
                 <!-- ## --><a class="nav-link ms-2" href="#imageAPI_imageRequests">Image Requests</a>
                 <a class="nav-link fw-bold" href="#presentationAPI">IIIF Presentation API</a>
-                <!-- ## -->
-                <!-- <a class="nav-link ms-2" href="#manifests">Manifeste</a> -->
-                <!-- ## -->
-                <!-- <a class="nav-link ms-2" href="#collection">Collections</a> -->
+                <!-- ## --><a class="nav-link ms-2" href="#presentationAPI_manifests">Manifeste</a>
+                <!-- ## --><a class="nav-link ms-2" href="#presentationAPI_collections">Collections</a>
                 <a class="nav-link fw-bold" href="#viewer">Viewer</a>
-
                 <a class="navbar-brand fw-bold" href="#literature">Weiterführende Literatur</a>
 
             </nav>
@@ -107,16 +104,13 @@
                             <blockquote class="blockquote">
                                 <p>Das <strong>International Interoperability Framework</strong> (<strong>IIIF</strong>;
                                     gesprochen <q>Triple-Ei-F</q>) bietet einen Standard, wie digitale Bilder im
-                                    Internet
-                                    geteilt werden können. IIIF entstand 2011 mit Unterstützung der Mellon Foundation
-                                    aus
-                                    einer Initiative renommierter Gedächtnisorganisationen, zu denen unter anderem die
-                                    Harvard
-                                    University, die Stanford University Libraries, die Cornell University, die British
-                                    Library, die Bodleian Library (Oxford) sowie die Nationalbibliotheken von Frankreich
-                                    und
-                                    Norwegen gehören. [...] IIIF schafft eine noch nie dagewesene Interoperabilität und
-                                    ermöglicht einen institutionsübergreifenden Austausch digitaler Objekte sowie ihre
+                                    Internet geteilt werden können. IIIF entstand 2011 mit Unterstützung der Mellon
+                                    Foundation aus einer Initiative renommierter Gedächtnisorganisationen, zu denen
+                                    unter anderem die Harvard University, die Stanford University Libraries, die Cornell
+                                    University, die British Library, die Bodleian Library (Oxford) sowie die
+                                    Nationalbibliotheken von Frankreich und Norwegen gehören. [...] IIIF schafft eine
+                                    noch nie dagewesene Interoperabilität und ermöglicht einen
+                                    institutionsübergreifenden Austausch digitaler Objekte sowie ihre
                                     standortunabhängige Darstellung in unterschiedlichsten Viewern und sonstigen
                                     Präsentationslösungen im World Wide Web. </p>
                             </blockquote>
@@ -133,58 +127,46 @@
                             Web-Standards entwickelt wurde (und weiter wird), funktioniert dies mit allen modernen
                             Webbrowsern. Unterstützt der Empfänger jedoch zudem selbst den IIIF Standard (wie es
                             beispielsweise bei <strong>IIIF- fähigen Viewern</strong> Fall ist), lässt sich das
-                            Potential
-                            der Technologie voll ausschöpfen.
+                            Potential der Technologie voll ausschöpfen.
                         </p>
                         <p>Ziel dieses Tutorials ist es, hier unser Wissen über IIIF und dessen Verwendung -
-                            insbesondere in
-                            Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär an
-                            Webentwickler,
-                            die wissen wollen: </p>
+                            insbesondere in Hinblick auf Digitale Editionen - zu bündeln. Es richtet sich demnach primär
+                            an Webentwickler, die wissen wollen: </p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Wie adressiere ich meine IIIF Ressourcen über den Browser bzw.
-                                in
-                                einem IIIF Viewer?</li>
+                                in einem IIIF Viewer?</li>
                             <li class="list-group-item">Wie organisiere ich meine IIIF Ressourcen mit Hilfe von
-                                Manifesten
-                                und Collections?</li>
+                                Manifesten und Collections?</li>
                             <li class="list-group-item">Welche IIIF Viewer gibt es und wie binde ich sie in meine
-                                Digitale
-                                Edition ein?</li>
+                                Digitale Edition ein?</li>
                         </ul>
                         <p>Was hier hingegen <strong>nicht</strong> geboten wird ist eine Anleitung für das Aufsetzen
-                            und
-                            Betreiben eines IIIF Image Servers. Zu <a href="https://iiif.io/get-started/image-servers/"
-                                target="_blank">diesem</a> und vielen weiteren Aspekten rund um IIIF, sowie zur
-                            Vertiefung
-                            der im Rahmen dieses Tutorials größtenteils nur überblicksartig behandelbaren Themen sei auf
-                            die
-                            exzellente <a href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen,
-                            auf
-                            welche hier noch des Öfteren referenziert werden wird. </p>
+                            und Betreiben eines IIIF Image Servers. Zu <a
+                                href="https://iiif.io/get-started/image-servers/" target="_blank">diesem</a> und vielen
+                            weiteren Aspekten rund um IIIF, sowie zur Vertiefung der im Rahmen dieses Tutorials
+                            größtenteils nur überblicksartig behandelbaren Themen sei auf die exzellente <a
+                                href="https://iiif.io" target="_blank">offizielle IIIF Website</a> verwiesen, auf welche
+                            hier noch des Öfteren referenziert werden wird. </p>
                     </div>
                     <div id="intro_terms">
                         <h2>Begriffliches</h2>
                         <div>
                             <h3>IIIF Ressourcen</h3>
                             <p>Wir gehen also von (Bild-)Daten aus, die bereits auf IIIF Image Servern zur Verfügung
-                                stehen,
-                                womit sie als <strong>IIIF Ressourcen</strong> oder IIIF Services (die
+                                stehen, womit sie als <strong>IIIF Ressourcen</strong> oder IIIF Services (die
                                 Nomenklatur ist zum Teil recht verwirrend) über die IIIF APIs zugänglich sind. Jede
-                                dieser
-                                Ressourcen (in der Regel entspricht eine (Bild-)Quelle einer Ressource) wird durch einen
-                                <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig
-                                referenziert, der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt
-                                wird
-                                wird und sich folgendermaßen zusammensetzt:
+                                dieser Ressourcen (in der Regel entspricht eine (Bild-)Quelle einer Ressource) wird
+                                durch einen <abbr title="Uniform Resource Identifier">URI</abbr> eindeutig referenziert,
+                                der auch <strong>base-URI</strong> der jeweiligen IIIF Ressource genannt wird und sich
+                                folgendermaßen zusammensetzt:
                             </p>
                             <code><var data-bs-toggle="tooltip"
-                                        data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var
-                                        data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var
-                                        data-bs-toggle="tooltip"
-                                        data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var
-                                        data-bs-toggle="tooltip"
-                                        data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
+                                            data-bs-title="Übertragungsprotokoll (HTTP bzw. HTTPS)">{scheme}</var>://<var
+                                            data-bs-toggle="tooltip" data-bs-title="IIIF Image Server">{server}</var>/<var
+                                            data-bs-toggle="tooltip"
+                                            data-bs-title="Optional; beispielsweise zur Differenzierung unterschiedlicher Sammlungen">{prefix}</var>/<var
+                                            data-bs-toggle="tooltip"
+                                            data-bs-title="Identifikator der konkreten Einzelressource">{identifier}</var></code>
                             <p>Beispiele für base-URIs sind: </p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -200,10 +182,8 @@
                                 </li>
                             </ul>
                             <p>Im (vom Framework empfohlenen) Normalfall werden diese base-URIs von einem Web-Browser
-                                auf
-                                das
-                                <strong>image information document (info.json)</strong> der betreffenden Ressource
-                                dereferenziert (dazu weiter unten mehr).
+                                auf das <strong>image information document (info.json)</strong> der betreffenden
+                                Ressource dereferenziert (dazu weiter unten mehr).
                             </p>
                         </div>
                         <div>
@@ -228,15 +208,13 @@
                             definiert. Als zentrale (oder Kern-) APIs des Frameworks gelten dabei die <strong>IIIF Image
                                 API</strong> und die <strong>IIIF Presentation API</strong>, mit denen sich auch dieses
                             Tutorial eingehender beschäftigen wird. Grob gesagt kümmert sich erstere um die
-                            <q>Auslieferung</q>
-                            einzelner Bildquellen, während letztere die Anzeige von Kompositionen aus mehreren
-                            Einzelquellen
-                            (beispielsweise eines Buches als chronologische Sequenz seiner Seiten) mitsamt zugehörigen
-                            Metadaten ermöglicht und steuert. Weiters umfasst der IIIF Standard die
-                            <strong>Authorization
-                                Flow API</strong> (regelt mögliche Zugriffsbeschränkungen), die <strong>Change Discovery
-                                API</strong> (Versionierung), die <strong>Content Search API</strong> (Durchsuchbarkeit)
-                            sowie die <strong>Content State API</strong> (Navigation der Presentation API).
+                            <q>Auslieferung</q> einzelner Bildquellen, während letztere die Anzeige von Kompositionen
+                            aus mehreren Einzelquellen (beispielsweise eines Buches als chronologische Sequenz seiner
+                            Seiten) mitsamt zugehörigen Metadaten ermöglicht und steuert. Weiters umfasst der IIIF
+                            Standard die <strong>Authorization Flow API</strong> (regelt mögliche
+                            Zugriffsbeschränkungen), die <strong>Change Discovery API</strong> (Versionierung), die
+                            <strong>Content Search API</strong> (Durchsuchbarkeit) sowie die <strong>Content State
+                                API</strong> (Navigation der Presentation API).
                         </p>
                     </div>
                     <div id="intro_versions">
@@ -261,19 +239,13 @@
                                 returns an image in response to a standard <abbr
                                     title="Hypertext Transfer Protocol">HTTP</abbr> or <abbr
                                     title="Hypertext Transfer Protocol (Secure)">HTTPS</abbr> request. The URI can
-                                specify
-                                the region, size, rotation, quality characteristics and format of the requested image. A
-                                URI
-                                can also be constructed to request basic technical information about the image to
-                                support
-                                client applications. This <abbr title="Application Programming Interface">API</abbr> was
-                                conceived of to facilitate systematic reuse of image resources in digital image
-                                repositories
-                                maintained by cultural heritage organizations. It could be adopted by any image
-                                repository
-                                or service, and can be used to retrieve static images in response to a properly
-                                constructed
-                                URI.
+                                specify the region, size, rotation, quality characteristics and format of the requested
+                                image. A URI can also be constructed to request basic technical information about the
+                                image to support client applications. This <abbr
+                                    title="Application Programming Interface">API</abbr> was conceived of to facilitate
+                                systematic reuse of image resources in digital image repositories maintained by cultural
+                                heritage organizations. It could be adopted by any image repository or service, and can
+                                be used to retrieve static images in response to a properly constructed URI.
                             </p>
                         </blockquote>
                         <figcaption class="blockquote-footer">
@@ -285,8 +257,7 @@
                         also grundsätzlich zwei unterschiedliche Arten von Abfragen (Requests) gestellt werden: </p>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Ein <strong>Image Information Request</strong> gibt
-                            Metainformationen
-                            über die adressierte Ressource zurück.</li>
+                            Metainformationen über die adressierte Ressource zurück.</li>
                         <li class="list-group-item">Ein <strong>Image Request</strong> liefert eine Repräsentation der
                             Ressource, also ein <q>tatsächliches</q> Bild (bzw. einen Bildausschnitt) zurück. </li>
                     </ul>
@@ -303,32 +274,28 @@
                             wahrscheinlich auch ist) - ist es demnach nützlich vorab zu <q>wissen</q>, welche
                             Funktionalitäten er für eine bestimmten Ressource vom Server erwarten kann - sprich: welche
                             Requests an die Image API möglich und sinnvoll sind. Zu diesem Zweck unterscheidet das
-                            Framework
-                            drei <q>Konformitätsstufen</q> (<strong><a href="https://iiif.io/api/image/3.0/compliance/"
-                                    target="_blank">Compliance Levels</a></strong>), die den
-                            <strong><q>Mindestfunktionsumfang</q></strong> jeder Ressource auf den ersten Blick
-                            ersichtlich
-                            machen sollen:
+                            Framework drei <q>Konformitätsstufen</q> (<strong><a
+                                    href="https://iiif.io/api/image/3.0/compliance/" target="_blank">Compliance
+                                    Levels</a></strong>), die den <strong><q>Mindestfunktionsumfang</q></strong> jeder
+                            Ressource auf den ersten Blick ersichtlich machen sollen:
                         </p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <strong><i>level0</i></strong>: Mindestanforderungen für alle IIIF Ressourcen. Der
-                                Server
-                                muss im Prinzip nur das Vollbild als <i>.jpg</i> in einer beliebigen, voreingestellten
-                                (<i>default</i>) Qualität ausliefern können
+                                Server muss im Prinzip nur das Vollbild als <i>.jpg</i> in einer beliebigen,
+                                voreingestellten (<i>default</i>) Qualität ausliefern können
                             </li>
                             <li class="list-group-item">
                                 <strong><i>level1</i></strong>: Empfohlener Implementationsstandard. Es können
-                                zusätzlich
-                                auch Bildausschnitte adressiert und in verschiedenen Auflösungen angefordert werden
+                                zusätzlich auch Bildausschnitte adressiert und in verschiedenen Auflösungen angefordert
+                                werden
                             </li>
                             <li class="list-group-item">
                                 <strong><i>level2</i></strong>: Zusätzlich sind Adressierungen sowohl über
                                 Prozentangaben
                                 (<i>pct:</i>) als auch über Maximaldimensionen (<i>!</i>) implementiert. Die Rückgabe
-                                muß
-                                zudem als Portable Network Graphics (<i>.png</i>) und - sofern möglich, also wenn das
-                                <q>Original</q> nicht selbst monochrom bzw. schwarzweiß ist - in den Qualitäten
+                                muß zudem als Portable Network Graphics (<i>.png</i>) und - sofern möglich, also wenn
+                                das <q>Original</q> nicht selbst monochrom bzw. schwarzweiß ist - in den Qualitäten
                                 <i>color</i> und <i>gray</i> verfügbar sein sowie orthogonale Rotation (<i>90</i>,
                                 <i>180</i>, <i>270</i>) unterstützen.
                             </li>
@@ -400,13 +367,11 @@
                             <li class="list-group-item">
                                 <span class="badge bg-dark me-1">rights</span>
                                 Lizenzinformation zum Bildinhalt. <strong>Muss</strong> entweder einer <a
-                                    href="https://creativecommons.org/licenses/" target="_blank">Creative Commons
-                                    license
-                                    URI</a> (beispielsweise <i>https://creativecommons.org/licenses/by/4.0/</i>) oder
-                                einer
-                                <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights Statements
-                                    URI</a> (beispielsweise <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>)
-                                entsprechen
+                                    href="http://creativecommons.org/licenses/" target="_blank">Creative Commons
+                                    license URI</a> (beispielsweise <i>http://creativecommons.org/licenses/by/4.0/</i>)
+                                oder einer <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights
+                                    Statements URI</a> (beispielsweise
+                                <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>) entsprechen
                             </li>
                             <li class="list-group-item">
                                 <span class="badge bg-dark me-1">extraQualities</span>
@@ -433,82 +398,80 @@
                                     target="_blank">3.0</a> bzw. <a
                                     href="https://iiif.io/api/image/2.1/#complete-response"
                                     target="_blank">2.1</a></strong>). Die Beispiele wurden geringfügig angepasst um
-                            eine
-                            bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller
-                            Änderungen
-                            findet sich im offiziellen <a href="https://iiif.io/api/image/3.0/change-log/"
+                            eine bessere Vergleichbarkeit zu gewährleisten. Eine ausführlichere Aufstellung aller
+                            Änderungen findet sich im offiziellen <a href="https://iiif.io/api/image/3.0/change-log/"
                                 target="_blank">Image API 3.0 Change Log</a>.
                         </p>
                         <div class="row">
                             <div class="col-6 p-1">
                                 <h3>Image API 3</h3>
                                 <code>{
-            "@context": "http://iiif.io/api/image<span data-bs-toggle="tooltip" data-bs-title="Verweis auf Version 3">/3/</span>context.json",
-            <span data-bs-toggle="tooltip" data-bs-title="In Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/image-service-3/abc/123",
-            <span data-bs-toggle="tooltip" data-bs-title="Verpflichtend in Version 3, nun ohne vorangestelltem'@'">"type": "ImageService3"</span>,
-            "protocol": "http://iiif.io/api/image",
-            "profile": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 genügt der String 'level0'|'level1'|'level2'">"level1"</span>,
-            "width": 6000,
-            "height": 4000,
-            <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxWidth"</span>: 3000,
-            <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxHeight"</span>: 2000,
-            <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxArea"</span>: 4000000,
-            "sizes": [
-                {"width": 600, "height": 400},
-                {"width": 3000, "height": 2000}
-            ],
-            "tiles": [
-                {"width": 512, "scaleFactors": [ 1, 2, 4 ]},
-                {"width": 1024, "scaleFactors": [ 8, 16 ]},
-            ],
-            <span data-bs-toggle="tooltip" data-bs-title="Optional, ersetzt 'license'">"rights"</span>: <span data-bs-toggle="tooltip" data-bs-title="Darf nur(!) noch ein einzelner Wert/URI sein">"http://rightsstatements.org/vocab/InC-EDU/1.0/"</span>,
-            <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"preferredFormats"</span>: [ "png", "gif"],
-            <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"extraFormats"</span>: [ "pdf" ],
-            <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/qualities">"extraQualities"</span>: [ "color", "gray" ],
-            <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/supports">"extraFeatures"</span>: [ "mirroring", "rotationArbitrary" ],
-            "service": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">[</span>
-                {
-                <span data-bs-toggle="tooltip" data-bs-title="Auch hier in Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/service/example",
-                <span data-bs-toggle="tooltip" data-bs-title="Auch hier in Version 3 ohne vorangestelltem'@'">"type"</span>: "Service",
-                "profile": "https://example.org/docs/example-service.html"
-                }
-            <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">]</span>
-        }</code>
+    "@context": "http://iiif.io/api/image<span data-bs-toggle="tooltip" data-bs-title="Verweis auf Version 3">/3/</span>context.json",
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/image-service-3/abc/123",
+    <span data-bs-toggle="tooltip" data-bs-title="Verpflichtend in Version 3, nun ohne vorangestelltem'@'">"type": "ImageService3"</span>,
+    "protocol": "http://iiif.io/api/image",
+    "profile": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 genügt der String 'level0'|'level1'|'level2'">"level1"</span>,
+    "width": 6000,
+    "height": 4000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxWidth"</span>: 3000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxHeight"</span>: 2000,
+    <span data-bs-toggle="tooltip" data-bs-title="Neu (optional) ab Version 2.1">"maxArea"</span>: 4000000,
+    "sizes": [
+        {"width": 600, "height": 400},
+        {"width": 3000, "height": 2000}
+    ],
+    "tiles": [
+        {"width": 512, "scaleFactors": [ 1, 2, 4 ]},
+        {"width": 1024, "scaleFactors": [ 8, 16 ]},
+    ],
+    <span data-bs-toggle="tooltip" data-bs-title="Optional, ersetzt 'license'">"rights"</span>: <span data-bs-toggle="tooltip" data-bs-title="Darf nur(!) noch ein einzelner Wert/URI sein">"http://rightsstatements.org/vocab/InC-EDU/1.0/"</span>,
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"preferredFormats"</span>: [ "png", "gif"],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/formats zusammengelegt">"extraFormats"</span>: [ "pdf" ],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/qualities">"extraQualities"</span>: [ "color", "gray" ],
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 2 noch unter profile/supports">"extraFeatures"</span>: [ "mirroring", "rotationArbitrary" ],
+    "service": <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">[</span>
+        {
+        <span data-bs-toggle="tooltip" data-bs-title="Auch hier in Version 3 ohne vorangestelltem'@'">"id"</span>: "https://example.org/service/example",
+        <span data-bs-toggle="tooltip" data-bs-title="Auch hier in Version 3 ohne vorangestelltem'@'">"type"</span>: "Service",
+        "profile": "https://example.org/docs/example-service.html"
+        }
+    <span data-bs-toggle="tooltip" data-bs-title="In Version 3 verpflichtend(!) ein Array">]</span>
+}</code>
                             </div>
                             <div class="col-6 p-1">
                                 <h3>Image API 2</h3>
                                 <code>{
-            "@context" : "http://iiif.io/api/image/2/context.json",
-            "@id" : "http://www.example.org/image-service-2/abc/123",
-            "protocol" : "http://iiif.io/api/image",
-            "width" : 6000,
-            "height" : 4000,
-            "sizes" : [
-                {"width" : 600, "height" : 400},
-                {"width" : 3000, "height": 2000}
-            ],
-            "tiles": [
-                {"width": 512, "scaleFactors": [ 1, 2, 4, 8, 16 ]},
-            ],
-            "license" : [
-                "http://example.org/rights/license1.html",
-                "http://rightsstatements.org/vocab/InC-EDU/1.0/"
-            ],
-            "profile" : [
-                "http://iiif.io/api/image/2/level2.json",
-                {
-                "formats" : [ "png", "gif", "pdf" ],
-                "qualities" : [ "color", "gray" ],
-                "supports" : [ "mirroring", "rotationArbitrary" ]
-                }
-            ],
-            "service" : {
-            "@context": "http://iiif.io/api/annex/service/physdim/1/context.json",
-            "profile": "http://iiif.io/api/annex/service/physdim",
-            "physicalScale": 0.0025,
-            "physicalUnits": "in"
-            }
-        }</code>
+    "@context" : "http://iiif.io/api/image/2/context.json",
+    "@id" : "http://www.example.org/image-service-2/abc/123",
+    "protocol" : "http://iiif.io/api/image",
+    "width" : 6000,
+    "height" : 4000,
+    "sizes" : [
+        {"width" : 600, "height" : 400},
+        {"width" : 3000, "height": 2000}
+    ],
+    "tiles": [
+        {"width": 512, "scaleFactors": [ 1, 2, 4, 8, 16 ]},
+    ],
+    "license" : [
+        "http://example.org/rights/license1.html",
+        "http://rightsstatements.org/vocab/InC-EDU/1.0/"
+    ],
+    "profile" : [
+        "http://iiif.io/api/image/2/level2.json",
+        {
+        "formats" : [ "png", "gif", "pdf" ],
+        "qualities" : [ "color", "gray" ],
+        "supports" : [ "mirroring", "rotationArbitrary" ]
+        }
+    ],
+    "service" : {
+    "@context": "http://iiif.io/api/annex/service/physdim/1/context.json",
+    "profile": "http://iiif.io/api/annex/service/physdim",
+    "physicalScale": 0.0025,
+    "physicalUnits": "in"
+    }
+}</code>
                             </div>
                         </div>
                     </div>
@@ -516,22 +479,21 @@
                         <h2>Image Requests</h2>
                         <p>IIIF <strong>Image Requests</strong> (<q>Bildanforderungen</q> oder <q>-aufrufe</q>) sind
                             unbestritten das zentrale Feature (und verkörpern gewissermaßen die Grundidee) des
-                            Frameworks.
-                            Einfach ausgedrückt könnte man sagen, dass mit IIIF Bilder (Ressourcen) über <q>normale</q>
-                            HTTP(S) Requests (<q>Links</q>) dynamisch in verschiedensten <q>Varianten</q> (Ausschnitten,
-                            Größen, Rotationen, <q>Qualitäten</q> und Formaten) so ausgeliefert werden können, als ob
-                            diese
-                            unter der jeweiligen <q>Adresse</q> (<abbr title="Uniform Resource Locator">URL</abbr>)
-                            <q>tatsächlich</q> (also als Bilddateien am Server) hinterlegt wären. Über die
-                            <strong>Parametrisierung</strong> dieses URL (<strong>Request-URI</strong>) lässt sich dabei
-                            konfigurieren, welche <q>Variante</q> des Bildes konkret zurückgegeben werden soll.
+                            Frameworks. Einfach ausgedrückt könnte man sagen, dass mit IIIF Bilder (Ressourcen) über
+                            <q>normale</q> HTTP(S) Requests (<q>Links</q>) dynamisch in verschiedensten <q>Varianten</q>
+                            (Ausschnitten, Größen, Rotationen, <q>Qualitäten</q> und Formaten) so ausgeliefert werden
+                            können, als ob diese unter der jeweiligen <q>Adresse</q> (<abbr
+                                title="Uniform Resource Locator">URL</abbr>) <q>tatsächlich</q> (also als Bilddateien am
+                            Server) hinterlegt wären. Über die <strong>Parametrisierung</strong> dieses URL
+                            (<strong>Request-URI</strong>) lässt sich dabei konfigurieren, welche <q>Variante</q> des
+                            Bildes konkret zurückgegeben werden soll.
                         </p>
                         <code><var data-bs-toggle="tooltip" data-bs-title="URI der IIIF Ressource">{base-uri}</var>/<var
-                                    data-bs-toggle="tooltip" data-bs-title="Auszuwählender Bildbereich">{region}</var>/<var
-                                    data-bs-toggle="tooltip" data-bs-title="Dimensionen der Rückgabe">{size}</var>/<var
-                                    data-bs-toggle="tooltip" data-bs-title="Ausrichtung der Rückgabe">{rotation}</var>/<var
-                                    data-bs-toggle="tooltip" data-bs-title="Qualität der Rückgabe">{quality}</var>.<var
-                                    data-bs-toggle="tooltip" data-bs-title="(Datei-)Format der Rückgabe">{format}</var></code>
+                                        data-bs-toggle="tooltip" data-bs-title="Auszuwählender Bildbereich">{region}</var>/<var
+                                        data-bs-toggle="tooltip" data-bs-title="Dimensionen der Rückgabe">{size}</var>/<var
+                                        data-bs-toggle="tooltip" data-bs-title="Ausrichtung der Rückgabe">{rotation}</var>/<var
+                                        data-bs-toggle="tooltip" data-bs-title="Qualität der Rückgabe">{quality}</var>.<var
+                                        data-bs-toggle="tooltip" data-bs-title="(Datei-)Format der Rückgabe">{format}</var></code>
                         <ul class="list-group list-group-flush">
                             <!-- region -->
                             <li class="list-group-item"><span class="badge bg-dark me-1">region</span>
@@ -547,8 +509,8 @@
                                         <th class="string">square<span class="cl badge" data-bs-toggle="tooltip"
                                                 data-bs-title="Compliance Level 1">1</span></th>
                                         <td>Der größtmögliche quadratische Bildbereich, der sich aus dem Vollbild
-                                            generieren
-                                            lässt (die Seitenlänge entspricht damit dessen kürzester Seite)</td>
+                                            generieren lässt (die Seitenlänge entspricht damit dessen kürzester Seite)
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th class="variable">x,y,w,h<span class="cl badge" data-bs-toggle="tooltip"
@@ -627,8 +589,7 @@
                                         <th class="variable">w,<span class="cl badge" data-bs-toggle="tooltip"
                                                 data-bs-title="Compliance Level 1">1</span></th>
                                         <td>Die Auswahl wird auf eine Breite von <strong class="variable">w</strong>
-                                            Pixel
-                                            proportional verkleinert</td>
+                                            Pixel proportional verkleinert</td>
                                     </tr>
                                     <tr>
                                         <th class="variable">,h<span class="cl badge" data-bs-toggle="tooltip"
@@ -640,17 +601,15 @@
                                         <th class="variable">!w,h<span class="cl badge" data-bs-toggle="tooltip"
                                                 data-bs-title="Compliance Level 2">2</span></th>
                                         <td>Die Auswahl wird genau so weit proportional (<strong>!</strong>)
-                                            verkleinert,
-                                            dass sie gerade noch in ein <q>imaginäres Fenster</q> der Breite <strong
-                                                class="variable">w</strong> Pixel und Höhe <strong
+                                            verkleinert, dass sie gerade noch in ein <q>imaginäres Fenster</q> der
+                                            Breite <strong class="variable">w</strong> Pixel und Höhe <strong
                                                 class="variable">h</strong> Pixel passt</td>
                                     </tr>
                                     <tr>
                                         <th class="variable">pct:n<span class="cl badge" data-bs-toggle="tooltip"
                                                 data-bs-title="Compliance Level 2">2</span></th>
                                         <td>Länge und Breite der Rückgabe entsprechen <strong
-                                                class="variable">n</strong>
-                                            Prozent (pct) der Auswahl</td>
+                                                class="variable">n</strong> Prozent (pct) der Auswahl</td>
                                     </tr>
                                 </table>
                                 <div class="row g-2">
@@ -690,12 +649,11 @@
                                 <p><svg class="iconSVG" data-bs-toggle="tooltip" data-bs-title="Neu in Version 3">
                                         <use xlink:href="#warningSVG" />
                                     </svg><strong>Upscaling:</strong> Wird einem der obigen Dimensionsangaben ein
-                                    Zirkumflex
-                                    (<i>^</i>) vorangestellt (also <i>^max</i>, <strong class="variable">^!w,h</strong>,
-                                    <strong class="variable">^,h</strong> etc.), versucht der IIIF Server den gewählten
-                                    Bildausschnitt auf die gewünschten Dimensionen (nötigenfalls) hochzuskalieren. Das
-                                    funktioniert jedoch nur dann, wenn der Server das Hochskalieren auch aktiv
-                                    unterstützt.
+                                    Zirkumflex (<i>^</i>) vorangestellt (also <i>^max</i>, <strong
+                                        class="variable">^!w,h</strong>, <strong class="variable">^,h</strong> etc.),
+                                    versucht der IIIF Server den gewählten Bildausschnitt auf die gewünschten
+                                    Dimensionen (nötigenfalls) hochzuskalieren. Das funktioniert jedoch nur dann, wenn
+                                    der Server das Hochskalieren auch aktiv unterstützt.
                                 </p>
                                 <div class="row g-2">
                                     <div class="col-xl-3 col-lg-6 p-md-2">
@@ -873,42 +831,342 @@
                     <p>Die <a href="https://iiif.io/api/presentation/3.0/" target="_blank">IIIF Presentation API</a>
                         dient also - hauptsächlich - der Repräsentation von <q>zusammengesetzten</q> (<i>compound</i>)
                         (Bild-)Objekten. Darunter versteht man - grob verallgemeinert - Bild<q>sammlungen</q> bzw. - im
-                        Bezug auf IIIF - <q>Arrangements</q> bestehender Einzelressourcen. Der gängigste Anwendungsfall
-                        hierfür ist die Anzeige von Büchern (bzw. gebundenen Texte allgemein) als Komposition einzelner Buchseiten (bzw. Vor- und Rückseiten). [tbc]</p>
+                        Bezug auf IIIF - <strong><q>Arrangements</q> mehrerer bestehender Einzelressourcen</strong>,
+                        wobei die Kuratierung dieser Ressourcen keinen inhaltlichen Regeln unterliegt (so kann es
+                        beispielsweise sinnvoll sein, die Vorder- und Rückseite einer Postkarte oder Fotografien zu
+                        einem bestimmten Thema als zusammengehörig anzusehen, aber auch völlig willkürlichen
+                        Zusammenstellungen von Ressourcen setzt das Framework keine Grenzen). Ein eigentlich sehr
+                        spezieller, besonders in Hinblick auf Digitale Editionen jedoch wesentlicher Anwendungsfall
+                        hierfür ist die Darstellung gebundener Texte als Arrangements bzw. <strong>Abfolgen</strong>
+                        (<i>sequences</i>) von Digitalisaten einzelner Seiten. </p>
+                    <p>Die <q>Steuerung</q> dieser Arrangements übernehmen bei IIIF abermals Dateien im <abbr
+                            title="JavaScript Object Notation for Linked Data">JSON-LD</abbr> Format, sogenannte
+                        <strong><q>Strukturressourcen</q></strong> (<i>structural resources</i>):
+                    </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Manifeste</strong> beschreiben <strong>Struktur und
+                                Metadaten eines digitalen (<i>compound-</i>) Objekts</strong></li>
+                        <li class="list-group-item">Mit <strong>Collections</strong> lassen sich wiederum
+                            <strong>Strukturen aus mehreren Manifesten </strong> (und/oder weiteren, untergeordneten
+                            Collections) beschreiben
+                        </li>
+                    </ul>
+                    <div id="presentationAPI_manifests">
+                        <h2>Manifeste</h2>
+                        <figure>
+                            <blockquote class="blockquote">
+                                <p>The Manifest resource typically represents a single object and any intellectual work
+                                    or works embodied within that object. In particular it includes descriptive, rights
+                                    and linking information for the object. The Manifest embeds the Canvases that should
+                                    be rendered as views of the object and contains sufficient information for the
+                                    client to initialize itself and begin to display something quickly to the user. </p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <a href="https://iiif.io/api/presentation/3.0/#52-manifest" target="_blank">iiif.io</a>
+                            </figcaption>
+                        </figure>
+                        <p>Ein <strong>Manifest</strong> ist also - wie das bereits beschriebenen <i>image information
+                                document</i> - eine JSON-Datei. Als Einstieg, hier ein - stark gekürztes - Beispiel aus
+                            einem laufenden Projekt:
+                        </p>
+                        <code>{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://www.ditah.at/iiif/example_manifest.json",
+  "type": "Manifest",
+  "label": {
+    "none": ["Compendium Historiae in Cambridge, Corpus Christi College, MS 29, p1-3"]
+  },
+  "metadata": [
+    {
+      "label": {
+        "de": ["Autor"],
+        "none": ["Author"]
+      },
+      "value": {
+        "de": ["Peter von Poitiers"],
+        "none": ["Peter of Poitiers"]
+      }
+    },
+    {
+      "label": {
+        "de": ["Datierung"],
+        "none": ["Date"]
+      },
+      "value": {
+        "none": ["1200 - 1225"]
+      }
+    }
+  ],
+  "summary": {
+    "de": ["Ein Manifest-Beispiel aus dem Compendium Historiae-Projekt"],
+    "none": ["A manifest example from the Compendium Historiae project"]
+  },
+  "requiredStatement": {
+    "label": {
+      "de": ["Bildrechte"],
+      "none": ["Image rights"]
+    },
+    "value": {
+      "none": ["Corpus Christi College, Cambridge"]
+    }
+  },
+  "rights": "http://creativecommons.org/licenses/by/4.0/",
+  "provider": [
+    {
+      "id": "https://www.ditah.at/",
+      "type": "Agent",
+      "label": {
+        "de": ["Digitale Transformation der Österreichischen Geisteswissenschaften"],
+        "none": ["Digital Transformation of Austrian Humanities"]
+      },
+      "logo": [
+        {
+          "id": "https://www.ditah.at/images/DiTAH_Logo_blau-01.svg",
+          "type": "Image",
+          "format": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "https://www.ditah.at/iiif/example_manifest/canvas1",
+      "type": "Canvas",
+      "label": "f. vir",
+      "height": "8586",
+      "width": "5962",
+      "items": [
+        {
+          "id": "https://www.ditah.at/iiif/example_manifest/canvas1/annoPage1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://www.ditah.at/iiif/example_manifest/canvas1/annoPage1/anno1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://www.ditah.at/iiif/example_manifest/canvas1",
+              "body": {
+                "id": "https://www.ditah.at/iiif/example_manifest/canvas1/annoPage1/anno1/image1",
+                "type": "Image",
+                "service": {
+                  "id": "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_R_TC_46",
+                  "profile": "level2",
+                  "type": "ImageService2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://www.ditah.at/iiif/example_manifest/canvas2",
+      "type": "Canvas",
+      "label": "f. viv",
+      "height": "8634",
+      "width": "6010",
+      "items": [
+        {
+          "id": "https://www.ditah.at/iiif/example_manifest/canvas2/annoPage1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://www.ditah.at/iiif/example_manifest/canvas2/annoPage1/anno1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://www.ditah.at/iiif/example_manifest/canvas2",
+              "body": {
+                "id": "https://www.ditah.at/iiif/example_manifest/canvas2/annoPage1/anno1/image1",
+                "type": "Image",
+                "format": "image/jpeg",
+                "height": "8634",
+                "width": "6010",
+                "service": {
+                  "id": "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_V_TC_46",
+                  "profile": "level2",
+                  "type": "ImageService2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://www.ditah.at/iiif/example_manifest/canvas3",
+      "type": "Canvas",
+      "label": "f. viir",
+      "height": "8575",
+      "width": "5938",
+      "items": [
+        {
+          "id": "https://www.ditah.at/iiif/example_manifest/canvas3/annoPage1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://www.ditah.at/iiif/example_manifest/canvas3/annoPage1/anno1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://www.ditah.at/iiif/example_manifest/canvas3",
+              "body": {
+                "id": "https://www.ditah.at/iiif/example_manifest/canvas3/annoPage1/anno1/image1",
+                "type": "Image",
+                "service": {
+                  "id": "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vii_R_TC_46",
+                  "profile": "level2",
+                  "type": "ImageService2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</code>
+                        <h3>Manifestmetadaten</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">@context</span>
+                                Interpretationskontext des Dokuments. Für die Presentation API 3.0 stellt das
+                                Framework <i>http://iiif.io/api/presentation/3/context.json</i> bereit
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">id</span>
+                                Identifikator des Manifest, idealerweise dessen URL
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">type</span>
+                                Ressourcentyp, <i>Manifest</i> für Manifeste
+                            </li>
+                        </ul>
+                        <h3>Objektmetadaten</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">label</span>
+                                Titel des durch das Manifest repräsentierten (compound-) Objekts, optional in mehreren
+                                Sprachen
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">metadata</span>
+                                (Frei wählbare) Metadaten zum Objekt. Jedes Metadatenelement besteht aus einem
+                                <i>label</i> und einem <i>value</i>, wiederum optional mehrsprachig
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">summary</span>
+                                Kurzbeschreibung des Objekts, wiederum optional mehrsprachig
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">requiredStatement</span>
+                                Text, der bei der Darstellung des Objekts angezeigt werden <strong>muss</strong>
+                                (beispielsweise für Bildrechte)
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">rights</span>
+                                Lizenzinformation zum <strong>Manifest</strong>. <strong>Muss</strong> entweder einer <a
+                                    href="http://creativecommons.org/licenses/" target="_blank">Creative Commons
+                                    license URI</a> (beispielsweise <i>http://creativecommons.org/licenses/by/4.0/</i>)
+                                oder einer <a href="http://rightsstatements.org/page/1.0/" target="_blank">Rights
+                                    Statements URI</a> (beispielsweise
+                                <i>http://rightsstatements.org/vocab/InC-NC/1.0/</i>) entsprechen"id": "anno
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">provider</span>
+                                Informationen zu Personen und/oder (mehrere Einträge möglich) Organisationen, die an der
+                                Entstehung des Manifests und/oder der referenzierten (Bild-) Inhalte beteiligt waren
+                                (<i>contributors</i>). Zur den möglichen Angaben gehören <i>label</i>,
+                                <i>homepage</i> und <i>logo</i>, zur genauen Struktur sei hier auf die <a
+                                    href="https://iiif.io/api/presentation/3.0/#provider" target="_blank">offizielle
+                                    Dokumentation</a> verwiesen
+                            </li>
+                        </ul>
+                        <h3>Objektstruktur</h3>
+                        <p>Prinzipiell drücken IIIF Manifeste zusammengehörige oder <q>zusammengesetzte</q> Objekte als
+                            <strong>geordnete Listen</strong> dieser ihrer einzelnen Elemente
+                            (<strong><i>items</i></strong>) aus, wobei die Reihenfolge dieser Elemente deren
+                            Anzeigereihenfolge (beispielsweise beim <q>Durchblättern</q> in einem Viewer) festlegt. Im
+                            Detail gestalten sich die Beziehungen der unterschiedlichen <a
+                                href="https://iiif.io/api/presentation/3.0/#2-resource-type-overview"
+                                target="_blank">IIIF Ressourcetypen</a> - bedingt unter anderem durch die Angleichung an
+                            das <a href="https://www.w3.org/TR/annotation-model/" target="_blank">Web Annotation Data
+                                Model</a> des <abbr title="World Wide Web Consortium">W3C</abbr> - allerdings als
+                            äußerst komplex:
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="badge bg-dark me-1">items (Canvas)</span>
+                                Für jedes Element (<q>Einzelansicht</q>) wird eine Projektionsfläche oder
+                                <q>Leinwand</q> (<strong><i>canvas</i></strong>) mit bestimmten Abmessungen
+                                (<i>height</i>, <i>width</i>) definiert (analog zu einer <q>leeren Buchseite</q>)
+                            </li>
+                            <li class="list-group-item">
+                                <span class="text-muted">items/</span>
+                                <span class="badge bg-dark me-1">items (AnnotationPage)</span>
+                                Liste von Annotationen, die auf das jeweilige <i>Canvas</i> angewendet werden.
+                                Beispielsweise kann es sinnvoll sein, getrennte Listen für Text- und Bildannotationen zu
+                                führen
+                            </li>
+                            <li class="list-group-item">
+                                <span class="text-muted">items/items/</span>
+                                <span class="badge bg-dark me-1">items (Annotation)</span>
+                                IIIF (respektive das Web Annotation Model) denkt auch das <q>eigentliche</q> Bild als
+                                Projektion bzw. <strong>Annotation</strong> einer externen Inhaltsressource (<i>Content
+                                    Resource</i>) auf die leere Leinwand (<i>Canvas</i>)
+                            </li>
+                            <li class="list-group-item">
+                                <span class="text-muted">items/items/items/</span>
+                                <span class="badge bg-dark me-1">target</span>
+                                Referenziert das <i>Canvas</i>, auf das die Annotation angewendet wird
+                            </li>
+                            <li class="list-group-item">
+                                <span class="text-muted">items/items/items/</span>
+                                <span class="badge bg-dark me-1">body (Image)</span>
+                                Beschreibt die zu annotierende Inhaltsressource, welche wiederum eine IIIF Ressource
+                                sein und über <strong>service</strong> auf die <i>Image API</i> verweisen kann. Ist kein
+                                <strong>service</strong> angegeben, wird die <strong>id</strong> als URL einer Bilddatei
+                                interpretiert
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="presentationAPI_collections">
+                        <h2>Collections</h2>
+                        <p><strong>Collections</strong> sind ebenfalls JSON-Dateien, die wiederum Manifeste und/oder
+                            Collections enthalten können</p>
+                    </div>
                 </div>
                 <div id="viewer">
                     <h1>Viewer</h1>
-                    <h3>Mirador</h3>
-                    <div id="mdv" class="viewer"></div>
-                    <code>const mdv = Mirador.viewer({
-    id: 'mdv',
-    windows: [{
-        manifestId: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
-    }]
-});</code>
-                    <h3>OpenSeadragon</h3>
+                    <h2>OpenSeadragon</h2>
                     <div id="osd" class="viewer"></div>
                     <code>const osd = OpenSeadragon({
     id: 'osd',
     prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
     sequenceMode: true,
     tileSources: [
-        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fob_TC_46/info.json',
-        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_fib_TC_46/info.json',
-        'https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_a_R_TC_46/info.json'
+        "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_R_TC_46/info.json",
+        "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_V_TC_46/info.json",
+        "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vii_R_TC_46/info.json"
     ]
 });</code>
-                    <h3>Universal Viewer</h3>
+                    <h2>Universal Viewer</h2>
                     <div id="uv" class="viewer uv"></div>
                     <!-- The class 'uv' is needed as referred to in uv.min.css-->
                     <code>const uv = UV.init('uv', {
-    manifest: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+    manifest: 'https://www.ditah.at/iiif/example_manifest.json'
 });</code>
-                    <h3>Tify</h3>
+                    <h2>Mirador</h2>
+                    <div id="mdv" class="viewer"></div>
+                    <code>const mdv = Mirador.viewer({
+    id: 'mdv',
+    windows: [{
+        manifestId: 'https://www.ditah.at/iiif/example_manifest.json'
+    }]
+});</code>
+                    <h2>Tify</h2>
                     <div id="tify" class="viewer"></div>
                     <code>const tify = new Tify({
     container: '#tify',
-    manifestUrl: 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json'
+    manifestUrl: 'https://www.ditah.at/iiif/example_manifest.json'
 });</code>
                 </div>
             </section>
@@ -948,47 +1206,27 @@
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
         /* -----# IIIF Viewer ----------------------------------*/
-        const manifest = 'https://dms-data.stanford.edu/data/manifests/Parker/xj710dc7305/manifest.json';
+        //const manifest = 'https://www.ditah.at/iiif/example_manifest.json';
+        const manifest = 'example_manifest.json';
         /* ----## OSD ------------------------------------------*/
-        fetch(manifest)
-            .then(myManifest => myManifest.json())
-            .then(function (myManifestJSON) {
-                let myInfoJsonArray = [];
-                for (let canvas of myManifestJSON['sequences'][0]['canvases']) {
-                    let myImgID = canvas['images'][0]['resource']['service']['@id'].trim()
-                    myInfoJsonArray.push(`${myImgID}/info.json`)
-                }
-                return myInfoJsonArray;
-            })
-            .then(function (myTileSources) {
-                //console.log(myTileSources)
-                const osd = OpenSeadragon({
-                    id: 'osd',
-                    prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
-                    sequenceMode: true,
-                    tileSources: myTileSources
-                });
-                //add Overlay
-                /*osd.addHandler('open', function(){
-                    myImageRect = {ul:{x:500, y:500}, lr:{x:2500, y: 2500}};
-                    myOverlayRect = {ul: osd.viewport.imageToViewportCoordinates(myImageRect.ul.x, myImageRect.ul.y), lr: osd.viewport.imageToViewportCoordinates(myImageRect.lr.x, myImageRect.lr.y)};
-                    myOverlay = {x: myOverlayRect.ul.x,
-                        y: myOverlayRect.ul.y,
-                        width: myOverlayRect.lr.x - myOverlayRect.ul.x,
-                        height: myOverlayRect.lr.y - myOverlayRect.ul.y,
-                        className: 'overlay'}
-                    osd.addOverlay(myOverlay);
-               });*/
-            })
+        const osd = OpenSeadragon({
+            id: 'osd',
+            prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/",
+            sequenceMode: true,
+            tileSources: [
+                "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_R_TC_46/info.json",
+                "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vi_V_TC_46/info.json",
+                "https://stacks.stanford.edu/image/iiif/xj710dc7305%252F029_vii_R_TC_46/info.json"
+            ]
+        });
+
         /* ----## Mirador ---------------------------------------*/
         const mdv = Mirador.viewer({
             id: 'mdv',
             windows: [{
-                manifestId: manifest
-                /*,
-                                    view: 'single',
-                                    canvasIndex: 17
-                                */
+                manifestId: manifest/*,
+                    view: 'single',
+                    canvasIndex: 2*/
             }]
         });
         /* ----## UV --------------------------------------------*/
@@ -999,8 +1237,7 @@
         uv.on("configure", function ({config, cb}) {
             cb({
                 options: {leftPanelEnabled: false}
-           });
-       });*/
+        });*/
         /* ----## Tify ------------------------------------------*/
         const tify = new Tify({
             container: '#tify',
