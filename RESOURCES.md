@@ -61,3 +61,4 @@
 
 ## Other Resources
 - [IIIF workshop @ ronallo](http://ronallo.com/iiif-workshop-new/)
+- Presentation and results of CLARIAH-AT funded workshop *IIIF in/and Digital Scholarly Editions*, Austrian Academy of Sciences, Institute for Habsburg and Balkan Studies, May 7/8, 2025: [Zenodo collection](https://clariah.at/de/events/workshop-iiif-digital-scholarly-editions/) 
